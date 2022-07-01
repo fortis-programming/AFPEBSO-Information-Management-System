@@ -2,4 +2,46 @@
   display: flex;
   height: 100vh;
   border-right: 1px solid $border-color;
+
+  nav {
+    width: 100%;
+    padding-top: 20px;
+
+    .banner {
+      padding: 8px 20px;
+    }
+
+    .nav-items {
+      width: 100%;
+
+      div {
+        margin: auto 10px;
+        border-radius: 5px;
+        padding: 8px 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        color: $secondary-color;
+
+        svg {
+          height: 20px;
+          margin: auto 0;
+        }
+
+        label {
+          margin: auto 0;
+        }
+      }
+
+      .active,
+      &:active {
+        color: $primary-color;
+        background-color: #459a8f13;
+
+        svg {
+          color: $primary-color;
+        }
+      }
+    }
+  }
 }
