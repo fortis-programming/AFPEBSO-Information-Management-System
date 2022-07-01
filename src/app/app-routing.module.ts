@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-import {
-  CommonModule,
-  HashLocationStrategy,
-  LocationStrategy,
-} from '@angular/common';
+import { CommonModule } from '@angular/common';
+
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 
@@ -25,7 +22,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(routes)],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  imports: [CommonModule, RouterModule.forRoot(routes, { useHash: true })],
 })
 export class AppRoutingModule {}
