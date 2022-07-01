@@ -1,4 +1,8 @@
 .main {
-  display: grid;
-  grid-template-columns: 15% 85%;
+  display: flex;
+
+  .page-container {
+    width: 100%;
+    margin: 0px 15px;
+  }
 }

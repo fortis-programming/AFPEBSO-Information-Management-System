@@ -13,6 +13,7 @@
 
     .nav-items {
       width: 100%;
+      min-width: 200px;
 
       div {
         margin: auto 10px;
@@ -40,6 +41,27 @@
 
         svg {
           color: $primary-color;
+        }
+      }
+    }
+
+    @media screen and (max-width: 950px) {
+      .banner {
+        visibility: hidden;
+        max-width: fit-content;
+        margin-bottom: 38px;
+        p {
+          display: none;
+        }
+      }
+      .nav-items {
+        min-width: fit-content;
+        margin-bottom: 2px;
+        div {
+          max-width: fit-content;
+          label {
+            display: none;
+          }
         }
       }
     }
