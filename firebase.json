@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/afpebso-information-management-system",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
