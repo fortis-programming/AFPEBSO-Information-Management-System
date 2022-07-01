@@ -4,26 +4,32 @@
       <img src="../../assets/images/AFPEBSO.png">
       <h1>Leaving No Soldiers<br>
         Orphan Behind</h1>
-        <span>
-          <small>#IHelpEBSO</small>
-          <small>#AFPyoucanTRUST</small>
-        </span>
+      <span>
+        <small>#IHelpEBSO</small>
+        <small>#AFPyoucanTRUST</small>
+      </span>
     </div>
   </div>
   <div class="login__right">
-    <form>
+    <form #loginForm="ngForm">
       <div class="banner mb-4">
         <h4>Login</h4>
       </div>
       <div class="form-floating mb-3">
-        <input type="user" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Username</label>
+        <input type="user" class="form-control" id="floatingInput" placeholder="name@example.com"
+          [(ngModel)]="loginRequest.username" name="username" #username="ngModel" required>
+        <label for="floatingInput" *ngIf="!hasError(username)">Username</label>
+        <label class="warning" for="floatinInput" *ngIf="hasError(username) && username.errors?.['required']">Username is
+          required</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+          [(ngModel)]="loginRequest.password" name="password" #password="ngModel" required>
+        <label for="floatingPassword" *ngIf="!hasError(password)">Password</label>
+        <label class="warning" for="floatingPassword" *ngIf="hasError(password) && password.errors?.['required']">Password is
+          required</label>
       </div>
-      <button class="btns btns__primary mt-4" type="button">Login</button>
+      <button class="btns btns__primary mt-4" type="button" [disabled]="!loginForm.valid">Login</button>
     </form>
   </div>
 </div>
