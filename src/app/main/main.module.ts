@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing.module';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, HeaderComponent, SidenavComponent],
   imports: [CommonModule, MainRoutingModule, RouterModule],
 })
 export class MainModule {}
