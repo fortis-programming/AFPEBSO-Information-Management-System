@@ -6,6 +6,10 @@ import { MainComponent } from './main.component';
 
 
 import { route as HomeRoute } from '../home-page/home-page-route.module';
+import { route as GranteesRoute } from '../grantees-page/grantees-page-route.module';
+import { route as ApplicantRoute} from '../applicant-page/applicant-page-route.module';
+import { route as GraduatesRoute} from '../graduates-page/graduates-page-route.module';
+import { route as StakeholdersRoute} from '../stakeholders-page/stakeholders-page-route.module';
 
 const routes: Routes = [
   {
@@ -17,7 +21,11 @@ const routes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
       },
-      ...HomeRoute
+      ...HomeRoute,
+      ...GranteesRoute,
+      ...ApplicantRoute,
+      ...GraduatesRoute,
+      ...StakeholdersRoute
     ]
   }
 ];
