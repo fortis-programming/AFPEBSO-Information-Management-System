@@ -1,0 +1,35 @@
+.grantees {  
+    .search {
+        flex-direction: row;
+        display: flex;
+        gap: 2em;   
+    }
+    .srch{
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        background-color: white;
+        border: solid $border-color;
+        border-radius: 5px;
+    }
+    .srch input{
+        border: none;
+    }
+    .srch svg{
+        width: 2em;
+        display: flex;
+        margin-left: 1em;
+        color: $secondary-color;
+    }
+    button{
+        width: 9em;
+        border: solid, $border-color;
+    }
+    button svg{
+        width: 2em;
+        margin-right: 1em;
+        
+    }
+
+
+}
