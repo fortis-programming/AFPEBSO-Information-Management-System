@@ -1,6 +1,5 @@
 .btns {
   padding: 15px;
-  border: none;
   outline: none;
   border-radius: 4px;
   font-size: 0.955rem;
@@ -8,5 +7,15 @@
   &__primary {
     background-color: $primary-color;
     color: white;
+    border: none;
+  }
+
+  &__btn-icons {
+    background-color: white;
+    border: solid $border-color;
+    display: flex;
+    color: $secondary-color;
+    flex-direction: row;
+    align-items: center;
   }
 }
