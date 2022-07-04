@@ -16,6 +16,7 @@ import { GranteesItemComponent } from './grantees-page/grantees-item/grantees-it
 import { GranteeComponent } from './grantee/grantee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeliberationPageComponent } from './deliberation-page/deliberation-page.component';
+import { MaintenancePageComponent } from './maintenance-page/maintenance-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DeliberationPageComponent } from './deliberation-page/deliberation-page
     StakeholdersPageComponent,
     GranteesItemComponent,
     GranteeComponent,
-    DeliberationPageComponent
+    DeliberationPageComponent,
+    MaintenancePageComponent
   ],
   imports: [
     AppRoutingModule,
