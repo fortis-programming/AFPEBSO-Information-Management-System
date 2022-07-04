@@ -1,10 +1,9 @@
 .grantees {
-    
+
   .header {
-    display: grid;
-    grid-template-columns: 96% 4%;
-    height: fit-content;
-    gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     border: none;
 
     .search-bar {
@@ -23,19 +22,31 @@
       input {
         width: 100%;
         border: none;
-        outline: none;
       }
-    }
 
-    .dropdown {
+      .srch svg {
+        width: 2em;
+        display: flex;
+        margin-left: 1em;
+        color: $secondary-color;
+      }
 
       button {
-        height: 100%;
-        width: 100%;
+        width: 9em;
+        border: solid, $border-color;
+      }
 
-        svg {
-          height: 24px;
-          fill: $secondary-color;
+      button svg {
+        width: 2em;
+        margin-right: 1emgit;
+
+      }
+
+      .dropdown {
+
+        button {
+          height: 45px;
+          width: 45px;
         }
       }
     }
