@@ -14,6 +14,8 @@ import { GraduatesPageComponent } from './graduates-page/graduates-page.componen
 import { StakeholdersPageComponent } from './stakeholders-page/stakeholders-page.component';
 import { GranteesItemComponent } from './grantees-page/grantees-item/grantees-item.component';
 import { GranteeComponent } from './grantee/grantee.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DeliberationPageComponent } from './deliberation-page/deliberation-page.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { GranteeComponent } from './grantee/grantee.component';
     GraduatesPageComponent,
     StakeholdersPageComponent,
     GranteesItemComponent,
-    GranteeComponent
+    GranteeComponent,
+    DeliberationPageComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [{ provide: LocationStrategy.ɵfac, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

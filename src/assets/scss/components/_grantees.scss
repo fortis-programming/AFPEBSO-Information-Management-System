@@ -2,8 +2,6 @@
 
   .header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     border: none;
 
     .search-bar {
@@ -14,6 +12,7 @@
       border: 1px solid $border-color;
       padding: 8px;
       gap: 0.5rem;
+      width: 100%;
 
       svg {
         height: 25px;
@@ -22,6 +21,7 @@
       input {
         width: 100%;
         border: none;
+        outline: none;
       }
 
       .srch svg {

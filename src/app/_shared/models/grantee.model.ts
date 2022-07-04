@@ -1,14 +1,15 @@
 export interface GranteeModel {
   //information of applicant
+  id: string;
   area: string;
   surname: string;
-  firstName: string;
-  middleName: string;
+  firstname: string;
+  middlename: string;
   relationshipToAfpMember: string;
   currentAddress: string;
   provincialAddress: string;
-  phoneNo: string;
-  cellPhoneNo: string;
+  phoneNumber: string;
+  cellPhoneNumber: string;
   emailAddress: string;
   birthDate: string;
   birthPlace: string;
@@ -58,6 +59,6 @@ export interface GranteeModel {
   signatureOfApplicant: string;
   signatureOfAfporGuardian: string;
 
-  nameOfAfpPersonnel:string;
+  nameOfAfpPersonnel: string;
   dateReceived: string;
 }
