@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from '../main/header/header.service';
 
 @Component({
   selector: 'app-grantees-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GranteesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private headerService: HeaderService
+  ) { }
 
   ngOnInit(): void {
+    this.headerService.setTitle('Grantees');
   }
 
 }
