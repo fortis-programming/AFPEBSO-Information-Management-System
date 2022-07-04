@@ -10,7 +10,6 @@ import { route as GranteesRoute } from '../grantees-page/grantees-page-route.mod
 import { route as ApplicantRoute} from '../applicant-page/applicant-page-route.module';
 import { route as GraduatesRoute} from '../graduates-page/graduates-page-route.module';
 import { route as StakeholdersRoute} from '../stakeholders-page/stakeholders-page-route.module';
-
 const routes: Routes = [
   {
     path: '' ,
