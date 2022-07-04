@@ -16,4 +16,6 @@ export class GranteesPageComponent implements OnInit {
     this.headerService.setTitle('Grantees');
   }
 
+  fruits: string[] = ['Apple', 'Orange', 'Banana', 'isapa'];
+
 }
