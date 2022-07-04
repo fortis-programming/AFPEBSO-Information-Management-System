@@ -12,6 +12,10 @@ import { GranteesPageComponent } from './grantees-page/grantees-page.component';
 import { ApplicantPageComponent } from './applicant-page/applicant-page.component';
 import { GraduatesPageComponent } from './graduates-page/graduates-page.component';
 import { StakeholdersPageComponent } from './stakeholders-page/stakeholders-page.component';
+import { GranteesItemComponent } from './grantees-page/grantees-item/grantees-item.component';
+import { GranteeComponent } from './grantee/grantee.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DeliberationPageComponent } from './deliberation-page/deliberation-page.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +25,17 @@ import { StakeholdersPageComponent } from './stakeholders-page/stakeholders-page
     GranteesPageComponent,
     ApplicantPageComponent,
     GraduatesPageComponent,
-    StakeholdersPageComponent
+    StakeholdersPageComponent,
+    GranteesItemComponent,
+    GranteeComponent,
+    DeliberationPageComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [{ provide: LocationStrategy.ɵfac, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

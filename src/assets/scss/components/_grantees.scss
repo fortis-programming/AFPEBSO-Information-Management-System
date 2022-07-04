@@ -1,35 +1,54 @@
-.grantees {  
-    .search {
-        flex-direction: row;
-        display: flex;
-        gap: 2em;   
-    }
-    .srch{
-        display: flex;
-        flex-direction: row;
-        width: 90%;
-        background-color: white;
-        border: solid $border-color;
-        border-radius: 5px;
-    }
-    .srch input{
+.grantees {
+
+  .header {
+    display: flex;
+    border: none;
+
+    .search-bar {
+      border-radius: 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid $border-color;
+      padding: 8px;
+      gap: 0.5rem;
+      width: 100%;
+
+      svg {
+        height: 25px;
+      }
+
+      input {
+        width: 100%;
         border: none;
-    }
-    .srch svg{
+        outline: none;
+      }
+
+      .srch svg {
         width: 2em;
         display: flex;
         margin-left: 1em;
         color: $secondary-color;
-    }
-    button{
+      }
+
+      button {
         width: 9em;
         border: solid, $border-color;
-    }
-    button svg{
+      }
+
+      button svg {
         width: 2em;
-        margin-right: 1em;
-        
+        margin-right: 1emgit;
+
+      }
+
+      .dropdown {
+
+        button {
+          height: 45px;
+          width: 45px;
+        }
+      }
     }
-
-
+  }
 }

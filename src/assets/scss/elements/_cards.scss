@@ -17,4 +17,32 @@
       border-radius: 50%;
     }
   }
+
+  &__grantees {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid $border-color;
+    align-items: center;
+    gap: 0.5rem;
+    color: $black;
+
+    &:hover {
+      background-color: whitesmoke;
+    }
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 4px;
+    }
+
+    .user-information {
+      display: flex;
+      flex-direction: column;  
+    
+      strong, small {
+        cursor: default;
+      }
+    }
+  }
 }

@@ -11,11 +11,8 @@
   }
 
   &__btn-icons {
-    background-color: white;
-    border: solid $border-color;
-    display: flex;
-    color: $secondary-color;
-    flex-direction: row;
-    align-items: center;
+    background-color: transparent;
+    border: 1px solid $border-color;
+    border-radius: 4px;
   }
 }
