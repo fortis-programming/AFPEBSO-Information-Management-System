@@ -1,5 +1,6 @@
 export interface GranteeModel {
   //information of applicant
+  date: string;
   id: string;
   area: string;
   surname: string;

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { GranteesPageComponent } from './grantees-page/grantees-page.component';
 import { ApplicantPageComponent } from './applicant-page/applicant-page.component';
@@ -17,6 +17,7 @@ import { GranteeComponent } from './grantee/grantee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeliberationPageComponent } from './deliberation-page/deliberation-page.component';
 import { MaintenancePageComponent } from './maintenance-page/maintenance-page.component';
+import { ApplicantItemComponent } from './applicant-page/applicant-item/applicant-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MaintenancePageComponent } from './maintenance-page/maintenance-page.co
     GranteesItemComponent,
     GranteeComponent,
     DeliberationPageComponent,
-    MaintenancePageComponent
+    MaintenancePageComponent,
+    ApplicantItemComponent
   ],
   imports: [
     AppRoutingModule,
