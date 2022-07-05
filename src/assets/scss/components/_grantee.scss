@@ -1,0 +1,81 @@
+.try {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+
+    .left {
+        width: 100%;
+
+        .una {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+
+            .kaliwa {
+                width: 30%;
+            }
+
+            .kanan {
+                width: 70%;
+            }
+        }
+
+
+        .nxt {
+
+            .appdetails {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .kaliwa {
+                width: 32%;
+            }
+
+            .gitna {
+                width: 32%;
+            }
+
+            .kanan {
+                width: 32%;
+            }
+        }
+
+        .numbers {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+
+            .kaliwa {
+                width: 32%;
+            }
+
+            .gitna {
+                width: 32%;
+            }
+
+            .kanan {
+                width: 32%;
+            }
+        }
+    }
+
+    .right {
+        float: right;
+        max-width: 100%;
+        .cont2{
+            align-items: center;
+            justify-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+    }
+        img{
+            width: 50%;
+        }
+        
+}
