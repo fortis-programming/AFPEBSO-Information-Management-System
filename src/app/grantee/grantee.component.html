@@ -1,13 +1,32 @@
+<div class="header-section">
+  <div class="information py-2">
+    <div class="info__left">
+      <h4>Information</h4>
+    </div>
+    <div class="info__right">
+      <div class="nav">
+        <nav class="nav nav-pills flex-column flex-sm-row">
+          <a class="flex-sm-fill text-sm-center nav-link" href="#">Applicant</a>
+          <a class="flex-sm-fill text-sm-center nav-link" href="#">AFP / CAA Member</a>
+          <a class="flex-sm-fill text-sm-center nav-link" href="#">Guardian</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="grantee">
   <div class="grantee__left">
     <form class="cont1">
       <div class="una">
         <div class="left form-floating">
-          <input type="user" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="user" class="form-control" id="floatingInput" placeholder=" " [(ngModel)]="granteeModel.area"
+            name="area" #area="ngModel" required>
           <label for="floatingInput">Area</label>
         </div>
         <div class="right form-floating">
-          <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+          <input type="user" class="form-control" id="floatingInput" placeholder=" "
+            [(ngModel)]="granteeModel.relationshipToAfpMember" name="relationshipToAfpMember"
+            #relationshipToAfpMember="ngModel" required>
           <label for="floatingInput">Relationshop to AFP / CAA Member</label>
         </div>
       </div>
@@ -15,15 +34,18 @@
         <h6 class="mt-4">Name of the Applicant</h6>
         <div class="appdetails">
           <div class="left form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.surname" name="surname" #surname="ngModel" required>
             <label for="floatingInput">Surname</label>
           </div>
           <div class="mid form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.firstname" name="firstname" #firstname="ngModel" required>
             <label for="floatingInput">First Name</label>
           </div>
           <div class="right form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.middlename" name="middlename" #middlename="ngModel" required>
             <label for="floatingInput">Middle Name</label>
           </div>
         </div>
@@ -32,11 +54,14 @@
         <div class="addrs">
           <h6 class="mt-4">Address</h6>
           <div class="form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.currentAddress" name="currentAddress" #currentAddress="ngModel" required>
             <label for="floatingInput">Current Mailing Address</label>
           </div>
           <div class="form-floating mt-4">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.provincialAddress" name="provincialAddress" #provincialAddress="ngModel"
+              required>
             <label for="floatingInput">Provincial Address</label>
           </div>
         </div>
@@ -47,15 +72,18 @@
         <div class="numbers">
 
           <div class="left form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.phoneNumber" name="phoneNumber" #phoneNumber="ngModel" required>
             <label for="floatingInput">Phone</label>
           </div>
           <div class="mid form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.cellPhoneNumber" name="cellPhoneNumber" #cellPhoneNumber="ngModel" required>
             <label for="floatingInput">Cell Phone</label>
           </div>
           <div class="right form-floating">
-            <input type="user" class="form-control" id="floatingInput" placeholder=" ">
+            <input type="user" class="form-control" id="floatingInput" placeholder=" "
+              [(ngModel)]="granteeModel.emailAddress" name="emailAddress" #emailAddress="ngModel" required>
             <label for="floatingInput">Email</label>
           </div>
         </div>
