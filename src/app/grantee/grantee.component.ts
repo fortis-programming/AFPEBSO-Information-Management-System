@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../main/header/header.service';
+import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
   selector: 'app-grantee',
