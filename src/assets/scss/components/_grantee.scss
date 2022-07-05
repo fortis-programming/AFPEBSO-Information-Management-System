@@ -1,3 +1,15 @@
+.header-section {
+    border-bottom: none;
+    width: 100%;
+
+    .information {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 1rem;
+    }
+
+}
+
 .grantee {
     display: grid;
     grid-template-columns: 70% 30%;
@@ -108,29 +120,36 @@
             }
 
             .nxt .appdetails {
-                  flex-direction: column;
-                  .left{
-                    width: 100%;
-                  }
-                  .mid{
-                    width: 100%;
-                  }
-                  .right{
-                    width: 100%;
-                  }
-            }
-            .nxt2 .numbers{
                 flex-direction: column;
-                .left{
+
+                .left {
                     width: 100%;
-                  }
-                  .mid{
+                }
+
+                .mid {
                     width: 100%;
-                  }
-                  .right{
+                }
+
+                .right {
                     width: 100%;
-                  }
-          }
+                }
+            }
+
+            .nxt2 .numbers {
+                flex-direction: column;
+
+                .left {
+                    width: 100%;
+                }
+
+                .mid {
+                    width: 100%;
+                }
+
+                .right {
+                    width: 100%;
+                }
+            }
 
         }
     }
