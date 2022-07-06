@@ -1,19 +1,20 @@
 <div class="header-section">
-  <div class="information py-2">
+  <div class="information pb-5">
     <div class="info__left">
-      <h4>Information</h4>
+      <h4 class="my-auto">Information</h4>
     </div>
     <div class="info__right">
       <div class="nav">
         <nav class="nav nav-pills flex-column flex-sm-row">
-          <a class="flex-sm-fill text-sm-center nav-link" href="#">Applicant</a>
-          <a class="flex-sm-fill text-sm-center nav-link" href="#">AFP / CAA Member</a>
-          <a class="flex-sm-fill text-sm-center nav-link" href="#">Guardian</a>
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="applicant" routerLinkActive="active">Applicant</a>
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="afp-member" routerLinkActive="active">AFP / CAA Member</a>
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="guardian" routerLinkActive="active">Guardian</a>
         </nav>
       </div>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
 <div class="grantee">
   <div class="grantee__left">
     <form class="cont1">

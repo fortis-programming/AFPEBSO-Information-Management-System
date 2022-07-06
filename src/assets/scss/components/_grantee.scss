@@ -1,11 +1,27 @@
 .header-section {
     border-bottom: none;
     width: 100%;
+    align-items: center;
 
     .information {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        gap: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .nav {
+            gap: 0.5rem;
+
+            a {
+                border: 1px solid $border-color;
+                color: $secondary-color;
+            }
+
+            .active {
+                border: 1px solid $primary-color;
+                color: $primary-color;
+                background: none !important;
+            }
+        }
     }
 
 }
@@ -153,5 +169,4 @@
 
         }
     }
-
 }
