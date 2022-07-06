@@ -5,6 +5,12 @@ import { GranteesPageComponent } from "./grantees-page.component";
 export const route: Routes = [
   {
     path: 'grantees',
-    component: GranteesPageComponent
+    component: GranteesPageComponent,
+    children: [
+      {
+        path: 'grantee',
+        component: GranteeComponent
+      }
+    ]
   }
 ]

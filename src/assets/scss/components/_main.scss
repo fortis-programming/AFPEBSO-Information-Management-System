@@ -1,8 +1,14 @@
 .main {
   display: flex;
+  overflow: hidden;
 
   .page-container {
     width: 100%;
     margin: 0px 15px;
+    height: 100%;
+
+    .router-container {
+      height: 100%;
+    }
   }
 }
