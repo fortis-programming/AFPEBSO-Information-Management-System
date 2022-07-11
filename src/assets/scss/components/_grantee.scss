@@ -1,9 +1,21 @@
-.back-btn{
-    svg{
-        width: 1em;
-        cursor: pointer;
+.backButton{
+    text-align: center;
+    display: flex;
+
+    .back-btn{
+        padding: 5px;
+        svg{
+            width: 1.4em;
+            cursor: pointer;
+        }
+    }
+    .back-btn:hover{
+        border-radius: 10em;
+        background-color: $border-color;
     }
 }
+
+
 .header-section {
     border-bottom: none;
     width: 100%;
