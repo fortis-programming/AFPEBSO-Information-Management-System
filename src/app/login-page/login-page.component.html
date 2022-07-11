@@ -29,6 +29,9 @@
         <label class="warning" for="floatingPassword" *ngIf="hasError(password) && password.errors?.['required']">Password is
           required</label>
       </div>
+      <div class="loginMessage">
+        <small class="warning">Username or password is incorrect</small>
+      </div>
       <button class="btns btns__primary mt-4" type="button" [disabled]="!loginForm.valid" routerLink="../app">Login</button>
     </form>
   </div>

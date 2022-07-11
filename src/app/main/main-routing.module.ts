@@ -28,8 +28,7 @@ const routes: Routes = [
       ...ApplicantRoute,
       ...GraduatesRoute,
       ...StakeholdersRoute,
-      ...DeliberationRoute,
-      ...GranteeRoute
+      ...DeliberationRoute
     ]
   }
 ];
