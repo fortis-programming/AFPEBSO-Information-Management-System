@@ -9,7 +9,6 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { firebaseConfig } from 'src/environments/environment';
 import {
-  doc,
   onSnapshot,
   getFirestore,
   query,
