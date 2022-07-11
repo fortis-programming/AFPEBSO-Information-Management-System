@@ -1,83 +1,8 @@
-<div class="cards__grantees p-2" routerLink="grantee/12" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<div class="cards__grantees p-2" routerLink="grantee" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   <img
     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKlV66ovJanDLtJx-0AuXshi_z9NrBPB-KW0llzaPXUWhRRQ4GKMFKUc3Uthx_6IMMwVU&usqp=CAU">
   <span class="user-information">
     <strong>{{ grantee.surname +', '+ grantee.firstname +' '+ grantee.middlename }}</strong>
     <small>{{ grantee.emailAddress }}</small>
   </span>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Information</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-              role="tab" aria-controls="home" aria-selected="true">Applicant</button>
-          </li>
-          <li role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-              role="tab" aria-controls="profile" aria-selected="false">AFP/CAA Member</button>
-          </li>
-          <li role="presentation">
-            <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button"
-              role="tab" aria-controls="messages" aria-selected="false">Guardian</button>
-          </li>
-          <li role="presentation">
-            <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button"
-              role="tab" aria-controls="settings" aria-selected="false">...</button>
-          </li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content mt-4">
-          <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class ="container">
-              <form class="cont1">
-                <div class="una">
-                  <div class="form-floating mb-3">
-                    <input type="user" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Username</label>
-                  </div>
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                  </div>
-                </div>
-                <div class="nxt">
-                  <h4>Name of the Applicant</h4>
-                  <div class="appdetails">
-                    <div class="input-box">
-                      <input type="text" placeholder="Surname">
-                    </div>
-                    <div class="input-box">
-                      <input type="text" placeholder="Given Name">
-                    </div>
-                    <div class="input-box">
-                      <input type="text" placeholder="Middle Name">
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">2</div>
-          <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">3</div>
-          <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">4</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
 </div>

@@ -29,7 +29,15 @@
         <label class="warning" for="floatingPassword" *ngIf="hasError(password) && password.errors?.['required']">Password is
           required</label>
       </div>
-      <button class="btns btns__primary mt-4" type="button" [disabled]="!loginForm.valid" routerLink="../app">Login</button>
+      <div class="loginMessage" *ngIf="showMessage">
+        <small class="warning">Username or password is incorrect</small>
+      </div>
+      <button *ngIf="!processing" (click)="loginUser()" class="btns btns__primary mt-4" type="button" [disabled]="!loginForm.valid">Login</button>
+      <div class="d-flex justify-content-center mt-4 pt-1" *ngIf="processing">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
     </form>
   </div>
 </div>

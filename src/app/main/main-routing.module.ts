@@ -11,6 +11,7 @@ import { route as ApplicantRoute} from '../applicant-page/applicant-page-route.m
 import { route as GraduatesRoute} from '../graduates-page/graduates-page-route.module';
 import { route as StakeholdersRoute} from '../stakeholders-page/stakeholders-page-route.module';
 import { route as DeliberationRoute } from '../deliberation-page/deliberation-route.module';
+import { route as GranteeRoute } from '../grantee/grantee-route.module';
 
 const routes: Routes = [
   {
