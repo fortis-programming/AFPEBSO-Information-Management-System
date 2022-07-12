@@ -13,6 +13,7 @@ import {
   collection,
   where,
 } from 'firebase/firestore';
+import { GraduatesModels } from '../_shared/models/graduates.models';
 
 const app = initializeApp(firebaseConfig);
 const firestoreInit = getFirestore(app);
@@ -31,6 +32,7 @@ export class GranteesService {
         onSnapshot(q, (snapshot) => {
           snapshot.forEach((docData: any) => {
             resolve(docData.data());
+            console.log(docData.data())
           });
         });
       }
@@ -41,7 +43,10 @@ export class GranteesService {
   async getGranteeData(id: string): Promise<BaseResponse<GranteeModel[]>> {
     const response_data = new Promise<BaseResponse<GranteeModel[]>>(
       (resolve) => {
-        const q = query(collection(firestoreInit, 'Grantees'), where("id", "==", id));
+        const q = query(
+          collection(firestoreInit, 'Grantees'),
+          where('id', '==', id)
+        );
         onSnapshot(q, (snapshot) => {
           snapshot.forEach((docData: any) => {
             resolve(docData.data());
@@ -52,5 +57,4 @@ export class GranteesService {
     );
     return response_data;
   }
-
 }
