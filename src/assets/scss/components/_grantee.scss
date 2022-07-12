@@ -1,31 +1,31 @@
-.backButton{
-    text-align: center;
-    display: flex;
+.header-section {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    border-bottom: none;
 
-    .back-btn{
-        padding: 5px;
-        svg{
-            width: 1.4em;
-            cursor: pointer;
+    .info__left {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 1rem;
+
+        .back-btn {
+            padding: 5px;
+
+            svg {
+                width: 1.4em;
+                cursor: pointer;
+            }
+        }
+
+        .back-btn:hover {
+            border-radius: 10em;
+            background-color: $border-color;
         }
     }
-    .back-btn:hover{
-        border-radius: 10em;
-        background-color: $border-color;
-    }
-}
 
-
-.header-section {
-    border-bottom: none;
-    width: 100%;
-    align-items: center;
-
-    .information {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
+    .info__right {
+        margin-left: 2em;
         .nav {
             gap: 0.5rem;
 
@@ -41,8 +41,9 @@
             }
         }
     }
-
 }
+
+
 
 .grantee {
     display: grid;
