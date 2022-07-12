@@ -16,3 +16,4 @@
 </div>
 <!-- <app-grantee></app-grantee> -->
 <router-outlet></router-outlet>
+<app-empty-state *ngIf="filteredData.length === 0 && search_input != ''" [message]="search_input"></app-empty-state>

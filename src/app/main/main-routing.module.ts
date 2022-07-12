@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainComponent } from './main.component';
 
-
 import { route as HomeRoute } from '../home-page/home-page-route.module';
 import { route as GranteesRoute } from '../grantees-page/grantees-page-route.module';
 import { route as ApplicantRoute} from '../applicant-page/applicant-page-route.module';
@@ -20,7 +19,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'applicant',
         pathMatch: 'full'
       },
       ...HomeRoute,
