@@ -23,6 +23,7 @@ import { ApplicantComponent } from './grantee/applicant/applicant.component';
 import { AfpMemberComponent } from './grantee/afp-member/afp-member.component';
 import { GuardianComponent } from './grantee/guardian/guardian.component';
 import { EmptyStateComponent } from './empty-state/empty-state.component';
+import { GraduatesItemComponent } from './graduates-page/graduates-item/graduates-item.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { EmptyStateComponent } from './empty-state/empty-state.component';
     ApplicantComponent,
     AfpMemberComponent,
     GuardianComponent,
-    EmptyStateComponent
+    EmptyStateComponent,
+    GraduatesItemComponent
   ],
   imports: [
     AppRoutingModule,

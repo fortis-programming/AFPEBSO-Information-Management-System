@@ -45,6 +45,7 @@ export class GranteesService {
         onSnapshot(q, (snapshot) => {
           snapshot.forEach((docData: any) => {
             resolve(docData.data());
+
           });
         });
       }
