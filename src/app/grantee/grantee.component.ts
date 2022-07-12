@@ -15,11 +15,11 @@ export class GranteeComponent implements AfterViewChecked {
     surname: '',
     firstname: '',
     middlename: '',
-    relationshipToAfpMember: '',
+    relationship_to_afp_member: '',
     currentAddress: '',
     provincialAddress: '',
     phoneNumber: '',
-    cellPhoneNumber: '',
+    cellphoneNumber: '',
     emailAddress: '',
     birthDate: '',
     birthPlace: '',
@@ -34,7 +34,7 @@ export class GranteeComponent implements AfterViewChecked {
 
     //information of AFP/CAA member
     afp_surname: '',
-    afp_firstName: '',
+    afp_firstname: '',
     afp_middleInitial: '',
     afp_rank: '',
     afp_SN: '',
@@ -54,6 +54,7 @@ export class GranteeComponent implements AfterViewChecked {
     afp_dependentsBirthdate: '',
     afp_dependentsYearLevel: '',
     afp_educationalProgramAvailed: '',
+    afp_date_of_death: '',
 
     //information of Applicant's guardian
     guardian_surname: '',
@@ -72,6 +73,7 @@ export class GranteeComponent implements AfterViewChecked {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
+  
   constructor(
     private granteespageService: GranteesPageService
   ) {}
