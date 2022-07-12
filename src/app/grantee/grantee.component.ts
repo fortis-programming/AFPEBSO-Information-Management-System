@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderService } from '../main/header/header.service';
+import { Component, AfterViewChecked } from '@angular/core';
+import { GranteesPageService } from '../grantees-page/grantees-page.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   templateUrl: './grantee.component.html',
   styleUrls: ['./grantee.component.scss'],
 })
-export class GranteeComponent implements OnInit {
+export class GranteeComponent implements AfterViewChecked {
   granteeModel: GranteeModel = {
     date: '',
     id: '',
@@ -15,11 +15,11 @@ export class GranteeComponent implements OnInit {
     surname: '',
     firstname: '',
     middlename: '',
-    relationshipToAfpMember: '',
+    relationship_to_afp_member: '',
     currentAddress: '',
     provincialAddress: '',
     phoneNumber: '',
-    cellPhoneNumber: '',
+    cellphoneNumber: '',
     emailAddress: '',
     birthDate: '',
     birthPlace: '',
@@ -34,7 +34,7 @@ export class GranteeComponent implements OnInit {
 
     //information of AFP/CAA member
     afp_surname: '',
-    afp_firstName: '',
+    afp_firstname: '',
     afp_middleInitial: '',
     afp_rank: '',
     afp_SN: '',
@@ -54,6 +54,7 @@ export class GranteeComponent implements OnInit {
     afp_dependentsBirthdate: '',
     afp_dependentsYearLevel: '',
     afp_educationalProgramAvailed: '',
+    afp_date_of_death: '',
 
     //information of Applicant's guardian
     guardian_surname: '',
@@ -72,7 +73,14 @@ export class GranteeComponent implements OnInit {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
-  constructor() {}
+  
+  constructor(
+    private granteespageService: GranteesPageService
+  ) {}
 
-  ngOnInit(): void {}
+  ngAfterViewChecked(): void {
+    setTimeout(() => {
+      this.granteespageService.setStatus(true)
+    }, 500);
+  }
 }

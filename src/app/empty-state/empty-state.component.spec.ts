@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraduatesPageComponent } from './graduates-page.component';
+import { EmptyStateComponent } from './empty-state.component';
 
-describe('GraduatesPageComponent', () => {
-  let component: GraduatesPageComponent;
-  let fixture: ComponentFixture<GraduatesPageComponent>;
+describe('EmptyStateComponent', () => {
+  let component: EmptyStateComponent;
+  let fixture: ComponentFixture<EmptyStateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraduatesPageComponent ]
+      declarations: [ EmptyStateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraduatesPageComponent);
+    fixture = TestBed.createComponent(EmptyStateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

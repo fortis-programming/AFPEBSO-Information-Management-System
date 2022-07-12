@@ -14,11 +14,11 @@ export class GranteesItemComponent implements OnInit {
     surname: '',
     firstname: '',
     middlename: '',
-    relationshipToAfpMember: '',
+    relationship_to_afp_member: '',
     currentAddress: '',
     provincialAddress: '',
     phoneNumber: '',
-    cellPhoneNumber: '',
+    cellphoneNumber: '',
     emailAddress: '',
     birthDate: '',
     birthPlace: '',
@@ -33,7 +33,7 @@ export class GranteesItemComponent implements OnInit {
 
     //information of AFP/CAA member
     afp_surname: '',
-    afp_firstName: '',
+    afp_firstname: '',
     afp_middleInitial: '',
     afp_rank: '',
     afp_SN: '',
@@ -53,6 +53,7 @@ export class GranteesItemComponent implements OnInit {
     afp_dependentsBirthdate: '',
     afp_dependentsYearLevel: '',
     afp_educationalProgramAvailed: '',
+    afp_date_of_death: '',
 
     //information of Applicant's guardian
     guardian_surname: '',
@@ -74,5 +75,7 @@ export class GranteesItemComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.cookie = "_uid="+ (this.grantee.id || "")+"; SameSite=None; Secure";
+  }
 }

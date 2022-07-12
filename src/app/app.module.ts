@@ -19,6 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeliberationPageComponent } from './deliberation-page/deliberation-page.component';
 import { MaintenancePageComponent } from './maintenance-page/maintenance-page.component';
 import { ApplicantItemComponent } from './applicant-page/applicant-item/applicant-item.component';
+import { ApplicantComponent } from './grantee/applicant/applicant.component';
+import { AfpMemberComponent } from './grantee/afp-member/afp-member.component';
+import { GuardianComponent } from './grantee/guardian/guardian.component';
+import { EmptyStateComponent } from './empty-state/empty-state.component';
+import { GraduatesItemComponent } from './graduates-page/graduates-item/graduates-item.component';
 
 
 @NgModule({
@@ -34,7 +39,12 @@ import { ApplicantItemComponent } from './applicant-page/applicant-item/applican
     GranteeComponent,
     DeliberationPageComponent,
     MaintenancePageComponent,
-    ApplicantItemComponent
+    ApplicantItemComponent,
+    ApplicantComponent,
+    AfpMemberComponent,
+    GuardianComponent,
+    EmptyStateComponent,
+    GraduatesItemComponent
   ],
   imports: [
     AppRoutingModule,

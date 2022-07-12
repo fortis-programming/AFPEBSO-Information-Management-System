@@ -1,23 +1,50 @@
 .graduates {
+  display: grid;
+  grid-template-columns: 96% 4%;
+  gap: 0.5rem;
+
+  .searchbar {
+    width: 100%;
+
     .searchbar-box {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border: 1px solid $border-color;
-        border-radius: 4px;
-        padding: 8px;
-        gap: 0.5rem;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      padding: 8px;
+      gap: 0.5rem;
+    }
+
+    svg {
+      height: 25px;
+      width: 2em;
+      display: flex;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .add_btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    button{
+      background-color: $primary-color;
+      border: none;
+      width: 80%;
     }
     svg{
-        height: 25px;
-        width: 2em;
-        display: flex;
+      width: 42px;
+      color: white;
     }
-    input{
-        width: 100%;
-        border: none;
-        outline: none;
-    }
+    
+  }
 
 }

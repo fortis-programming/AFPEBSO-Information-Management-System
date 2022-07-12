@@ -1,5 +1,5 @@
 <div class="grantees">
-  <div class="searchbar" *ngIf="router === '/app/grantees'">
+  <div class="searchbar">
     <div class="search-box">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd"
@@ -16,3 +16,4 @@
 </div>
 <!-- <app-grantee></app-grantee> -->
 <router-outlet></router-outlet>
+<app-empty-state *ngIf="filteredData.length === 0 && search_input != ''" [message]="search_input"></app-empty-state>

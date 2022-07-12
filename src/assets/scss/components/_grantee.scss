@@ -1,19 +1,31 @@
-.back-btn{
-    svg{
-        width: 1em;
-        cursor: pointer;
-    }
-}
 .header-section {
+    display: grid;
+    grid-template-columns: 75% 25%;
     border-bottom: none;
-    width: 100%;
-    align-items: center;
 
-    .information {
+    .info__left {
         display: flex;
-        justify-content: space-between;
+        width: 100%;
         align-items: center;
-        
+        gap: 1rem;
+
+        .back-btn {
+            padding: 5px;
+
+            svg {
+                width: 1.4em;
+                cursor: pointer;
+            }
+        }
+
+        .back-btn:hover {
+            border-radius: 10em;
+            background-color: $border-color;
+        }
+    }
+
+    .info__right {
+        margin-left: 2em;
         .nav {
             gap: 0.5rem;
 
@@ -29,8 +41,9 @@
             }
         }
     }
-
 }
+
+
 
 .grantee {
     display: grid;
