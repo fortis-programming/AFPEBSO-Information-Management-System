@@ -28,7 +28,8 @@ const routes: Routes = [
       ...ApplicantRoute,
       ...GraduatesRoute,
       ...StakeholdersRoute,
-      ...DeliberationRoute
+      ...DeliberationRoute,
+      ...GranteeRoute
     ]
   }
 ];

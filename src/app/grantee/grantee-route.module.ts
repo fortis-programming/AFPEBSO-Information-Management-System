@@ -10,6 +10,11 @@ export const route: Routes = [
     component: GranteeComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'applicant',
+        pathMatch: 'full'
+      },
+      {
         path: 'applicant',
         component: ApplicantComponent
       },

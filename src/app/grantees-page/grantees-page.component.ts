@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { HeaderService } from '../main/header/header.service';
 import { GranteesService } from '../services/grantees.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
+import { GranteesPageService } from './grantees-page.service';
 
 @Component({
   selector: 'app-grantees-page',
@@ -10,18 +10,17 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   styleUrls: ['./grantees-page.component.scss'],
 })
 export class GranteesPageComponent implements OnInit {
-  router = '';
   constructor(
     private headerService: HeaderService,
     private granteesService: GranteesService,
-    private _router: Router
+    private granteepageService: GranteesPageService
   ) {}
 
   granteesList: GranteeModel[] = [];
   ngOnInit(): void {
     this.loadGrantees();
     this.headerService.setTitle('Grantees');
-    this.router = this._router.url;
+    this.granteepageService.setStatus(false);
   }
 
   filteredData: GranteeModel[] = [];
@@ -31,9 +30,7 @@ export class GranteesPageComponent implements OnInit {
       this.filteredData = [];
     } else {
       this.filteredData = this.granteesList.filter((data: GranteeModel) =>
-        data.surname
-          .toLocaleLowerCase()
-          .includes(this.search_input.toLocaleLowerCase())
+        data.surname.toLocaleLowerCase().includes(this.search_input.toLocaleLowerCase())
       );
     }
   }
@@ -41,8 +38,10 @@ export class GranteesPageComponent implements OnInit {
   loadGrantees(): void {
     this.granteesService.getGranteesData().then((response) => {
       this.granteesList = JSON.parse(JSON.stringify([response]));
-      console.log(response);
-      
     });
+  }
+
+  getStatusHeaderStatus(): boolean {
+    return this.granteepageService.getStatus();
   }
 }

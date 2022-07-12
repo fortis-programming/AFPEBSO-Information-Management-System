@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderService } from '../main/header/header.service';
+import { Component, AfterViewChecked } from '@angular/core';
+import { GranteesPageService } from '../grantees-page/grantees-page.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   templateUrl: './grantee.component.html',
   styleUrls: ['./grantee.component.scss'],
 })
-export class GranteeComponent implements OnInit {
+export class GranteeComponent implements AfterViewChecked {
   granteeModel: GranteeModel = {
     date: '',
     id: '',
@@ -72,7 +72,13 @@ export class GranteeComponent implements OnInit {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
-  constructor() {}
+  constructor(
+    private granteespageService: GranteesPageService
+  ) {}
 
-  ngOnInit(): void {}
+  ngAfterViewChecked(): void {
+    setTimeout(() => {
+      this.granteespageService.setStatus(true)
+    }, 500);
+  }
 }
