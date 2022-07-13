@@ -5,7 +5,7 @@
 
   .searchbar {
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 95% 5%;
     width: 100%;
     gap: 0.5rem;
 
@@ -43,19 +43,12 @@
       background-color: $primary-color;
       border: none;
       height: 100%;
-      width: auto;
+      width: 80%;
       align-items: center;
-    }
-
-    label {
-      visibility: hidden;
-    }
-
-    button:hover > label {
-      visibility: visible;
+      justify-content: center;
     }
     svg{
-      width: 42px;
+      width: 50px;
       color: white;
     }
     
