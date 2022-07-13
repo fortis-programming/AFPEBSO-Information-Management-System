@@ -3,9 +3,7 @@ import { BaseResponse } from '../_shared/models/responses/base.response';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 // FIREBASE IMPORTS AND CONFIGURATION
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import { firebaseConfig } from 'src/environments/environment';
+import { firestoreInit } from './firebase.service';
 import {
   onSnapshot,
   getFirestore,
@@ -13,11 +11,7 @@ import {
   collection,
   where,
 } from 'firebase/firestore';
-import { GraduatesModels } from '../_shared/models/graduates.models';
 
-const app = initializeApp(firebaseConfig);
-const firestoreInit = getFirestore(app);
-const analytics = getAnalytics(app);
 
 @Injectable({
   providedIn: 'root',
@@ -30,10 +24,11 @@ export class GranteesService {
       (resolve) => {
         const q = query(collection(firestoreInit, 'Grantees'));
         onSnapshot(q, (snapshot) => {
+          let data: GranteeModel[] = [];
           snapshot.forEach((docData: any) => {
-            resolve(docData.data());
-            console.log(docData.data())
+            data.push(docData.data());
           });
+          resolve(JSON.parse(JSON.stringify(data)));
         });
       }
     );
@@ -50,7 +45,6 @@ export class GranteesService {
         onSnapshot(q, (snapshot) => {
           snapshot.forEach((docData: any) => {
             resolve(docData.data());
-
           });
         });
       }

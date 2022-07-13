@@ -30,20 +30,15 @@ export class GranteesPageComponent implements OnInit {
       this.filteredData = [];
     } else {
       this.filteredData = this.granteesList.filter((data: GranteeModel) =>
-        data.surname
-          .toLocaleLowerCase()
-          .includes(this.search_input.toLocaleLowerCase())
+        data.surname.toLowerCase()
+          .includes(this.search_input.toLowerCase())
       );
     }
   }
 
   loadGrantees(): void {
     this.granteesService.getGranteesData().then((response) => {
-      this.granteesList = JSON.parse(JSON.stringify([response]));
+      this.granteesList = JSON.parse(JSON.stringify(response));
     });
-  }
-
-  getStatusHeaderStatus(): boolean {
-    return this.granteepageService.getStatus();
   }
 }
