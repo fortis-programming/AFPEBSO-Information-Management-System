@@ -1,0 +1,58 @@
+.header-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: none;
+
+    .info__left {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 1rem;
+
+        .back-btn {
+            padding: 5px;
+
+            svg {
+                width: 1.4em;
+                cursor: pointer;
+            }
+        }
+
+        .back-btn:hover {
+            border-radius: 10em;
+            background-color: $border-color;
+        }
+    }
+
+    .info__right {
+        min-width: fit-content;
+
+        .navsection {
+            gap: 0.5rem;
+            display: flex !important;
+            flex-direction: row !important;
+
+
+            a {
+                border: 1px solid $border-color;
+                color: $secondary-color;
+            }
+
+            .active {
+                border: 1px solid $primary-color;
+                color: $primary-color;
+                background: none !important;
+            }
+            button{
+                height: 100%;
+                width: 3em;
+                
+            }
+            .dropdown-menu a{
+                color: black;
+            }
+        }
+        
+    }
+}
