@@ -73,9 +73,9 @@ export class GranteesItemComponent implements OnInit {
     dateReceived: '',
   };
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
-    document.cookie = "_uid="+ (this.grantee.id || "")+"; SameSite=None; Secure";
+    document.cookie = "_uid=" + (this.grantee.id || "") + "; SameSite=None; Secure";
   }
 }
