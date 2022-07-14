@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: center;
 
-    button{
+    button {
       background-color: $primary-color;
       border: none;
       height: 100%;
@@ -47,11 +47,51 @@
       align-items: center;
       justify-content: center;
     }
-    svg{
+
+    svg {
       width: 50px;
       color: white;
     }
-    
+
   }
 
+}
+
+.modal-body {
+  margin: 2em 5em;
+  max-width: 90%;
+
+  form {
+    width: 100%;
+
+    .nameCourse-info {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left{
+        width: 70%;
+
+      }
+      .right{
+        width: 30%;
+      }
+    }
+    .yearProgram-info{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left{
+        width: 30%;
+      }
+      .right{
+        width: 70%;
+      }
+    }
+  }
 }
