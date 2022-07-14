@@ -1,4 +1,4 @@
-<div class="grantee">
+<!-- <div class="grantee">
   <div class="grantee__left">
     <form class="cont1">
       <div class="una">
@@ -69,6 +69,85 @@
   <div class="grantee__right">
     <form class="cont2">
       <img src="../../assets/images/AFPEBSO.png">
+      <h6> Signature of Applicant</h6>
+      <h6> Signature of AFP / CAA Member or Guardian</h6>
+    </form>
+  </div>
+</div> -->
+
+<div class="applicant-component">
+  <div>
+    <div class="col1 py-2">
+      <div class="left form-floating">
+        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.area" name="area"
+          #area="ngModel" placeholder=" ">
+        <label for="floatingInput">Area</label>
+      </div>
+      <div class="right form-floating">
+        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.relationship_to_afp_member"
+          name="relationshipToAfpMember" #relationshipToAfpMember="ngModel" placeholder=" ">
+        <label for="floatingInput">Relationship to AFP / CAA Member</label>
+      </div>
+    </div>
+    <div class="col2 py-2 d-flex flex-column">
+      <h6>Name of the Applicant</h6>
+      <form>
+        <div class="left form-floating">
+          <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.surname" name="surname"
+            #surname="ngModel" placeholder=" ">
+          <label for="floatingInput">Surname</label>
+        </div>
+        <div class="mid form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.firstname" name="firstname"
+            #firstname="ngModel" placeholder=" ">
+          <label for="floatingInput">First Name</label>
+        </div>
+        <div class="right form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.middlename" name="middlename"
+            #middlename="ngModel" placeholder=" ">
+          <label for="floatingInput">Middle Name</label>
+        </div>
+      </form>
+    </div>
+    <div class="col3 py-2 d-flex flex-column">
+      <h6>Address</h6>
+      <form>
+        <div class="form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.currentAddress"
+            name="currentAddress" #currentAddress="ngModel" placeholder=" ">
+          <label for="floatingInput">Current Mailing Address</label>
+        </div>
+        <div class="form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.provincialAddress"
+            name="provincialAddress" #provindialAddress="ngModel" placeholder=" ">
+          <label for="floatingInput">Provincial Address</label>
+        </div>
+      </form>
+    </div>
+    <div class="col4 py-2">
+      <h6>Contact</h6>
+      <form>
+        <div class="left form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.phoneNumber"
+            name="phoneNumber" #phoneNumber="ngModel" placeholder=" ">
+          <label for="floatingInput">Phone</label>
+        </div>
+        <div class="mid form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.cellphoneNumber"
+            name="cellPhoneNumber" #cellPhoneNumber="ngModel" placeholder=" ">
+          <label for="floatingInput">Cell Phone</label>
+        </div>
+        <div class="right form-floating">
+          <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.emailAddress"
+            name="emailAddress" #emailAddress="ngModel" placeholder=" ">
+          <label for="floatingInput">Email</label>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div>
+    <form class="profile d-flex flex-column py-2">
+      <img class="mb-4" src=" ../../assets/images/AFPEBSO.png">
       <h6> Signature of Applicant</h6>
       <h6> Signature of AFP / CAA Member or Guardian</h6>
     </form>

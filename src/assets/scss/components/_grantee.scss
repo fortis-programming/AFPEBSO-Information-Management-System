@@ -220,6 +220,10 @@
     justify-content: space-between;
     align-items: center;
 
+    h5 {
+      margin: auto;
+    }
+
     nav {
       gap: 0.5rem;
 
@@ -235,14 +239,21 @@
 
     .btns {
       &__ghost {
-        background-color: $secondary-color;
         height: auto;
         align-items: center;
-        padding-top: 2px;
-        min-width: 20px;
+        padding: 8px;
+        min-width: 30px !important;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+          background-color: whitesmoke !important;
+          cursor: pointer;
+        }
 
         svg {
-
+          margin: auto !important;
           height: 20px;
         }
       }
@@ -257,5 +268,63 @@
         }
       }
     }
+  }
+}
+
+
+.applicant-component {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 0.5rem;
+
+  .col1 {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 0.5rem;
+  }
+
+  .col2 {
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+  }
+
+  .col3 {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  .col4 {
+    form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .applicant-component {
+    display: flex;
+    flex-direction: column;
   }
 }
