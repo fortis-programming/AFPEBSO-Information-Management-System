@@ -9,13 +9,56 @@
             <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
         </div>
         <div class="add_btn">
-            <button class="btns__btn-icons d-flex flex-row" data-toggle="tooltip" data-placement="right" title="Add">
+            <button class="btns__btn-icons d-flex flex-row" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                data-toggle="tooltip" data-placement="right" title="Add">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
                         d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                         clip-rule="evenodd" />
                 </svg>
             </button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="nameCourse-info">
+                        <div class="left form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                            <label for="floatingInput">Stakeholder</label>
+                        </div>
+                        <div class="right form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                            <label for="floatingInput">Period of Implementation</label>
+                        </div>
+                    </div>
+                    <div class="yearProgram-info mt-4">
+                        <div class="left form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                            <label for="floatingInput">Renewal Period</label>
+                        </div>
+                        <div class="right form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                            <label for="floatingInput">Status</label>
+                        </div>
+                    </div>
+                    <div class="form-floating mt-4">
+                        <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                        <label for="floatingInput">Relevant Provisions</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btns btns__primary">Submit</button>
+            </div>
         </div>
     </div>
 </div>
