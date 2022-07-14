@@ -11,7 +11,7 @@ import { GraduatesModels } from '../_shared/models/graduates.models';
 export class GraduatesPageComponent implements OnInit {
 
   graduateList: GraduatesModels[] = [];
-  
+
   constructor(
     private headerService: HeaderService,
     private graduateService: GraduatesService
@@ -21,8 +21,14 @@ export class GraduatesPageComponent implements OnInit {
   ngOnInit(): void {
     this.headerService.setTitle('Graduates');
     this.graduateService.getGraduatesData().then((response) => {
-      this.graduateList= JSON.parse(JSON.stringify(response));
-      console.log(response);
+      this.graduateList = JSON.parse(JSON.stringify(response));
     });
+  }
+
+  deleteData(): void {
+    // LAGAY MO LANG SA PARAMETER YUNG []DOCID]
+    this.graduateService.deleteGraduateData('aqqyiAAlNsrSFinAB8ne').then(() => {
+      console.log('document deleted');
+    })
   }
 }

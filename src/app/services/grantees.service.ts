@@ -6,10 +6,12 @@ import { GranteeModel } from '../_shared/models/grantee.model';
 import { firestoreInit } from './firebase.service';
 import {
   onSnapshot,
-  getFirestore,
+  deleteDoc,
   query,
+  doc,
   collection,
   where,
+  getDoc,
 } from 'firebase/firestore';
 
 
@@ -17,7 +19,7 @@ import {
   providedIn: 'root',
 })
 export class GranteesService {
-  constructor() {}
+  constructor() { }
 
   async getGranteesData(): Promise<BaseResponse<GranteeModel[]>> {
     const response_data = new Promise<BaseResponse<GranteeModel[]>>(
@@ -37,18 +39,24 @@ export class GranteesService {
 
   async getGranteeData(id: string): Promise<BaseResponse<GranteeModel[]>> {
     const response_data = new Promise<BaseResponse<GranteeModel[]>>(
-      (resolve) => {
-        const q = query(
-          collection(firestoreInit, 'Grantees'),
-          where('id', '==', id)
-        );
-        onSnapshot(q, (snapshot) => {
-          snapshot.forEach((docData: any) => {
-            resolve(docData.data());
-          });
-        });
+      async (resolve) => {
+        const docRef = doc(firestoreInit, 'Grantees', id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          resolve(JSON.parse(JSON.stringify(docSnap.data())));
+        }
       }
     );
     return response_data;
+  }
+
+  async deleteGranteeData(id: string): Promise<boolean> {
+    const respose_data = new Promise<boolean>(
+      async (resolve) => {
+        await deleteDoc(doc(firestoreInit, 'Grantess', id));
+        resolve(true);
+      }
+    );
+    return respose_data;
   }
 }
