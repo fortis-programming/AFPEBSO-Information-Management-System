@@ -27,21 +27,37 @@
 
   .info__right {
     min-width: fit-content;
+    
 
-    nav {
+    .navsection {
       gap: 0.5rem;
       display: flex !important;
       flex-direction: row !important;
-
+     
+      nav{
+        gap: 0.5rem;
+      }
+      
       a {
         border: 1px solid $border-color;
         color: $secondary-color;
+        
       }
 
       .active {
         border: 1px solid $primary-color;
         color: $primary-color;
         background: none !important;
+      }
+
+      button {
+        height: 100%;
+        width: 3em;
+
+      }
+
+      .dropdown-menu a {
+        color: black;
       }
     }
   }
