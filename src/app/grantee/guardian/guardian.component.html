@@ -5,17 +5,17 @@
             <div class="guardian-info">
                 <div class="left form-floating">
                     <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_surname"
-                        name="guardian_surname" #guardian_surname="ngModel" placeholder=" ">
+                        name="guardian_surname" #guardian_surname="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Surname</label>
                 </div>
                 <div class="mid form-floating">
                     <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_firstName"
-                        name="guardian_firstName" #guardian_firstName="ngModel" placeholder=" ">
+                        name="guardian_firstName" #guardian_firstName="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">First Name</label>
                 </div>
                 <div class="right form-floating">
                     <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_MiddleName"
-                        name="guardian_MiddleName" #guardian_MiddleName="ngModel" placeholder=" ">
+                        name="guardian_MiddleName" #guardian_MiddleName="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Middle Name</label>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                         <input type="user" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.guardian_relationshipToApplicant"
                             name="guardian_relationshipToApplicant" #guardian_relationshipToApplicant="ngModel"
-                            placeholder=" ">
+                            placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
                     </div>
                 </div>
@@ -36,13 +36,13 @@
                     <div class="form-floating">
                         <input type="user" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.guardian_currentAddress" name="guardian_currentAddress"
-                            #guardian_currentAddress="ngModel" placeholder=" ">
+                            #guardian_currentAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Current Mailing Address</label>
                     </div>
                     <div class="form-floating mt-4">
                         <input type="user" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.guardian_provincialAddress" name="guardian_provincialAddress"
-                            #guardian_provincialAddress="ngModel" placeholder=" ">
+                            #guardian_provincialAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Provincial Address</label>
                     </div>
                 </div>
@@ -54,19 +54,19 @@
                     <div class="left form-floating">
                         <input type="user" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.guardian_phoneNo" name="guardian_phoneNo" #guardian_phoneNo="ngModel"
-                            placeholder=" ">
+                            placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Phone</label>
                     </div>
                     <div class="mid form-floating">
                         <input type="user" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.guardian_cellPhoneNo" name="guardian_cellPhoneNo"
-                            #guardian_phoneNo="ngModel" placeholder=" ">
+                            #guardian_phoneNo="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Cell Phone</label>
                     </div>
                     <div class="right form-floating">
                         <input type="user" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.guardian_emailAddress" name="guardian_emailAddress"
-                            #guardian_emailAddress="ngModel" placeholder=" ">
+                            #guardian_emailAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Email</label>
                     </div>
                 </div>
