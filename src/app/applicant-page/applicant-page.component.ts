@@ -7,7 +7,6 @@ import { HeaderService } from '../main/header/header.service';
   styleUrls: ['./applicant-page.component.scss']
 })
 export class ApplicantPageComponent implements OnInit {
-
   constructor(
     private headerService: HeaderService
   ) { }
@@ -15,5 +14,4 @@ export class ApplicantPageComponent implements OnInit {
   ngOnInit(): void {
     this.headerService.setTitle('Applicants');
   }
-
 }

@@ -73,10 +73,10 @@ export class GranteeComponent implements AfterViewChecked {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
-  
+
   constructor(
     private granteespageService: GranteesPageService
-  ) {}
+  ) { }
 
   ngAfterViewChecked(): void {
     setTimeout(() => {
