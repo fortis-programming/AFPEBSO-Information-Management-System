@@ -74,7 +74,10 @@ export class ApplicantComponent implements OnInit {
     dateReceived: '',
   };
 
-  constructor(private granteesService: GranteesService) {}
+  edit = false;
+  constructor(
+    private granteesService: GranteesService
+  ) { }
 
   ngOnInit(): void {
     this.granteesService.getGranteeData(this.getCookie('_uid')).then((response) => {

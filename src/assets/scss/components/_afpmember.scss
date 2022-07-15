@@ -1,237 +1,252 @@
 .afpmember {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 1rem;
 
+
+  &__left {
+    width: 100%;
+
+    .afpmember-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+
+      .left {
+        width: 32%;
+      }
+
+      .mid {
+        width: 32%;
+      }
+
+      .right {
+        width: 32%;
+      }
+    }
+
+    .unitassignment {
+      .unitassignment-info {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+
+        .left {
+          width: 30%;
+        }
+
+        .right {
+          width: 70%;
+        }
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left {
+        width: 32%;
+      }
+
+      .mid {
+        width: 32%;
+      }
+
+      .right {
+        width: 32%;
+      }
+    }
+
+    .birth-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left {
+        width: 30%;
+      }
+
+      .right {
+        width: 70%;
+      }
+    }
+
+    .other-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left {
+        width: 32%;
+      }
+
+      .mid {
+        width: 32%;
+      }
+
+      .right {
+        width: 32%;
+      }
+    }
+
+    .texts-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left {
+        width: 32%;
+
+      }
+
+      .mid {
+        width: 16%;
+      }
+
+      .mid2 {
+        width: 16%;
+      }
+
+      .right {
+        width: 32%;
+      }
+    }
+  }
+
+  &__right {
+    max-width: 100%;
+
+    .cont2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+    }
+  }
+
+  img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .afpmember {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: smaller;
+    }
 
     &__left {
-        width: 100%;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
 
-        .afpmember-info{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
+      .afpmember-info {
+        flex-direction: column;
 
-
-            .left {
-                width: 32%;
-            }
-
-            .mid {
-                width: 32%;
-            }
-
-            .right {
-                width: 32%;
-            }
+        .left {
+          width: 100%;
         }
 
-        .unitassignment {
-            .unitassignment-info {
-
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 2rem;
-
-                .left {
-                    width: 30%;
-                }
-
-                .right {
-                    width: 70%;
-                }
-            }
+        .mid {
+          width: 100%;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
-
-            .left {
-                width: 32%;
-            }
-
-            .mid {
-                width: 32%;
-            }
-
-            .right {
-                width: 32%;
-            }
+        .right {
+          width: 100%;
         }
-        .birth-info{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
-            .left {
-                width: 30%;
-            }
+      }
 
-            .right {
-                width: 70%;
-            }
+      .unitassignment .unitassignment-info {
+        flex-direction: column;
+
+        .left {
+          width: 100%;
         }
-        .other-info{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
 
-            .left {
-                width: 32%;
-            }
-
-            .mid {
-                width: 32%;
-            }
-
-            .right {
-                width: 32%;
-            }
+        .right {
+          width: 100%;
         }
-        .texts-info{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
-            
-            .left {
-                width: 32%;
-                
-            }
-            .mid {
-                width: 16%;
-            }
-            .mid2 {
-                width: 16%;
-            }
+      }
 
-            .right {
-                width: 32%;
-            } 
+      .contact .contact-info {
+        flex-direction: column;
+
+        .left {
+          width: 100%;
         }
+
+        .mid {
+          width: 100%;
+        }
+
+        .right {
+          width: 100%;
+        }
+      }
+
+      .birthdate .birth-info {
+        flex-direction: column;
+
+        .left {
+          width: 100%;
+        }
+
+        .right {
+          width: 100%;
+        }
+      }
+
+      .other .other-info {
+        flex-direction: column;
+
+        .left {
+          width: 100%;
+        }
+
+        .mid {
+          width: 100%;
+        }
+
+        .right {
+          width: 100%;
+        }
+      }
+
+      .texts .texts-info {
+        flex-direction: column;
+
+        .left {
+          width: 100%;
+        }
+
+        .mid {
+          width: 100%;
+        }
+
+        .mid2 {
+          width: 100%;
+        }
+
+        .right {
+          width: 100%;
+        }
+      }
     }
-
-    &__right {
-        max-width: 100%;
-
-        .cont2 {
-            align-items: center;
-            justify-items: center;
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-
-        }
-    }
-
-    img {
-        width: 50%;
-    }
+  }
 }
-    @media screen and (max-width: 1000px) {
-        .afpmember {
-            display: flex;
-            flex-direction: column;
-
-            label {
-                font-size: smaller;
-            }
-
-            &__left {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-
-                .afpmember-info {
-                    flex-direction: column;
-
-                    .left {
-                        width: 100%;
-                    }
-                    .mid{
-                        width: 100%;
-                    }
-
-                    .right {
-                        width: 100%;
-                    }
-                }
-
-                .unitassignment .unitassignment-info {
-                    flex-direction: column;
-
-                    .left {
-                        width: 100%;
-                    }
-                    .right {
-                        width: 100%;
-                    }
-                }
-
-                .contact .contact-info {
-                    flex-direction: column;
-
-                    .left {
-                        width: 100%;
-                    }
-
-                    .mid {
-                        width: 100%;
-                    }
-
-                    .right {
-                        width: 100%;
-                    }
-                }
-                .birthdate .birth-info{
-                    flex-direction: column;
-                    .left {
-                        width: 100%;
-                    }
-
-                    .right {
-                        width: 100%;
-                    }
-                }
-                .other .other-info {
-                    flex-direction: column;
-
-                    .left {
-                        width: 100%;
-                    }
-
-                    .mid {
-                        width: 100%;
-                    }
-
-                    .right {
-                        width: 100%;
-                    }
-                }
-                .texts .texts-info {
-                    flex-direction: column;
-
-                    .left {
-                        width: 100%;
-                    }
-
-                    .mid {
-                        width: 100%;
-                    }
-                    .mid2{
-                        width: 100%;
-                    }
-
-                    .right {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
