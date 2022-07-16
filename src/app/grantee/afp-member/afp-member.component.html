@@ -4,17 +4,17 @@
             <h6>AFP / CAA Member</h6>
             <div class="afpmember-info">
                 <div class="left form-floating">
-                    <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_surname"
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_surname"
                         name="afp_surname" #afp_surname="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Surname</label>
                 </div>
                 <div class="mid form-floating">
-                    <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_firstname"
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_firstname"
                         name="afp_firstname" #afp_firstname="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">First Name</label>
                 </div>
                 <div class="right form-floating">
-                    <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_middleInitial"
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_middleInitial"
                         name="afp_middleInitial" #afp_middleInitial="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Middle Name</label>
                 </div>
@@ -22,7 +22,7 @@
             <div class="nxt">
                 <div class="mt-4">
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput"
+                        <input type="text" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.afp_militaryStatus" name="afp_militaryStatus"
                             #afp_militaryStatus="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Military Status</label>
@@ -32,13 +32,13 @@
             <div class="unitassignment mt-4">
                 <div class="unitassignment-info">
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput"
-                            [(ngModel)]="grantee.afp_date_of_death" name="afp_middleInitial"
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.afp_date_of_death" name="afp_date_of_death"
                             #afp_middleInitial="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Date of Death / CDD</label>
                     </div>
                     <div class="right form-floating">
-                        <input type="user" class="form-control" id="floatingInput"
+                        <input type="text" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.afp_unitAssignment" name="afp_unitAssignment"
                             #afp_unitAssignment="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">PRESENT (for active) or LAST (for CDD) UNIT ASSIGNMENT</label>
@@ -48,7 +48,7 @@
             <div class="address">
                 <div class="mt-4">
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput"
+                        <input type="text" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.afp_currentAddress" name="afp_currentAddress"
                             #afp_currentAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Address</label>
@@ -59,17 +59,17 @@
                 <h6 class="mt-4">Contacts</h6>
                 <div class="contact-info">
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_phoneNo"
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_phoneNo"
                             name="afp_phoneNo" #phoneNo="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Phone</label>
                     </div>
                     <div class="mid form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_cellPhoneNo"
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_cellPhoneNo"
                             name="afp_cellPhoneNo" #afp_cellPhoneNo="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Cell Phone</label>
                     </div>
                     <div class="right form-floating">
-                        <input type="user" class="form-control" id="floatingInput"
+                        <input type="text" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.afp_emailAddress" name="afp_emailAddress" #afp_emailAddress="ngModel"
                             placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Email</label>
@@ -79,12 +79,12 @@
             <div class="birhdate mt-4">
                 <div class="birth-info">
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_birthDate"
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_birthDate"
                             name="afp_birthDate" #afp_birthDate="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Date of Birth</label>
                     </div>
                     <div class="right form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_birthPlace"
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_birthPlace"
                             name="afp_birthPlace" #afp_birthPlace="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Place of Birth</label>
                     </div>
@@ -93,17 +93,17 @@
             <div class="other mt-4">
                 <div class="other-info">
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_sex"
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_sex"
                             name="afp_sex" #afp_sex="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Sex</label>
                     </div>
                     <div class="mid form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_civilStatus"
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_civilStatus"
                             name="afp_civilStatus" #afp_civilStatus="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Civil Status</label>
                     </div>
                     <div class="right form-floating">
-                        <input type="user" class="form-control" id="floatingInput"
+                        <input type="text" class="form-control" id="floatingInput"
                             [(ngModel)]="grantee.afp_nrOfDependents" name="afp_nrOfDependents"
                             #afp_nrOfDepedents="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">NR. OF DEPENDENTS</label>
