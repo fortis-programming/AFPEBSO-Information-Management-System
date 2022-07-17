@@ -1,54 +1,166 @@
+// .guardian {
+//   display: grid;
+//   grid-template-columns: 60% 40%;
+
+//   &__left {
+//     width: 100%;
+
+//     .guardian-info {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       gap: 2rem;
+
+
+//       .left {
+//         width: 32%;
+//       }
+
+//       .mid {
+//         width: 32%;
+//       }
+
+//       .right {
+//         width: 32%;
+//       }
+//     }
+
+//     .contact-info {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       gap: 2rem;
+
+//       .left {
+//         width: 32%;
+//       }
+
+//       .mid {
+//         width: 32%;
+//       }
+
+//       .right {
+//         width: 32%;
+//       }
+//     }
+
+//   }
+
+//   &__right {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+
+//     img {
+//       height: 200px;
+//       width: 200px;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 1000px) {
+//   .guardian {
+//     display: flex;
+//     flex-direction: column;
+
+//     label {
+//       font-size: smaller;
+//     }
+
+//     &__left {
+//       display: flex;
+//       flex-direction: column;
+//       width: 100%;
+
+//       .guardian-info {
+//         flex-direction: column;
+
+//         .left {
+//           width: 100%;
+//         }
+
+//         .mid {
+//           width: 100%;
+//         }
+
+//         .right {
+//           width: 100%;
+//         }
+//       }
+
+//       .relationship .relationship-to-applicant {
+//         flex-direction: column;
+
+//         .left {
+//           width: 100%;
+//         }
+
+//         .mid {
+//           width: 100%;
+//         }
+
+//         .right {
+//           width: 100%;
+//         }
+//       }
+
+//       .contact .contact-info {
+//         flex-direction: column;
+
+//         .left {
+//           width: 100%;
+//         }
+
+//         .mid {
+//           width: 100%;
+//         }
+
+//         .right {
+//           width: 100%;
+//         }
+//       }
+
+//     }
+//   }
+
+// }
+
+
 .guardian {
   display: grid;
   grid-template-columns: 60% 40%;
-  gap: 1rem;
 
+  div {
 
-  &__left {
-    width: 100%;
-
-    .guardian-info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 2rem;
-
-
-      .left {
-        width: 32%;
-      }
-
-      .mid {
-        width: 32%;
-      }
-
-      .right {
-        width: 32%;
-      }
+    form>* {
+      width: 100%;
     }
 
-    .contact-info {
+    form {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 2rem;
+      flex-direction: column;
+      gap: 0.5rem;
 
-      .left {
-        width: 32%;
+      .col-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
       }
 
-      .mid {
-        width: 32%;
-      }
+      .col-1 {
+        display: flex;
+        flex-direction: column;
 
-      .right {
-        width: 32%;
+        div {
+          width: 100%;
+        }
       }
     }
-
   }
 
-  &__right {
+  .profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,71 +172,4 @@
       width: 200px;
     }
   }
-}
-
-@media screen and (max-width: 1000px) {
-  .guardian {
-    display: flex;
-    flex-direction: column;
-
-    label {
-      font-size: smaller;
-    }
-
-    &__left {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-
-      .guardian-info {
-        flex-direction: column;
-
-        .left {
-          width: 100%;
-        }
-
-        .mid {
-          width: 100%;
-        }
-
-        .right {
-          width: 100%;
-        }
-      }
-
-      .relationship .relationship-to-applicant {
-        flex-direction: column;
-
-        .left {
-          width: 100%;
-        }
-
-        .mid {
-          width: 100%;
-        }
-
-        .right {
-          width: 100%;
-        }
-      }
-
-      .contact .contact-info {
-        flex-direction: column;
-
-        .left {
-          width: 100%;
-        }
-
-        .mid {
-          width: 100%;
-        }
-
-        .right {
-          width: 100%;
-        }
-      }
-
-    }
-  }
-
 }
