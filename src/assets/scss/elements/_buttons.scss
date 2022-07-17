@@ -15,4 +15,13 @@
     border: 1px solid $border-color;
     border-radius: 4px;
   }
+
+  &__ghost {
+    background-color: none;
+    border: none;
+  }
+}
+
+input[type="text"]:disabled {
+  background-color: white;
 }

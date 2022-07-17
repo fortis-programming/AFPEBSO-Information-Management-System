@@ -1,25 +1,31 @@
-<div class="guardian">
+<!-- <div class="guardian">
     <div class="guardian__left">
         <form class="cont1">
             <h6>Name of Guardian</h6>
             <div class="guardian-info">
                 <div class="left form-floating">
-                    <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_surname" name="guardian_surname" #guardian_surname="ngModel" placeholder=" ">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_surname"
+                        name="guardian_surname" #guardian_surname="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Surname</label>
                 </div>
                 <div class="mid form-floating">
-                    <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_firstName" name="guardian_firstName" #guardian_firstName="ngModel" placeholder=" ">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_firstName"
+                        name="guardian_firstName" #guardian_firstName="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">First Name</label>
                 </div>
                 <div class="right form-floating">
-                    <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_MiddleName" name="guardian_MiddleName" #guardian_MiddleName="ngModel" placeholder=" ">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_MiddleName"
+                        name="guardian_MiddleName" #guardian_MiddleName="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Middle Name</label>
                 </div>
             </div>
             <div class="relationship mt-4">
                 <div class="relationship-to-applicant">
                     <div class="form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_relationshipToApplicant" name="guardian_relationshipToApplicant" #guardian_relationshipToApplicant="ngModel" placeholder=" ">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.guardian_relationshipToApplicant"
+                            name="guardian_relationshipToApplicant" #guardian_relationshipToApplicant="ngModel"
+                            placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
                     </div>
                 </div>
@@ -28,11 +34,15 @@
                 <div class="address-info">
                     <h6 class="mt-4">Address</h6>
                     <div class="form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_currentAddress" name="guardian_currentAddress" #guardian_currentAddress="ngModel" placeholder=" ">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.guardian_currentAddress" name="guardian_currentAddress"
+                            #guardian_currentAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Current Mailing Address</label>
                     </div>
                     <div class="form-floating mt-4">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_provincialAddress" name="guardian_provincialAddress" #guardian_provincialAddress="ngModel" placeholder=" ">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.guardian_provincialAddress" name="guardian_provincialAddress"
+                            #guardian_provincialAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Provincial Address</label>
                     </div>
                 </div>
@@ -41,28 +51,108 @@
             <div class="contact">
                 <h6 class="mt-4">Contacts</h6>
                 <div class="contact-info">
-
                     <div class="left form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_phoneNo" name="guardian_phoneNo" #guardian_phoneNo="ngModel" placeholder=" ">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.guardian_phoneNo" name="guardian_phoneNo" #guardian_phoneNo="ngModel"
+                            placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Phone</label>
                     </div>
                     <div class="mid form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_cellPhoneNo" name="guardian_cellPhoneNo" #guardian_phoneNo="ngModel" placeholder=" ">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.guardian_cellPhoneNo" name="guardian_cellPhoneNo"
+                            #guardian_phoneNo="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Cell Phone</label>
                     </div>
                     <div class="right form-floating">
-                        <input type="user" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_emailAddress" name="guardian_emailAddress" #guardian_emailAddress="ngModel" placeholder=" ">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="grantee.guardian_emailAddress" name="guardian_emailAddress"
+                            #guardian_emailAddress="ngModel" placeholder=" " [disabled]="!edit">
                         <label for="floatingInput">Email</label>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    <div class="grantee__right">
-        <form class="cont2">
-            <img src="../../assets/images/AFPEBSO.png">
+    <div>
+        <form class="guardian__right d-flex flex-column py-2">
+            <img class="mb-4" src="../../assets/images/AFPEBSO.png">
             <h6> Signature of Applicant</h6>
             <h6> Signature of AFP / CAA Member or Guardian</h6>
         </form>
+    </div>
+</div> -->
+
+<div class="guardian">
+    <div>
+        <form>
+            <h6>Name of Guardian</h6>
+            <div class="col-3">
+                <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_surname"
+                        name="guardian_surname" #guardian_surname="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">Surname</label>
+                </div>
+                <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_firstName"
+                        name="guardian_firstName" #guardian_firstName="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">First Name</label>
+                </div>
+                <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_MiddleName"
+                        name="guardian_MiddleName" #guardian_MiddleName="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">Middle Name</label>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="grantee.guardian_relationshipToApplicant" name="guardian_relationshipToApplicant"
+                        #guardian_relationshipToApplicant="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
+                </div>
+            </div>
+            <div class="col-1 mt-3">
+                <h6>Address</h6>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="grantee.guardian_relationshipToApplicant" name="guardian_relationshipToApplicant"
+                        #guardian_relationshipToApplicant="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="grantee.guardian_provincialAddress" name="guardian_provincialAddress"
+                        #guardian_provincialAddress="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">Provincial Address</label>
+                </div>
+            </div>
+            <h6 class="mt-3">Contacts</h6>
+            <div class="col-3" style="margin-top: -8px;">
+                <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.guardian_phoneNo"
+                        name="guardian_phoneNo" #guardian_phoneNo="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">Phone</label>
+                </div>
+                <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="grantee.guardian_cellPhoneNo" name="guardian_cellPhoneNo"
+                        #guardian_phoneNo="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">Cell Phone</label>
+                </div>
+                <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="grantee.guardian_emailAddress" name="guardian_emailAddress"
+                        #guardian_emailAddress="ngModel" placeholder=" " [disabled]="!edit">
+                    <label for="floatingInput">Email</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <div class="profile d-flex flex-column py-2">
+            <img class="mb-4" src="../../assets/images/AFPEBSO.png">
+            <h6> Signature of Applicant</h6>
+            <h6> Signature of AFP / CAA Member or Guardian</h6>
+        </div>
     </div>
 </div>

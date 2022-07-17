@@ -74,6 +74,7 @@ export class GuardianComponent implements OnInit {
     dateReceived: '',
   };
 
+  edit = false;
   constructor(private granteesService: GranteesService) {}
 
   ngOnInit(): void {
