@@ -9,6 +9,7 @@ import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 })
 export class AfpMemberComponent implements OnInit {
   grantee: GranteeModel = {
+    profileUrl: '',
     date: '',
     id: '',
     area: '',
@@ -75,7 +76,7 @@ export class AfpMemberComponent implements OnInit {
   };
 
   edit = false;
-  constructor(private granteesService: GranteesService) {}
+  constructor(private granteesService: GranteesService) { }
 
   ngOnInit(): void {
     this.granteesService

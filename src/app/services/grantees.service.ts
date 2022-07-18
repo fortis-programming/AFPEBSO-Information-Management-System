@@ -3,17 +3,17 @@ import { BaseResponse } from '../_shared/models/responses/base.response';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 // FIREBASE IMPORTS AND CONFIGURATION
-import { firestoreInit } from './firebase.service';
+import { firestoreInit, storage } from './firebase.service';
 import {
   onSnapshot,
   deleteDoc,
   query,
   doc,
   collection,
-  where,
   getDoc,
 } from 'firebase/firestore';
 
+import { ref, getDownloadURL } from 'firebase/storage';
 
 @Injectable({
   providedIn: 'root',
@@ -58,5 +58,35 @@ export class GranteesService {
       }
     );
     return respose_data;
+  }
+
+  async getProfile(location: string): Promise<string> {
+    const response = new Promise<string>(
+      (resolve) => {
+        getDownloadURL(ref(storage, location))
+          .then((url) => {
+            // `url` is the download URL for 'images/stars.jpg'
+
+            // This can be downloaded directly:
+            const xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob';
+            xhr.onload = (event) => {
+              const blob = xhr.response;
+            };
+            xhr.open('GET', url);
+            xhr.send();
+
+            // Or inserted into an <img> element
+            // const img = document.getElementById('myimg');
+            // img.setAttribute('src', url);g
+            resolve(url);
+          })
+          .catch((error) => {
+            // Handle any errors
+            resolve('Document does not exist!')
+          });
+      }
+    );
+    return response
   }
 }

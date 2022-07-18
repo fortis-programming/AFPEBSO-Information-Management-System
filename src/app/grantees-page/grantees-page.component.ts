@@ -14,7 +14,7 @@ export class GranteesPageComponent implements OnInit {
     private headerService: HeaderService,
     private granteesService: GranteesService,
     private granteepageService: GranteesPageService
-  ) {}
+  ) { }
 
   granteesList: GranteeModel[] = [];
   ngOnInit(): void {

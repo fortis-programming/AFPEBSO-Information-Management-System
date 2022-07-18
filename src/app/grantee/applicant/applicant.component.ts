@@ -9,6 +9,7 @@ import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 })
 export class ApplicantComponent implements OnInit {
   grantee: GranteeModel = {
+    profileUrl: '',
     date: '',
     id: '',
     area: '',
@@ -79,9 +80,13 @@ export class ApplicantComponent implements OnInit {
     private granteesService: GranteesService
   ) { }
 
+  profileData = '';
   ngOnInit(): void {
     this.granteesService.getGranteeData(this.getCookie('_uid')).then((response) => {
       this.grantee = JSON.parse(JSON.stringify(response));
+      this.granteesService.getProfile(this.grantee.profileUrl).then((response) => {
+        this.profileData = response;
+      })
     })
   }
 
