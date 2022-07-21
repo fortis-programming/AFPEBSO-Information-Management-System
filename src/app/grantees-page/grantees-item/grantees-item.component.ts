@@ -68,6 +68,7 @@ export class GranteesItemComponent implements OnInit {
 
     signatureOfApplicant: '',
     signatureOfAfporGuardian: '',
+    profileUrl: '',
 
     nameOfAfpPersonnel: '',
     dateReceived: '',

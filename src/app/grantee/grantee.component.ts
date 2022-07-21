@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { GranteesPageService } from '../grantees-page/grantees-page.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
@@ -9,6 +9,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
 })
 export class GranteeComponent implements AfterViewChecked {
   granteeModel: GranteeModel = {
+    profileUrl: '',
     date: '',
     id: '',
     area: '',
@@ -77,6 +78,7 @@ export class GranteeComponent implements AfterViewChecked {
   constructor(
     private granteespageService: GranteesPageService
   ) { }
+
 
   ngAfterViewChecked(): void {
     setTimeout(() => {

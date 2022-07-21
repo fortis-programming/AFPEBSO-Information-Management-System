@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 // FIREBASE IMPORTS AND CONFIGURATION
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import { firebaseConfig } from 'src/environments/environment';
 import {
   collection,
