@@ -21,13 +21,14 @@
   &__grantees {
     display: flex;
     flex-direction: row;
-    border-top: 1px solid $border-color;
     align-items: center;
     gap: 0.5rem;
+    border-bottom: 1px solid whitesmoke;
+    border-top: 1px solid whitesmoke;
     color: $black;
 
     &:hover {
-      background-color: whitesmoke;
+      background-color: rgba(245, 245, 245, 0.432);
     }
 
     img {
@@ -38,14 +39,14 @@
 
     .user-information {
       display: flex;
-      flex-direction: column;  
-    
-      strong, small {
+      flex-direction: column;
+
+      strong,
+      small {
         cursor: default;
       }
     }
-   
+
   }
 
 }
-

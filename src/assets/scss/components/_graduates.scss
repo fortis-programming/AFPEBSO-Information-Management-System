@@ -4,13 +4,14 @@
   gap: 0.5rem;
 
   .searchbar {
-    display: grid;
-    grid-template-columns: 95% 5%;
-    width: 100%;
-    gap: 0.5rem;
+    display: flex;
+    flex: row;
+    align-items: center;
+    justify-content: space-between;
 
     .searchbar-box {
-      width: 100%;
+      width: 30%;
+      background-color: white;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -34,7 +35,7 @@
   }
 
   .add_btn {
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,8 +43,6 @@
     button {
       background-color: $primary-color;
       border: none;
-      height: 100%;
-      width: 80%;
       align-items: center;
       justify-content: center;
     }
@@ -62,7 +61,7 @@
   form {
     width: 100%;
 
-    
+
     .nameCourse-info {
       width: 100%;
       display: flex;
@@ -70,25 +69,28 @@
       align-items: center;
       gap: 2rem;
 
-      .left{
+      .left {
         width: 70%;
 
       }
-      .right{
+
+      .right {
         width: 30%;
       }
     }
-    .yearProgram-info{
+
+    .yearProgram-info {
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 2rem;
 
-      .left{
+      .left {
         width: 30%;
       }
-      .right{
+
+      .right {
         width: 70%;
       }
     }

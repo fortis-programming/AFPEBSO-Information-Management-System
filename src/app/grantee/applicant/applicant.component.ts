@@ -75,6 +75,7 @@ export class ApplicantComponent implements OnInit {
     dateReceived: '',
   };
 
+  // image/pic.jpg
   edit = false;
   constructor(
     private granteesService: GranteesService
@@ -83,8 +84,9 @@ export class ApplicantComponent implements OnInit {
   profileData = '';
   ngOnInit(): void {
     this.granteesService.getGranteeData(this.getCookie('_uid')).then((response) => {
-      this.grantee = JSON.parse(JSON.stringify(response));
+      this.grantee = JSON.parse(JSON.stringify(response)); // DATA
       this.granteesService.getProfile(this.grantee.profileUrl).then((response) => {
+        console.log(response);
         this.profileData = response;
       })
     })

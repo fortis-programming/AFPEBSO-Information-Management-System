@@ -5,9 +5,10 @@
   flex-direction: row;
   justify-content: space-between;
   color: $black;
+  padding: 0px 15px;
 }
 
-.header > * {
+.header>* {
   overflow: visible;
   z-index: 3;
 }
