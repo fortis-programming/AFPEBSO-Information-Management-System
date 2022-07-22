@@ -6,9 +6,10 @@ import { MainRoutingModule } from './main-routing.module';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, SidenavComponent],
+  declarations: [MainComponent, HeaderComponent, SidenavComponent, FooterComponent],
   imports: [CommonModule, MainRoutingModule, RouterModule],
 })
 export class MainModule {}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from 'src/app/main/header/header.service';
 import { GranteesService } from 'src/app/services/grantees.service';
 import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 
@@ -75,29 +76,21 @@ export class ApplicantComponent implements OnInit {
     dateReceived: '',
   };
 
+  // image/pic.jpg
   edit = false;
   constructor(
-    private granteesService: GranteesService
+    private granteesService: GranteesService,
+    private headerService: HeaderService
   ) { }
 
   profileData = '';
   ngOnInit(): void {
-    this.granteesService.getGranteeData(this.getCookie('_uid')).then((response) => {
-      this.grantee = JSON.parse(JSON.stringify(response));
+    this.headerService.setTitle('Information / Applicant')
+    this.granteesService.getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid')))).then((response) => {
+      this.grantee = JSON.parse(JSON.stringify(response)); // DATA
       this.granteesService.getProfile(this.grantee.profileUrl).then((response) => {
         this.profileData = response;
       })
-    })
-  }
-
-  getCookie(name: string): any {
-    var nameEQ = name + '=';
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
+    });
   }
 }

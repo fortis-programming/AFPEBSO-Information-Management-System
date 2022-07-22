@@ -6,11 +6,11 @@
           d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
           clip-rule="evenodd" />
       </svg>
-      <input type ="text" list="datalistOptions" id="exampleDataList" placeholder="Search" [(ngModel)]="search_input"
+      <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search" [(ngModel)]="search_input"
         (keyup)="filter()">
     </div>
   </div>
-  <main class="py-2">
+  <main class="py-2 mt-3 rounded" *ngIf="filteredData.length > 0">
     <app-grantees-item *ngFor="let grantee of filteredData" [grantee]="grantee"></app-grantees-item>
   </main>
 </div>

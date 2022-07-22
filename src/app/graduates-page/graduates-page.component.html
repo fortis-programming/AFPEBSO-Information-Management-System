@@ -9,19 +9,15 @@
       <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
     </div>
     <div class="add_btn">
-      <button class="btns__btn-icons d-flex flex-row" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+      <button class="btns btns__primary d-flex flex-row" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
         data-toggle="tooltip" data-placement="right" title="Add">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-            clip-rule="evenodd" />
-        </svg>
+        <small>Add graduate</small>
       </button>
     </div>
 
   </div>
   <main class="py-2">
-    <app-graduates-item *ngFor="let graduates of graduateList"></app-graduates-item>
+    <!-- <app-graduates-item *ngFor="let graduates of graduateList"></app-graduates-item> -->
   </main>
 </div>
 

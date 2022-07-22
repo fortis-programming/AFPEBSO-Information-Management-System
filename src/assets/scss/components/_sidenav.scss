@@ -34,8 +34,7 @@
         }
       }
 
-      .active,
-      &:active {
+      .active {
         color: $primary-color;
         background-color: #459a8f13;
 
@@ -50,15 +49,19 @@
         visibility: hidden;
         max-width: fit-content;
         margin-bottom: 38px;
+
         p {
           display: none;
         }
       }
+
       .nav-items {
         min-width: fit-content;
         margin-bottom: 2px;
+
         div {
           max-width: fit-content;
+
           label {
             display: none;
           }

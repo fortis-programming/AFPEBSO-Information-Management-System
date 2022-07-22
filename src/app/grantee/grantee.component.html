@@ -1,6 +1,6 @@
-<div class="grantee">
+<div class="grantee p-3 rounded">
   <div class="grantee__header">
-    <div class="d-flex flex-row gap-2">
+    <div class="">
       <div class="btns__ghost" routerLink="../grantees">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
@@ -8,9 +8,6 @@
             clip-rule="evenodd" />
         </svg>
       </div>
-      <h5>
-        Information
-      </h5>
     </div>
     <div class="nav">
       <nav class="nav nav-pills">
@@ -28,14 +25,40 @@
             </svg>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" >Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete record</a></li>
+            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button></li>
+            <li><button class="dropdown-item">Delete record</button></li>
           </ul>
         </div>
       </nav>
     </div>
   </div>
   <main class="py-4">
-    <router-outlet></router-outlet>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="p-2">
+      <div class="profile">
+        <img class="mb-4" src="{{profileData}}">
+        <h6> Signature of Applicant</h6>
+        <h6> Signature of AFP / CAA Member or Guardian</h6>
+      </div>
+    </div>
   </main>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update grantee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btns btns__primary">Update</button>
+      </div>
+    </div>
+  </div>
 </div>

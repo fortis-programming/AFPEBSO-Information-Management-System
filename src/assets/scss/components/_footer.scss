@@ -1,0 +1,12 @@
+.footer {
+  background-color: whitesmoke;
+  padding: 15px;
+  color: indigo;
+}
+
+@media screen and (max-width: 999px) {
+  .footer {
+    display: flex;
+    justify-content: center;
+  }
+}

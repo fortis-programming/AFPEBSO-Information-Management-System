@@ -1,5 +1,7 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { GranteesPageService } from '../grantees-page/grantees-page.service';
+import { HeaderService } from '../main/header/header.service';
+import { GranteesService } from '../services/grantees.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
@@ -7,7 +9,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   templateUrl: './grantee.component.html',
   styleUrls: ['./grantee.component.scss'],
 })
-export class GranteeComponent implements AfterViewChecked {
+export class GranteeComponent implements OnInit, AfterViewChecked {
   granteeModel: GranteeModel = {
     profileUrl: '',
     date: '',
@@ -76,8 +78,19 @@ export class GranteeComponent implements AfterViewChecked {
   };
 
   constructor(
-    private granteespageService: GranteesPageService
+    private granteespageService: GranteesPageService,
+    private granteesService: GranteesService
   ) { }
+
+  profileData = '';
+  ngOnInit(): void {
+    this.granteesService.getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid')))).then((response) => {
+      this.granteeModel = JSON.parse(JSON.stringify(response)); // DATA
+      this.granteesService.getProfile(this.granteeModel.profileUrl).then((response) => {
+        this.profileData = response;
+      })
+    })
+  }
 
 
   ngAfterViewChecked(): void {
