@@ -77,6 +77,7 @@ export class GranteesItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    document.cookie = "_uid=" + (this.grantee.id || "") + "; SameSite=None; Secure";
+    localStorage.setItem('_uid', this.grantee.id);
+    // document.cookie = "_uid=" + (this.grantee.id || "") + "; SameSite=None; Secure";
   }
 }

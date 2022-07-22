@@ -27,15 +27,14 @@ export class LoginPageComponent implements OnInit {
   loginUser(): void {
     this.processing = true;
     this.authenticationService.signInUser(this.loginRequest).then((response) => {
-      console.log(response);
-      (response === "auth/invalid-email" || response === "auth/wrong-password")? this.showMessage = true :  this.router.navigateByUrl('app');
+      (response === "auth/invalid-email" || response === "auth/wrong-password") ? this.showMessage = true : this.router.navigateByUrl('app');
       this.processing = false;
     }).catch((error) => {
       console.log(error);
       this.processing = false;
     });
   }
-  
+
   hasError(formControl: any): boolean {
     return formControl.invalid && (formControl.dirty || formControl.touched)
   }
