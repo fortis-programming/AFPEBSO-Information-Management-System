@@ -2,13 +2,17 @@
   display: grid;
   grid-template-columns: 60% 40%;
 
+  button {
+    padding: 15px;
+  }
+
   &__left {
     background-image: url('../../images/login-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     position: relative;
-    
+
     div {
       position: absolute;
       left: 50%;
@@ -52,14 +56,16 @@
 
     form {
       min-width: 350px;
-      
+
       button {
         width: 100%;
       }
-      .loginMessage{
+
+      .loginMessage {
         display: flex;
         flex-direction: row;
-        svg{
+
+        svg {
           width: 17px;
           margin-right: 7px;
         }
@@ -68,7 +74,7 @@
   }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
   .login {
     display: flex;
     flex-direction: column;

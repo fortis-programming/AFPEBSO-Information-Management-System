@@ -2,91 +2,93 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  
-    .searchbar {
-      display: grid;
-    grid-template-columns: 95% 5%;
+
+  .searchbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 100%;
     gap: 0.5rem;
-  
-      .searchbar-box {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border: 1px solid $border-color;
-        border-radius: 4px;
-        padding: 8px;
-        gap: 0.5rem;
-      }
-  
-      svg {
-        height: 25px;
-        width: 2em;
-        display: flex;
-      }
-  
-      input {
-        width: 100%;
-        border: none;
-        outline: none;
-      }
+    align-items: center;
+
+    .searchbar-box {
+      width: 30%;
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      padding: 8px;
+      gap: 0.5rem;
     }
-  
-    .add_btn {
+
+    svg {
+      height: 25px;
+      width: 2em;
+      display: flex;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .add_btn {
+    width: auto;
+    height: auto;
+
+    button {
+      background-color: $primary-color;
+      height: auto;
+    }
+
+    svg {
+      width: 50px;
+      color: white;
+    }
+
+  }
+
+}
+
+.modal-body {
+  form {
+    width: 100%;
+
+    .stakeholderAndImplentation-info {
       width: 100%;
       display: flex;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-  
-      button{
-        background-color: $primary-color;
-        border: none;
-        height: 100%;
-        width: 80%;
-        align-items: center;
-        justify-content: center;
+      gap: 2rem;
+
+      .left {
+        width: 70%;
+
       }
-      svg{
-        width: 50px;
-        color: white;
+
+      .right {
+        width: 30%;
       }
-      
     }
-  
-  }
-  .modal-body {
-    form {
+
+    .statusAndReniewal-info {
       width: 100%;
-      
-      .stakeholderAndImplentation-info {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
-  
-        .left{
-          width: 70%;
-  
-        }
-        .right{
-          width: 30%;
-        }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+
+      .left {
+        width: 30%;
       }
-      .statusAndReniewal-info{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
-  
-        .left{
-          width: 30%;
-        }
-        .right{
-          width: 70%;
-        }
+
+      .right {
+        width: 70%;
       }
     }
   }
+}
