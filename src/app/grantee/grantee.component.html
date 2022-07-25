@@ -1,4 +1,4 @@
-<div class="grantee p-3 rounded">
+<div class="grantee p-3 rounded" *ngIf="!loading">
   <div class="grantee__header">
     <div class="">
       <div class="btns__ghost" routerLink="../grantees">
@@ -36,6 +36,7 @@
     <div>
       <router-outlet></router-outlet>
     </div>
+
     <div class="p-2">
       <div class="profile">
         <img class="mb-4" src="{{profileData}}">
@@ -45,20 +46,379 @@
     </div>
   </main>
 </div>
+<app-loading *ngIf="loading"></app-loading>
 
+<!-- MODAL -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog  modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Update grantee</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="applicantInformation">
+          <h6>INFORMATION OF APPLICANT</h6>
+          <div class="applicant-info">
+            <div class="grid-section">
+              <div class="firstApplicant-info">
+                <div class="col1">
+                  <form>
+                    <div class="left form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.area"
+                        name="area" #area="ngModel" placeholder=" ">
+                      <label for="floatingInput">Area</label>
+                    </div>
+                    <div class="right form-floating">
+                      <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="granteeModel.relationship_to_afp_member" name="relationshipToAfpMember"
+                        #relationshipToAfpMember="ngModel" placeholder=" ">
+                      <label for="floatingInput">Relationship to AFP / CAA Member</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="col2 py-2 d-flex flex-column">
+                  <h6>Name of the Applicant</h6>
+                  <form>
+                    <div class="left form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.surname"
+                        name="surname" #surname="ngModel" placeholder=" ">
+                      <label for="floatingInput">Surname</label>
+                    </div>
+                    <div class="mid form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.firstname"
+                        name="firstname" #firstname="ngModel" placeholder=" ">
+                      <label for="floatingInput">First Name</label>
+                    </div>
+                    <div class="right form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.middlename"
+                        name="middlename" #middlename="ngModel" placeholder=" ">
+                      <label for="floatingInput">Middle Name</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="py-2 d-flex flex-column">
+                  <h6>Address</h6>
+                  <form>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="granteeModel.currentAddress" name="currentAddress" #currentAddress="ngModel"
+                        placeholder=" ">
+                      <label for="floatingInput">Current Mailing Address</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                      <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="granteeModel.provincialAddress" name="provincialAddress"
+                        #provincialAddress="ngModel" placeholder=" ">
+                      <label for="floatingInput">Provincial Address</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="col2 py-2">
+                  <h6>Contact</h6>
+                  <form>
+                    <div class="left form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.phoneNumber"
+                        name="phoneNumber" #phoneNumber="ngModel" placeholder=" ">
+                      <label for="floatingInput">Phone</label>
+                    </div>
+                    <div class="mid form-floating">
+                      <input type="text" class="form-control" id="floatingInput"
+                        [(ngModel)]="granteeModel.cellphoneNumber" name="cellPhoneNumber" #cellPhoneNumber="ngModel"
+                        placeholder=" ">
+                      <label for="floatingInput">Cell Phone</label>
+                    </div>
+                    <div class="right form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.emailAddress"
+                        name="emailAddress" #emailAddress="ngModel" placeholder=" ">
+                      <label for="floatingInput">Email</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="col1 py-2 d-flex flex-column mt-2">
+                  <form>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.birthDate"
+                        name="birthDate" #birthDate="ngModel" placeholder=" ">
+                      <label for="floatingInput">Date of Birth</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.birthPlace"
+                        name="birthPlace" #birthPlace="ngModel" placeholder=" ">
+                      <label for="floatingInput">Place of Birth</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <form class="profile d-flex flex-column py-2">
+                <img class="mb-4" src="{{profileData}}">
+                <h6> Signature of Applicant</h6>
+                <h6> Signature of AFP / CAA Member or Guardian</h6>
+              </form>
+            </div>
+            <div class="secondApplicant-info py-4 mt-2">
+              <div class="col2 py-2">
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.sex" name="sex"
+                      #sex="ngModel" placeholder=" ">
+                    <label for="floatingInput">Sex</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.civilStatus"
+                      name="civilStatus" #civilStatus="ngModel" placeholder=" ">
+                    <label for="floatingInput">Civil Status</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.religion"
+                      name="religion" #religion="ngModel" placeholder=" ">
+                    <label for="floatingInput">Religion</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col2 py-2">
+                <h6>Education</h6>
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.schoolIntendedToEnrollIn" name="schoolIntendedToEnrollIn"
+                      #schoolIntendedToEnrollIn="ngModel" placeholder=" ">
+                    <label for="floatingInput">School Intended to Enroll In</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.schoolAddress"
+                      name="schoolAddress" #schoolAddress="ngModel" placeholder=" ">
+                    <label for="floatingInput">School Address</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.educationLevel"
+                      name="educationLevel" #educationLevel="ngModel" placeholder=" ">
+                    <label for="floatingInput">Educational Level</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col1 py-2">
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.yearLevel"
+                      name="yearLevel" #yearLevel="ngModel" placeholder=" ">
+                    <label for="floatingInput">Year Level</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.course"
+                      name="course" #course="ngModel" placeholder=" ">
+                    <label for="floatingInput">Course</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="afpInformation mt-2 py-4">
+          <h6>INFORMATION OF AFP / CAA MEMBER</h6>
+          <div class="col2 py-2">
+            <h6>Name</h6>
+            <form>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_surname"
+                  name="afp_surname" #afp_surname="ngModel" placeholder=" ">
+                <label for="floatingInput">Surname</label>
+              </div>
+              <div class="mid form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_firstname"
+                  name="afp_firstname" #afp_firstname="ngModel" placeholder=" ">
+                <label for="floatingInput">First Name</label>
+              </div>
+              <div class="right form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_middleInitial"
+                  name="afp_middleInitial" #afp_middleInitial="ngModel" placeholder=" ">
+                <label for="floatingInput">Middle Initial</label>
+              </div>
+            </form>
+          </div>
+          <div class="form-floating mt-2">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_militaryStatus"
+              name="afp_militaryStatus" #afp_militaryStatus="ngModel" placeholder=" ">
+            <label for="floatingInput">Military Status</label>
+          </div>
+          <div class="col1 py-2 mt-2">
+            <form>
+              <div class="left form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_date_of_death"
+                  name="afp_date_of_death" #afp_date_of_death="ngModel" placeholder=" ">
+                <label for="floatingInput">Date of Death / CDD</label>
+              </div>
+              <div class="right form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_unitAssignment"
+                  name="afp_unitAssignment" #afp_unitAssignment="ngModel" placeholder=" ">
+                <label for="floatingInput">PRESENT (for active) or LAST (for CDD) UNIT ASSIGNMENT</label>
+              </div>
+            </form>
+          </div>
+          <div class="form-floating mt-2">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_currentAddress"
+              name="afp_currentAddress" #afp_currentAddress="ngModel" placeholder=" ">
+            <label for="floatingInput">Address</label>
+          </div>
+          <div class="col2 py-2">
+            <h6>Contacts</h6>
+            <form>
+              <div class="left form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_phoneNo"
+                  name="afp_phoneNo" #afp_phoneNo="ngModel" placeholder=" ">
+                <label for="floatingInput">Phone</label>
+              </div>
+              <div class="mid form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_cellPhoneNo"
+                  name="afp_cellPhoneNo" #afp_cellPhoneNo="ngModel" placeholder=" ">
+                <label for="floatingInput">Cell Phone</label>
+              </div>
+              <div class="right form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_emailAddress"
+                  name="afp_emailAddress" #afp_emailAddress="ngModel" placeholder=" ">
+                <label for="floatingInput">Email</label>
+              </div>
+            </form>
+          </div>
+          <div class="col1 py-2">
+            <form>
+              <div class="left form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_birthDate"
+                  name="afp_birthDate" #afp_birthDate="ngModel" placeholder=" ">
+                <label for="floatingInput">Date of Birth</label>
+              </div>
+              <div class="right form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_birthPlace"
+                  name="afp_birthPlace" #afp_birthPlace="ngModel" placeholder=" ">
+                <label for="floatingInput">Place of Birth</label>
+              </div>
+            </form>
+          </div>
+          <div class="col2 py-2">
+            <form>
+              <div class="left form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_sex"
+                  name="afp_sex" #afp_sex="ngModel" placeholder=" ">
+                <label for="floatingInput">Sex</label>
+              </div>
+              <div class="mid form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_civilStatus"
+                  name="afp_civilStatus" #afp_civilStatus="ngModel" placeholder=" ">
+                <label for="floatingInput">Civil Status</label>
+              </div>
+              <div class="right form-floating">
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="granteeModel.afp_nrOfDependents"
+                  name="afp_nrOfDependents" #afp_nrOfDependents="ngModel" placeholder=" ">
+                <label for="floatingInput">NR. OF DEPENDENTS</label>
+              </div>
+            </form>
+            <div class="col3 py-2">
+              <form>
+                <div class="left">
+                  <h6>Name of Legal Dependents</h6>
+                  <label></label>
+                </div>
+
+                <div class="mid">
+                  <h6>Date of Birth</h6>
+                  <label></label>
+                </div>
+
+                <div class="mid2">
+                  <h6>Yr. Level</h6>
+                  <label></label>
+                </div>
+
+                <div class="left">
+                  <h6>Educational Program Availed</h6>
+                  <label></label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="guardian-info mt-2">
+          <h6>INFORMATIONS OF APPLICANT'S GUARDIAN</h6>
+          <div>
+            <form>
+              <h6 class="mt-4">Name of Guardian</h6>
+              <div class="col2 py-2">
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_surname" name="guardian_surname" #guardian_surname="ngModel"
+                      placeholder=" ">
+                    <label for="floatingInput">Surname</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_firstName" name="guardian_firstName"
+                      #guardian_firstName="ngModel" placeholder=" ">
+                    <label for="floatingInput">First Name</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_MiddleName" name="guardian_MiddleName"
+                      #guardian_MiddleName="ngModel" placeholder=" ">
+                    <label for="floatingInput">Middle Name</label>
+                  </div>
+                </form>
+              </div>
+              <div class="form-floating mt-2">
+                <input type="text" class="form-control" id="floatingInput"
+                  [(ngModel)]="granteeModel.guardian_relationshipToApplicant" name="guardian_relationshipToApplicant"
+                  #guardian_relationshipToApplicant="ngModel" placeholder=" ">
+                <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
+              </div>
+              <div class="col1 mt-3">
+                <h6>Address</h6>
+                <form>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_currentAddress" name="guardian_currentAddress"
+                      #guardian_currentAddress="ngModel" placeholder=" ">
+                    <label for="floatingInput">Current Mailing Address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_provincialAddress" name="guardian_provincialAddress"
+                      #guardian_provincialAddress="ngModel" placeholder=" ">
+                    <label for="floatingInput">Provincial Address</label>
+                  </div>
+                </form>
+              </div>
+              <h6 class="mt-3">Contacts</h6>
+              <div class="col2" style="margin-top: -8px;">
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_phoneNo" name="guardian_phoneNo" #guardian_phoneNo="ngModel"
+                      placeholder=" ">
+                    <label for="floatingInput">Phone</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_cellPhoneNo" name="guardian_cellPhoneNo"
+                      #guardian_cellPhoneNo="ngModel" placeholder=" ">
+                    <label for="floatingInput">Cell Phone</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput"
+                      [(ngModel)]="granteeModel.guardian_emailAddress" name="guardian_emailAddress"
+                      #guardian_emailAddress="ngModel" placeholder=" ">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </form>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer py-1 mt-2">
+          <button type="button" (click)="updateGrantee()" class="btns btns__primary" data-bs-dismiss="modal"
+            aria-label="Close">Update</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btns btns__primary">Update</button>
-      </div>
+
     </div>
   </div>
 </div>

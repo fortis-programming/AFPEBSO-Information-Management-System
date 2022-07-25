@@ -24,14 +24,16 @@
             <div class="grid-section">
               <div class="firstApplicant-info">
                 <div class="col1">
-                  <div class="left form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                    <label for="floatingInput">Area</label>
-                  </div>
-                  <div class="right form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                    <label for="floatingInput">Relationship to AFP / CAA Member</label>
-                  </div>
+                  <form>
+                    <div class="left form-floating">
+                      <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                      <label for="floatingInput">Area</label>
+                    </div>
+                    <div class="right form-floating">
+                      <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                      <label for="floatingInput">Relationship to AFP / CAA Member</label>
+                    </div>
+                  </form>
                 </div>
                 <div class="col2 py-2 d-flex flex-column">
                   <h6>Name of the Applicant</h6>
@@ -50,20 +52,20 @@
                     </div>
                   </form>
                 </div>
-                <div class="col3 py-2 d-flex flex-column">
+                <div class="py-2 d-flex flex-column">
                   <h6>Address</h6>
                   <form>
                     <div class="form-floating">
                       <input type="text" class="form-control" id="floatingInput" placeholder=" ">
                       <label for="floatingInput">Current Mailing Address</label>
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating mt-2">
                       <input type="text" class="form-control" id="floatingInput" placeholder=" ">
                       <label for="floatingInput">Provincial Address</label>
                     </div>
                   </form>
                 </div>
-                <div class="col4 py-2">
+                <div class="col2 py-2">
                   <h6>Contact</h6>
                   <form>
                     <div class="left form-floating">
@@ -80,7 +82,7 @@
                     </div>
                   </form>
                 </div>
-                <div class="col5 py-2 d-flex flex-column mt-4">
+                <div class="col1 py-2 d-flex flex-column mt-2">
                   <form>
                     <div class="form-floating">
                       <input type="text" class="form-control" id="floatingInput" placeholder=" ">
@@ -99,8 +101,8 @@
                 <h6> Signature of AFP / CAA Member or Guardian</h6>
               </form>
             </div>
-            <div class="secondApplicant-info mt-2">
-              <div class="col4 py-2">
+            <div class="secondApplicant-info py-4 mt-2">
+              <div class="col2 py-2">
                 <form>
                   <div class="left form-floating">
                     <input type="text" class="form-control" id="floatingInput" placeholder=" ">
@@ -116,7 +118,7 @@
                   </div>
                 </form>
               </div>
-              <div class="col3 py-2">
+              <div class="col2 py-2">
                 <h6>Education</h6>
                 <form>
                   <div class="left form-floating">
@@ -148,9 +150,9 @@
             </div>
           </div>
         </div>
-        <div class="afpInformation mt-5">
+        <div class="afpInformation mt-2 py-4">
           <h6>INFORMATION OF AFP / CAA MEMBER</h6>
-          <div class="col4 py-2">
+          <div class="col2 py-2">
             <h6>Name</h6>
             <form>
               <div class="form-floating">
@@ -187,7 +189,7 @@
             <input type="text" class="form-control" id="floatingInput" placeholder=" ">
             <label for="floatingInput">Address</label>
           </div>
-          <div class="col4 py-2">
+          <div class="col2 py-2">
             <h6>Contacts</h6>
             <form>
               <div class="left form-floating">
@@ -216,7 +218,7 @@
               </div>
             </form>
           </div>
-          <div class="col4 py-2">
+          <div class="col2 py-2">
             <form>
               <div class="left form-floating">
                 <input type="text" class="form-control" id="floatingInput" placeholder=" ">
@@ -231,7 +233,7 @@
                 <label for="floatingInput">NR. OF DEPENDENTS</label>
               </div>
             </form>
-            <div class="col6 py-2">
+            <div class="col3 py-2">
               <form>
                 <div class="left">
                   <h6>Name of Legal Dependents</h6>
@@ -256,61 +258,65 @@
             </div>
           </div>
         </div>
-        <div class="guardian-info mt-5">
+        <div class="guardian-info mt-2">
           <h6>INFORMATIONS OF APPLICANT'S GUARDIAN</h6>
           <div>
             <form>
-              <h6 >Name of Guardian</h6>
-              <div class="col-3">
-                <div class="left form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">Surname</label>
-                </div>
-                <div class="mid form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">First Name</label>
-                </div>
-                <div class="right form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">Middle Name</label>
-                </div>
+              <h6 class = "mt-4">Name of Guardian</h6>
+              <div class="col2 py-2">
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Surname</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">First Name</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Middle Name</label>
+                  </div>
+                </form>
               </div>
-              <div class="col-1">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
-                </div>
+              <div class="form-floating mt-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
               </div>
-              <div class="col-1 mt-3">
+              <div class="col1 mt-3">
                 <h6>Address</h6>
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
-                </div>
-                <div class="form-floating mt-2">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">Provincial Address</label>
-                </div>
+                <form>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Current Mailing Address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Provincial Address</label>
+                  </div>
+                </form>
               </div>
               <h6 class="mt-3">Contacts</h6>
-              <div class="col-3" style="margin-top: -8px;">
-                <div class="left form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">Phone</label>
-                </div>
-                <div class="mid form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">Cell Phone</label>
-                </div>
-                <div class="right form-floating">
-                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-                  <label for="floatingInput">Email</label>
-                </div>
+              <div class="col2" style="margin-top: -8px;">
+                <form>
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Phone</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Cell Phone</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </form>
               </div>
             </form>
           </div>
         </div>
-        <div class="modal-footer py-1">
+        <div class="modal-footer py-1 mt-2">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Understood</button>
         </div>

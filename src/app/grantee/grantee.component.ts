@@ -1,8 +1,10 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GranteesPageService } from '../grantees-page/grantees-page.service';
-import { HeaderService } from '../main/header/header.service';
 import { GranteesService } from '../services/grantees.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-grantee',
@@ -11,6 +13,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
 })
 export class GranteeComponent implements OnInit, AfterViewChecked {
   granteeModel: GranteeModel = {
+    status: false,
     profileUrl: '',
     date: '',
     id: '',
@@ -79,11 +82,23 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private granteespageService: GranteesPageService,
-    private granteesService: GranteesService
-  ) { }
+    private granteesService: GranteesService,
+    private router: Router
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   profileData = '';
   ngOnInit(): void {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 500);
+    this.loadData();
+  }
+
+  loading = false;
+  loadData(): void {
     this.granteesService.getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid')))).then((response) => {
       this.granteeModel = JSON.parse(JSON.stringify(response)); // DATA
       this.granteesService.getProfile(this.granteeModel.profileUrl).then((response) => {
@@ -92,6 +107,21 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
     })
   }
 
+  updateGrantee(): void {
+    this.granteesService.updateProfile(JSON.parse(JSON.stringify(localStorage.getItem('_uid'))), this.granteeModel).then((response) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Grantee update successful',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        location.reload();
+      })
+    }).catch((er) => {
+      console.log(er);
+    })
+  }
 
   ngAfterViewChecked(): void {
     setTimeout(() => {

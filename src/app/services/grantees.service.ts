@@ -11,6 +11,8 @@ import {
   doc,
   collection,
   getDoc,
+  updateDoc,
+  where,
 } from 'firebase/firestore';
 
 import { ref, getDownloadURL } from 'firebase/storage';
@@ -24,7 +26,7 @@ export class GranteesService {
   async getGranteesData(): Promise<BaseResponse<GranteeModel[]>> {
     const response_data = new Promise<BaseResponse<GranteeModel[]>>(
       (resolve) => {
-        const q = query(collection(firestoreInit, 'Grantees'));
+        const q = query(collection(firestoreInit, 'Grantees'), where('status', '==', true));
         onSnapshot(q, (snapshot) => {
           let data: GranteeModel[] = [];
           snapshot.forEach((docData: any) => {
@@ -88,5 +90,16 @@ export class GranteesService {
       }
     );
     return response
+  }
+
+  async updateProfile(id: string, data: GranteeModel): Promise<Boolean> {
+    const response = new Promise<Boolean>(
+      async (resolve) => {
+        await updateDoc(doc(firestoreInit, 'Grantees', id), JSON.parse(JSON.stringify(data))).then(() => {
+          resolve(true)
+        });
+      }
+    );
+    return response;
   }
 }

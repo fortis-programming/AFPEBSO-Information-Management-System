@@ -6,7 +6,7 @@
           d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
           clip-rule="evenodd" />
       </svg>
-      <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
+      <input type="text" [(ngModel)]="search" (keyup)="loadDataWithFilter()" id="exampleDataList" placeholder="Search">
     </div>
     <div class="add_btn">
       <button class="btns btns__primary d-flex flex-row" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
@@ -16,8 +16,29 @@
     </div>
 
   </div>
-  <main class="py-2">
-    <!-- <app-graduates-item *ngFor="let graduates of graduateList"></app-graduates-item> -->
+  <main class="p-3 rounded">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Year Graduated</th>
+        <th>School</th>
+        <th>Program</th>
+      </tr>
+      <tbody *ngIf="graduateList.length > 0">
+        <tr *ngFor="let graduate of graduateList">
+          <td>{{ graduate.name }}</td>
+          <td>{{ graduate.course }}</td>
+          <td>{{ graduate.yearGraduated }}</td>
+          <td>{{ graduate.school }}</td>
+          <td>{{ graduate.program }}</td>
+        </tr>
+        <!-- <app-graduates-item *ngFor="let graduates of graduateList" [graduateModel]="graduates"></app-graduates-item> -->
+      </tbody>
+    </table>
+    <div *ngIf="graduateList.length === 0" class="d-flex justify-content-center">
+      <p>Graduate not found</p>
+    </div>
   </main>
 </div>
 
@@ -30,37 +51,48 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #graduateForm="ngForm">
           <div class="nameCourse-info">
             <div class="left form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-              <label for="floatingInput">Full Name</label>
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.name" name="name"
+                #name="ngModel" placeholder=" " required>
+              <label for="floatingInput" *ngIf="!hasError(name)">Full Name</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(name)">Full name is required</label>
             </div>
             <div class="right form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-              <label for="floatingInput">Course</label>
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.course"
+                name="course" #course="ngModel" placeholder=" " required>
+              <label for="floatingInput" *ngIf="!hasError(course)">Course</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(course)">Course is required</label>
             </div>
           </div>
           <div class="yearProgram-info mt-4">
             <div class="left form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-              <label for="floatingInput">Year Grduated</label>
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.yearGraduated"
+                name="yearGraduated" #yearGraduated="ngModel" placeholder=" " required>
+              <label for="floatingInput" *ngIf="!hasError(yearGraduated)">Year Graduated</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(yearGraduated)">Year Graduated is
+                required</label>
             </div>
             <div class="right form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-              <label for="floatingInput">Program</label>
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.program"
+                name="program" #program="ngModel" placeholder=" " required>
+              <label for="floatingInput" *ngIf="!hasError(program)">Program</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(program)">Program is required</label>
             </div>
           </div>
           <div class="form-floating mt-4">
-            <input type="text" class="form-control" id="floatingInput" placeholder=" ">
-            <label for="floatingInput">School</label>
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.school" name="school"
+              #school="ngModel" placeholder=" " required>
+            <label for="floatingInput" *ngIf="!hasError(school)">School</label>
+            <label for="floatingInput" class="warning" *ngIf="hasError(school)">School is required</label>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btns btns__primary py-2">Submit</button>
+        <button type="button" (click)="addGraduate()" class="btns btns__primary py-2"
+          [disabled]="!graduateForm.valid">Submit</button>
       </div>
     </div>
   </div>
 </div>
-<app-graduate></app-graduate>
