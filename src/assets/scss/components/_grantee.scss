@@ -22,6 +22,13 @@
     }
   }
 
+  @media screen and (max-width: 999px) {
+    main {
+      display: flex;
+      flex-direction: column-reverse
+    }
+  }
+
   &__header {
     display: flex;
     flex-direction: row;
@@ -157,10 +164,14 @@
     align-items: center;
 
   }
-  .secondApplicant-info, .afpInformation, .guardian-info{
+
+  .secondApplicant-info,
+  .afpInformation,
+  .guardian-info {
     border-bottom: 1px solid $border-color;
   }
-  .profile{
+
+  .profile {
     display: flex;
     align-items: center;
   }
@@ -180,8 +191,9 @@
       gap: 0.5rem;
     }
   }
-  .col3{
-    form{
+
+  .col3 {
+    form {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0.5rem;
