@@ -11,12 +11,12 @@
     </div>
   </div>
   <div class="login__right">
-    <form #loginForm="ngForm">
+    <form #loginForm="ngForm" (ngSubmit)="loginUser()">
       <div class="banner mb-4">
         <h4>Login</h4>
       </div>
       <div class="form-floating mb-3">
-        <input type="user" class="form-control" id="floatingInput" placeholder="name@example.com"
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
           [(ngModel)]="loginRequest.username" name="username" #username="ngModel" required>
         <label for="floatingInput" *ngIf="!hasError(username)">Username</label>
         <label class="warning" for="floatinInput" *ngIf="hasError(username) && username.errors?.['required']">Username
@@ -39,7 +39,7 @@
               clip-rule="evenodd" />
           </svg>Oops! Username or password is incorrect</small>
       </div>
-      <button *ngIf="!processing" (click)="loginUser()" class="btns btns__primary mt-4" type="button"
+      <button *ngIf="!processing" class="btns btns__primary mt-4" type="submit"
         [disabled]="!loginForm.valid">Login</button>
       <div class="d-flex justify-content-center mt-4 pt-1" *ngIf="processing">
         <div class="spinner-border text-primary" role="status">

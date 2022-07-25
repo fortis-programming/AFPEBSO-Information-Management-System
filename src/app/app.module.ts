@@ -23,8 +23,6 @@ import { ApplicantComponent } from './grantee/applicant/applicant.component';
 import { AfpMemberComponent } from './grantee/afp-member/afp-member.component';
 import { GuardianComponent } from './grantee/guardian/guardian.component';
 import { EmptyStateComponent } from './empty-state/empty-state.component';
-import { GraduatesItemComponent } from './graduates-page/graduates-item/graduates-item.component';
-import { GraduateComponent } from './graduate/graduate.component';
 import { StakeholderComponent } from './stakeholder/stakeholder.component';
 import { LoadingComponent } from './loading/loading.component';
 
@@ -46,8 +44,6 @@ import { LoadingComponent } from './loading/loading.component';
     AfpMemberComponent,
     GuardianComponent,
     EmptyStateComponent,
-    GraduatesItemComponent,
-    GraduateComponent,
     StakeholderComponent,
     LoadingComponent
   ],

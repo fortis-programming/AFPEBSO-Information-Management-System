@@ -10,6 +10,7 @@ import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 })
 export class GuardianComponent implements OnInit {
   grantee: GranteeModel = {
+    status: false,
     profileUrl: '',
     date: '',
     id: '',
