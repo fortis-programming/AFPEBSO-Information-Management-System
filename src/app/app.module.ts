@@ -26,7 +26,7 @@ import { EmptyStateComponent } from './empty-state/empty-state.component';
 import { GraduatesItemComponent } from './graduates-page/graduates-item/graduates-item.component';
 import { GraduateComponent } from './graduate/graduate.component';
 import { StakeholderComponent } from './stakeholder/stakeholder.component';
-
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { StakeholderComponent } from './stakeholder/stakeholder.component';
     EmptyStateComponent,
     GraduatesItemComponent,
     GraduateComponent,
-    StakeholderComponent
+    StakeholderComponent,
+    LoadingComponent
   ],
   imports: [
     AppRoutingModule,

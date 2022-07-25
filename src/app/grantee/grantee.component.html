@@ -1,4 +1,4 @@
-<div class="grantee p-3 rounded">
+<div class="grantee p-3 rounded" *ngIf="!loading">
   <div class="grantee__header">
     <div class="">
       <div class="btns__ghost" routerLink="../grantees">
@@ -36,6 +36,7 @@
     <div>
       <router-outlet></router-outlet>
     </div>
+
     <div class="p-2">
       <div class="profile">
         <img class="mb-4" src="{{profileData}}">
@@ -45,7 +46,9 @@
     </div>
   </main>
 </div>
+<app-loading *ngIf="loading"></app-loading>
 
+<!-- MODAL -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-scrollable">
     <div class="modal-content">
@@ -148,7 +151,7 @@
                 </div>
               </div>
               <form class="profile d-flex flex-column py-2">
-                <img class="mb-4">
+                <img class="mb-4" src="{{profileData}}">
                 <h6> Signature of Applicant</h6>
                 <h6> Signature of AFP / CAA Member or Guardian</h6>
               </form>
@@ -411,7 +414,8 @@
           </div>
         </div>
         <div class="modal-footer py-1 mt-2">
-          <button type="button" class="btns btns__primary">Update</button>
+          <button type="button" (click)="updateGrantee()" class="btns btns__primary" data-bs-dismiss="modal"
+            aria-label="Close">Update</button>
         </div>
       </div>
 

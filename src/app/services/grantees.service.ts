@@ -11,6 +11,7 @@ import {
   doc,
   collection,
   getDoc,
+  updateDoc,
 } from 'firebase/firestore';
 
 import { ref, getDownloadURL } from 'firebase/storage';
@@ -88,5 +89,16 @@ export class GranteesService {
       }
     );
     return response
+  }
+
+  async updateProfile(id: string, data: GranteeModel): Promise<Boolean> {
+    const response = new Promise<Boolean>(
+      async (resolve) => {
+        await updateDoc(doc(firestoreInit, 'Grantees', id), JSON.parse(JSON.stringify(data))).then(() => {
+          resolve(true)
+        });
+      }
+    );
+    return response;
   }
 }
