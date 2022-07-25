@@ -8,6 +8,7 @@ import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 })
 export class GranteesItemComponent implements OnInit {
   @Input() grantee: GranteeModel = {
+    status: false,
     date: '',
     id: '',
     area: '',

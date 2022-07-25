@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class GranteeComponent implements OnInit, AfterViewChecked {
   granteeModel: GranteeModel = {
+    status: false,
     profileUrl: '',
     date: '',
     id: '',
@@ -92,7 +93,7 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-    }, 2000);
+    }, 500);
     this.loadData();
   }
 
@@ -110,7 +111,8 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
     this.granteesService.updateProfile(JSON.parse(JSON.stringify(localStorage.getItem('_uid'))), this.granteeModel).then((response) => {
       Swal.fire({
         icon: 'success',
-        title: 'Grantee update successful',
+        title: 'Success',
+        text: 'Grantee update successful',
         showConfirmButton: false,
         timer: 1500
       }).then(() => {

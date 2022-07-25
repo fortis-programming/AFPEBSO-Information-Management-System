@@ -11,6 +11,7 @@ import {
   getFirestore,
   onSnapshot,
   query,
+  addDoc
 } from 'firebase/firestore';
 import { BaseResponse } from '../_shared/models/responses/base.response';
 import { GraduatesModels } from '../_shared/models/graduates.models';
@@ -61,5 +62,16 @@ export class GraduatesService {
       }
     );
     return respose_data;
+  }
+
+  async addGraduate(data: GraduatesModels): Promise<boolean> {
+    const response = new Promise<boolean>(
+      async (resolve) => {
+        await addDoc(collection(firestoreInit, 'Graduates'), data).then(() => {
+          resolve(true)
+        });
+      }
+    );
+    return response
   }
 }
