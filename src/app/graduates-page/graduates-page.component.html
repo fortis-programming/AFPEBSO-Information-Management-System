@@ -44,48 +44,56 @@
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog s">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Information</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div class="mb-3 py-2">
+          <small>
+            <i class="secondary-text">* Please fill the required fields to add graduate.</i>
+          </small>
+        </div>
         <form #graduateForm="ngForm">
-          <div class="nameCourse-info">
-            <div class="left form-floating">
+          <div class="col-2">
+            <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.name" name="name"
                 #name="ngModel" placeholder=" " required>
               <label for="floatingInput" *ngIf="!hasError(name)">Full Name</label>
               <label for="floatingInput" class="warning" *ngIf="hasError(name)">Full name is required</label>
             </div>
-            <div class="right form-floating">
-              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.course"
-                name="course" #course="ngModel" placeholder=" " required>
-              <label for="floatingInput" *ngIf="!hasError(course)">Course</label>
-              <label for="floatingInput" class="warning" *ngIf="hasError(course)">Course is required</label>
-            </div>
           </div>
-          <div class="yearProgram-info mt-4">
-            <div class="left form-floating">
+          <div>
+            <select class="form-select" [(ngModel)]="graduateModel.program" name="program" #program="ngModel"
+              aria-label="Default select example">
+              <option *ngFor="let program of programs" [ngValue]="[program.program]" selected>{{program.program}}
+              </option>
+            </select>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.yearGraduated"
                 name="yearGraduated" #yearGraduated="ngModel" placeholder=" " required>
               <label for="floatingInput" *ngIf="!hasError(yearGraduated)">Year Graduated</label>
               <label for="floatingInput" class="warning" *ngIf="hasError(yearGraduated)">Year Graduated is
                 required</label>
             </div>
-            <div class="right form-floating">
-              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.program"
-                name="program" #program="ngModel" placeholder=" " required>
-              <label for="floatingInput" *ngIf="!hasError(program)">Program</label>
-              <label for="floatingInput" class="warning" *ngIf="hasError(program)">Program is required</label>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.course"
+                name="course" #course="ngModel" placeholder=" " required>
+              <label for="floatingInput" *ngIf="!hasError(course)">Course</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(course)">Course is required</label>
             </div>
           </div>
-          <div class="form-floating mt-4">
-            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.school" name="school"
-              #school="ngModel" placeholder=" " required>
-            <label for="floatingInput" *ngIf="!hasError(school)">School</label>
-            <label for="floatingInput" class="warning" *ngIf="hasError(school)">School is required</label>
+          <div>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.school"
+                name="school" #school="ngModel" placeholder=" " required>
+              <label for="floatingInput" *ngIf="!hasError(school)">School</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(school)">School is required</label>
+            </div>
           </div>
         </form>
       </div>
