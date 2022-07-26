@@ -23,8 +23,20 @@
     border: none;
     outline: none;
   }
+}
 
-  .modal-body {
+@media screen and (max-width: 999px) {
+  .modal-body main {
+    display: flex;
+    flex-direction: column-reverse;
+
+  }
+}
+
+
+
+.modal-body {
+  main {
     div {
       width: 100%;
     }
@@ -40,13 +52,13 @@
       align-items: center;
 
     }
-    .secondApplicant-info, .afpInformation, .guardian-info{
+
+    .secondApplicant-info,
+    .afpInformation,
+    .guardian-info {
       border-bottom: 1px solid $border-color;
     }
-    .profile{
-      display: flex;
-      align-items: center;
-    }
+
 
     .col1 {
       form {
@@ -63,13 +75,26 @@
         gap: 0.5rem;
       }
     }
-    .col3{
-      form{
+
+    .col3 {
+      form {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
       }
     }
-  }
 
+    .profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      img {
+        height: 200px;
+        width: 200px;
+      }
+    }
+  }
 }
