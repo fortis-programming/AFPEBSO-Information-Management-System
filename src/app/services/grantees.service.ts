@@ -26,7 +26,7 @@ export class GranteesService {
   async getGranteesData(): Promise<BaseResponse<GranteeModel[]>> {
     const response_data = new Promise<BaseResponse<GranteeModel[]>>(
       (resolve) => {
-        const q = query(collection(firestoreInit, 'Grantees'), where('status', '==', true));
+        const q = query(collection(firestoreInit, 'Grantees'), where('status', '==', 'Pending'));
         onSnapshot(q, (snapshot) => {
           let data: GranteeModel[] = [];
           snapshot.forEach((docData: any) => {
