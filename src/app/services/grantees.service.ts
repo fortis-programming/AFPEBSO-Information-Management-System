@@ -23,10 +23,10 @@ import { ref, getDownloadURL } from 'firebase/storage';
 export class GranteesService {
   constructor() { }
 
-  async getGranteesData(): Promise<BaseResponse<GranteeModel[]>> {
+  async getGranteesData(status: string): Promise<BaseResponse<GranteeModel[]>> {
     const response_data = new Promise<BaseResponse<GranteeModel[]>>(
       (resolve) => {
-        const q = query(collection(firestoreInit, 'Grantees'), where('status', '==', 'Pending'));
+        const q = query(collection(firestoreInit, 'Grantees'), where('status', '==', status));
         onSnapshot(q, (snapshot) => {
           let data: GranteeModel[] = [];
           snapshot.forEach((docData: any) => {

@@ -1,6 +1,7 @@
 export interface GranteeModel {
   //information of applicant
-  status: boolean;
+  status: string;
+  dateSubmitted: string;
   date: string;
   id: string;
   area: string;

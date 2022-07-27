@@ -23,6 +23,22 @@
     border: none;
     outline: none;
   }
+
+  .applicant-container {
+    background-color: white;
+
+    table {
+      border-collapse: collapse;
+
+      tr {
+        td {}
+
+        th {
+          padding: 8px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 999px) {
