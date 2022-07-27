@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class GranteeComponent implements OnInit, AfterViewChecked {
   granteeModel: GranteeModel = {
-    status: false,
+    dateSubmitted: '',
+    status: '',
     profileUrl: '',
     date: '',
     id: '',
