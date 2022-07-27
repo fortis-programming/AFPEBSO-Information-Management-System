@@ -10,6 +10,13 @@
         (keyup)="filter()">
     </div>
   </div>
+  <div class="initialMessage mt-4" *ngIf="filteredData.length === 0 && search_input == ''">
+    <div class="initialMessagePic">
+      <img src="../../assets/images/searchGrantee.png">
+    </div>
+      <p>Search to display Grantees</p>
+    
+  </div>
   <main class="py-2 mt-3 rounded" *ngIf="filteredData.length > 0">
     <app-grantees-item *ngFor="let grantee of filteredData" [grantee]="grantee"></app-grantees-item>
   </main>
