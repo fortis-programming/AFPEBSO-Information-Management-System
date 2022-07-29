@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: () => import('./main/main.module').then((m) => m.MainModule),
+    canActivate: [AuthGuardService]
   },
 ];
 
@@ -24,4 +26,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes, { useHash: true })],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
