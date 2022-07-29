@@ -24,3 +24,14 @@
   }
 
 }
+
+.deliberation-item {
+  background-color: white !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  .status {
+    color: green;
+  }
+}

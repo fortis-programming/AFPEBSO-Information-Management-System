@@ -12,7 +12,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./graduates-page.component.scss']
 })
 export class GraduatesPageComponent implements OnInit {
-
+  programs = [
+    {
+      id: 1,
+      program: 'RA 6963'
+    },
+    {
+      id: 2,
+      program: 'MBAI SGTI (Regular)'
+    },
+    {
+      id: 3,
+      program: 'UNTV'
+    },
+    {
+      id: 4,
+      program: 'HERO (stipend only)'
+    },
+    {
+      id: 5,
+      program: 'PVAO'
+    }
+  ];
   graduateList: GraduatesModels[] = [];
   search = '';
 

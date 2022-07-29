@@ -1,15 +1,336 @@
 <div class="applicant">
-    <div class="searchbar">
-        <div class="search-box">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd" />
-            </svg>
-            <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
+  <div class="searchbar">
+    <div class="search-box">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          clip-rule="evenodd" />
+      </svg>
+      <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
+    </div>
+  </div>
+  <div class="applicant-container mt-2 rounded">
+    <!-- <app-applicant-item *ngFor="let grantee of granteeList" [grantee]="grantee"></app-applicant-item> -->
+    <table class="table table-hover">
+      <tr class="py-1">
+        <th>Name</th>
+        <th>Date of submission</th>
+        <th></th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let grantee of granteeList">
+          <td>
+            <strong>
+              {{ grantee.surname +', '+ grantee.firstname + ' ' + grantee.middlename }}
+            </strong>
+          </td>
+          <td>
+            {{ grantee.dateSubmitted | date: 'fullDate' }}
+          </td>
+          <td>
+            <div class="float-end">
+              <button class="application-state__Pending">Review Application</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="applicantInformation">
+          <h6>INFORMATION OF APPLICANT</h6>
+          <div class="applicant-info">
+            <div class="wrapper">
+              <div class="col-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Area</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Relationship to AFP / CAA Member</label>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Name of the Applicant</h6>
+                <div class="col-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Surname</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">First Name</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Middle Name</label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Address</h6>
+                <div class="gap-3 d-flex flex-column">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Current Mailing Address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Provincial Address</label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Contact</h6>
+                <div class="col-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Phone</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Cell Phone</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Date of Birth</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Place of Birth</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="wrapper profile">
+                <img class="mb-4">
+                <h6> Signature of Applicant</h6>
+                <h6> Signature of AFP / CAA Member or Guardian</h6>
+              </div>
+            </div>
+          </div>
+          <div class="secondApplicant-info mt-3">
+            <div class="wrapper">
+              <div class="col-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Sex</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Civil Status</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Religion</label>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Education</h6>
+                <div class="col-3">
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">School Intended to Enroll In</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">School Address</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Educational Level</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="left form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Year Level</label>
+                </div>
+                <div class="mid form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Course</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="afp-info mt-5">
+            <div class="wrapper">
+              <h6>INFORMATION OF AFP / CAA MEMBER</h6>
+              <div class="col-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Surname</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">First Name</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Middle Initial</label>
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                <label for="floatingInput">Military Status</label>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Date of Death / CDD</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">PRESENT (for active) or LAST (for CDD) UNIT
+                    ASSIGNMENT</label>
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                <label for="floatingInput">Address</label>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Contacts</h6>
+                <div class="col-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Phone</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Cell Phone</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Date of Birth</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Place of Birth</label>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Sex</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Civil Status</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">NR. OF DEPENDENTS</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="nameOfLegalDepedents">
+                  <h6>Name of Legal Dependents</h6>
+                  <label></label>
+                </div>
+
+                <div class="dateOfBirth">
+                  <h6>Date of Birth</h6>
+                  <label></label>
+                </div>
+
+                <div class="yrLevel">
+                  <h6>Yr. Level</h6>
+                  <label></label>
+                </div>
+
+                <div class="educationalProgramAvailed">
+                  <h6>Educational Program Availed</h6>
+                  <label></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="guardian-info mt-5">
+            <div class="wrapper">
+              <h6>INFORMATIONS OF APPLICANT'S GUARDIAN</h6>
+              <div class="col-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Surname</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">First Name</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                  <label for="floatingInput">Middle Name</label>
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Address</h6>
+                <div class="gap-3 d-flex flex-column">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Current Mailing Address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Provincial Address</label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <h6>Contacts</h6>
+                <div class="col-3">
+                  <div class="left form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Phone</label>
+                  </div>
+                  <div class="mid form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Cell Phone</label>
+                  </div>
+                  <div class="right form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" ">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="modal-footer py-1 mt-2">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
     </div>
-    <div class="applicant-page mt-2">
-        <app-applicant-item></app-applicant-item>
-    </div>
+  </div>
 </div>

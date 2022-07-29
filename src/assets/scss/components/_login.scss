@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 .login {
   display: grid;
   grid-template-columns: 60% 40%;
 
   button {
-    padding: 15px;
+    padding: 12px;
   }
 
   &__left {
@@ -30,7 +32,7 @@
 
       h1 {
         color: white;
-        font-family: brush script MT;
+        font-family: 'Dancing Script', cursive;
       }
 
       span {

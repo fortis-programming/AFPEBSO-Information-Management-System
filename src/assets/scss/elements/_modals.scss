@@ -2,6 +2,27 @@
   min-width: 80% !important;
 }
 
+.s {
+  min-width: 40% !important;
+}
+
 .modal-content {
   height: 92vh;
+}
+
+.form-select {
+  padding: 10px;
+}
+
+.form-floating,
+.form-select {
+
+  .form-control {
+    height: 45px;
+  }
+
+  label {
+    margin-top: -2px;
+  }
+
 }

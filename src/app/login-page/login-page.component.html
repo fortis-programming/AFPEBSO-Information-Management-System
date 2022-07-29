@@ -17,7 +17,8 @@
       </div>
       <div class="form-floating mb-3">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
-          [(ngModel)]="loginRequest.username" name="username" #username="ngModel" required>
+          [(ngModel)]="loginRequest.username" name="username" #username="ngModel"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
         <label for="floatingInput" *ngIf="!hasError(username)">Username</label>
         <label class="warning" for="floatinInput" *ngIf="hasError(username) && username.errors?.['required']">Username
           is

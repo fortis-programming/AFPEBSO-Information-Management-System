@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderService } from 'src/app/main/header/header.service';
-import { GranteesService } from 'src/app/services/grantees.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 
 @Component({
-  selector: 'app-applicant',
-  templateUrl: './applicant.component.html',
-  styleUrls: ['./applicant.component.scss'],
+  selector: 'app-deliberation-item',
+  templateUrl: './deliberation-item.component.html',
+  styleUrls: ['./deliberation-item.component.scss']
 })
-export class ApplicantComponent implements OnInit {
-  grantee: GranteeModel = {
+export class DeliberationItemComponent implements OnInit {
+  @Input() grantee: GranteeModel = {
     dateSubmitted: '',
     status: '',
-    profileUrl: '',
     date: '',
     id: '',
     area: '',
@@ -73,26 +70,23 @@ export class ApplicantComponent implements OnInit {
 
     signatureOfApplicant: '',
     signatureOfAfporGuardian: '',
+    profileUrl: '',
 
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
 
-  // image/pic.jpg
-  edit = false;
-  constructor(
-    private granteesService: GranteesService,
-    private headerService: HeaderService
-  ) { }
+  constructor() { }
 
-  profileData = '';
   ngOnInit(): void {
-    this.headerService.setTitle('Information / Applicant')
-    this.granteesService.getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid')))).then((response) => {
-      this.grantee = JSON.parse(JSON.stringify(response)); // DATA
-      this.granteesService.getProfile(this.grantee.profileUrl).then((response) => {
-        this.profileData = response;
-      })
-    });
+  }
+
+  status = 'Accepted';
+  changeReturnStatus(status: string): void {
+    this.status = status;
+  }
+
+  returnApplication(): void {
+    alert('Will return it as ' + this.status);
   }
 }
