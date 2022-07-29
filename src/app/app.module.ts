@@ -25,6 +25,7 @@ import { GuardianComponent } from './grantee/guardian/guardian.component';
 import { EmptyStateComponent } from './empty-state/empty-state.component';
 import { StakeholderComponent } from './stakeholder/stakeholder.component';
 import { LoadingComponent } from './loading/loading.component';
+import { DeliberationItemComponent } from './deliberation-page/deliberation-item/deliberation-item.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LoadingComponent } from './loading/loading.component';
     GuardianComponent,
     EmptyStateComponent,
     StakeholderComponent,
-    LoadingComponent
+    LoadingComponent,
+    DeliberationItemComponent
   ],
   imports: [
     AppRoutingModule,
