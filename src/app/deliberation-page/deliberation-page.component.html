@@ -9,4 +9,44 @@
             <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
         </div>
     </div>
+    <h4 class="mb-3 mt-3">Applicant(s)</h4>
+    <div class="deliberation-container rounded">
+        <!-- <table class="table table-hover">
+            <tr class="py-1">
+                <th>Name</th>
+                <th>Date of submission</th>
+                <th></th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let grantee of granteeList">
+                    <td>
+                        <strong>
+                            {{ grantee.surname +', '+ grantee.firstname + ' ' + grantee.middlename }}
+                        </strong>
+                    </td>
+                    <td>
+                        {{ grantee.dateSubmitted | date: 'fullDate' }}
+                    </td>
+                    <td>
+                        <div class="float-end">
+                            <button class="application-state__Deliberation">Review Application</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+        <div class="deliberation-item p-2 px-3" style="background-color: transparent !important;">
+            <div>
+                <strong>
+                    Name
+                </strong>
+            </div>
+            <div>
+                <span>Status</span>
+            </div>
+            <div>
+            </div>
+        </div>
+        <app-deliberation-item *ngFor="let grantee of granteeList" [grantee]="grantee"></app-deliberation-item>
+    </div>
 </div>

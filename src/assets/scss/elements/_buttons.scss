@@ -2,12 +2,20 @@
   padding: 8px 12px;
   outline: none;
   border-radius: 4px;
-  font-size: 0.955rem;
+  font-size: 0.895rem;
 
   &__primary {
     background-color: $primary-color;
     color: white;
     border: none;
+    font-size: 0.895rem;
+  }
+
+  &__danger {
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 0.895rem;
   }
 
   &__btn-icons {

@@ -31,10 +31,14 @@
       border-collapse: collapse;
 
       tr {
-        td {}
+        td {
+          color: $black;
+        }
 
         th {
           padding: 8px;
+          font-size: 0.80rem;
+          color: $secondary-color;
         }
       }
     }

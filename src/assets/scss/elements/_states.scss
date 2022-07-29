@@ -6,3 +6,26 @@
   display: flex;
   padding: 8px;
 }
+
+
+.application-state {
+  &__Pending {
+    border: none;
+    color: $primary-color;
+    background-color: transparent;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+
+  &__Deliberation {
+    border: none;
+    color: blue;
+    background-color: transparent;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}

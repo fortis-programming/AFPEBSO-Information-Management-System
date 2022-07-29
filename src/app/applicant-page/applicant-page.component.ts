@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../main/header/header.service';
 import { GranteesService } from '../services/grantees.service';
@@ -25,9 +24,5 @@ export class ApplicantPageComponent implements OnInit {
     this.granteeService.getGranteesData('Pending').then((result) => {
       this.granteeList = JSON.parse(JSON.stringify(result));
     })
-  }
-
-  convertToDate(date: string): any {
-    return new DatePipe(date);
   }
 }

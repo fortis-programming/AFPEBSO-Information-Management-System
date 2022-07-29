@@ -1,0 +1,26 @@
+<div class="deliberation-item p-2 px-3">
+       <div>
+              <strong>
+                     {{ grantee.surname +', '+ grantee.firstname +' '+ grantee.middlename}}
+              </strong>
+       </div>
+       <div class="status">
+              <span>Pending</span>
+       </div>
+       <div>
+              <div class="btn-group float-end">
+                     <button type="button" (click)="returnApplication()"
+                            [ngClass]="status == 'Accepted' ? 'btn btns__primary' : 'btn btns__danger'">{{
+                            status }}</button>
+                     <button type="button"
+                            [ngClass]="status == 'Accepted' ? 'btn btns__primary dropdown-toggle dropdown-toggle-split' : 'btn btns__danger dropdown-toggle dropdown-toggle-split'"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                     </button>
+                     <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" (click)="changeReturnStatus('Accepted')">Accept</a></li>
+                            <li><a class="dropdown-item" (click)="changeReturnStatus('Rejected')">Rejected</a></li>
+                     </ul>
+              </div>
+       </div>
+</div>
