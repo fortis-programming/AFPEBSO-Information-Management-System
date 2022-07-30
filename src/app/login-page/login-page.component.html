@@ -10,8 +10,9 @@
       </span>
     </div>
   </div>
+
   <div class="login__right">
-    <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+    <form #loginForm="ngForm">
       <div class="banner mb-4">
         <h4>Login</h4>
       </div>
@@ -40,13 +41,14 @@
               clip-rule="evenodd" />
           </svg>Oops! Username or password is incorrect</small>
       </div>
-      <button *ngIf="!processing" class="btns btns__primary mt-4" type="submit"
+      <button *ngIf="!processing" (click)="loginUser()" class="btns btns__primary mt-4" type="submit"
         [disabled]="!loginForm.valid">Login</button>
       <div class="d-flex justify-content-center mt-4 pt-1" *ngIf="processing">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
+      <button class="btns btns__register mt-2" routerLink="../registration">Register</button>
     </form>
   </div>
 </div>
