@@ -10,31 +10,18 @@
     </div>
   </div>
   <div class="applicant-container mt-2 rounded">
-    <!-- <app-applicant-item *ngFor="let grantee of granteeList" [grantee]="grantee"></app-applicant-item> -->
-    <table class="table table-hover">
-      <tr class="py-1">
-        <th>Name</th>
-        <th>Date of submission</th>
-        <th></th>
-      </tr>
-      <tbody>
-        <tr *ngFor="let grantee of granteeList">
-          <td>
-            <strong>
-              {{ grantee.surname +', '+ grantee.firstname + ' ' + grantee.middlename }}
-            </strong>
-          </td>
-          <td>
-            {{ grantee.dateSubmitted | date: 'fullDate' }}
-          </td>
-          <td>
-            <div class="float-end">
-              <button class="application-state__Pending">Review Application</button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="cards__grantees p-2 px-3" style="background-color: transparent !important;">
+      <div>
+        <strong>Name</strong>
+      </div>
+      <div>
+        <span>Date submitted</span>
+      </div>
+      <div>
+
+      </div>
+    </div>
+    <app-applicant-item *ngFor="let grantee of granteeList" [grantee]="grantee"></app-applicant-item>
   </div>
 </div>
 

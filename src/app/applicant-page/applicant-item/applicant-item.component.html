@@ -1,14 +1,15 @@
-<div class="cards__grantees p-2" routerLink="grantee/12" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  <img
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKlV66ovJanDLtJx-0AuXshi_z9NrBPB-KW0llzaPXUWhRRQ4GKMFKUc3Uthx_6IMMwVU&usqp=CAU">
-  <span class="user-information">
-    <strong>{{ grantee.surname + ', ' + grantee.firstname + ' ' + grantee.middlename}}</strong>
-    <small>email</small>
-
-  </span>
+<div class="cards__grantees p-2 px-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <div>
+    <strong>{{ grantee.surname +', '+ grantee.firstname +' '+ grantee.surname }}</strong>
+  </div>
+  <div>
+    <span>{{ grantee.dateSubmitted | date: 'fullDate' }}</span>
+  </div>
+  <div>
+    <button class="btn btns__ghost-primary float-end">Review Application</button>
+  </div>
 </div>
 
-<<<<<<< Updated upstream
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -324,5 +325,3 @@
       </div>
     </div>
   </div>
-=======
->>>>>>> Stashed changes

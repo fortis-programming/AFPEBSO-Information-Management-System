@@ -24,25 +24,7 @@
     outline: none;
   }
 
-  .applicant-container {
-    background-color: white;
-
-    table {
-      border-collapse: collapse;
-
-      tr {
-        td {
-          color: $black;
-        }
-
-        th {
-          padding: 8px;
-          font-size: 0.80rem;
-          color: $secondary-color;
-        }
-      }
-    }
-  }
+  .applicant-container {}
 }
 
 @media screen and (max-width: 999px) {

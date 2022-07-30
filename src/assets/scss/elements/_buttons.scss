@@ -24,6 +24,19 @@
     border-radius: 4px;
   }
 
+  &__ghost-primary {
+    background-color: transparent;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    color: $primary-color;
+    font-size: 0.895rem;
+
+    &:hover {
+      color: white;
+      background-color: $primary-color;
+    }
+  }
+
   &__ghost {
     background-color: none;
     border: none;

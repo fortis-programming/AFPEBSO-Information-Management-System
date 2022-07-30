@@ -19,34 +19,10 @@
   }
 
   &__grantees {
-    display: flex;
-    flex-direction: row;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid whitesmoke;
-    border-top: 1px solid whitesmoke;
-    color: $black;
-
-    &:hover {
-      background-color: rgba(245, 245, 245, 0.432);
-    }
-
-    img {
-      height: 40px;
-      width: 40px;
-      border-radius: 4px;
-    }
-
-    .user-information {
-      display: flex;
-      flex-direction: column;
-
-      strong,
-      small {
-        cursor: default;
-      }
-    }
-
   }
 
 }

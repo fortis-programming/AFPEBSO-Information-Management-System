@@ -66,9 +66,9 @@
             </div>
           </div>
           <div>
-            <select class="form-select" [(ngModel)]="graduateModel.program" name="program" #program="ngModel"
-              aria-label="Default select example">
-              <option *ngFor="let program of programs" [ngValue]="[program.program]" selected>{{program.program}}
+            <select class="form-select" aria-label="Default select example" (change)="changeProgram($event.target)">
+              <option [ngValue]="null" disabled selected>Select a program</option>
+              <option *ngFor="let program of programs" [ngValue]="[program.program]">{{program.program}}
               </option>
             </select>
           </div>
