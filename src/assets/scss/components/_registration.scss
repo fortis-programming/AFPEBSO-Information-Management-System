@@ -1,0 +1,112 @@
+.registration {
+    .header {
+        border: none;
+
+        .btns {
+            &__ghost {
+                height: auto;
+                align-items: center;
+                padding: 8px;
+                min-width: 30px !important;
+                border-radius: 50%;
+                display: flex;
+
+                &:hover {
+                    background-color: whitesmoke !important;
+                    cursor: pointer;
+                }
+
+                svg {
+                    margin: auto !important;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        max-width: 1500px;
+        margin: 0 auto;
+
+        .applicantInformation {
+            display: flex;
+            flex-direction: column;
+
+            .box {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                .button-section {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .applicant-info {
+                    margin: 3em 3em 3em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .col-2 {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1rem;
+                    }
+
+                    .col-3 {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 1rem;
+                    }
+                }
+
+                .afp-info {
+                    margin: 3em 3em 3em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .col-2 {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1rem;
+                    }
+
+                    .col-3 {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 1rem;
+                    }
+                }
+
+                .guardian-info {
+                    margin: 3em 3em 3em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .col-2 {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1rem;
+                    }
+
+                    .col-3 {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
