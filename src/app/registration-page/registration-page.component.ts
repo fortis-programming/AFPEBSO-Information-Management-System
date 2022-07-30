@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { RegistrationService } from '../services/registration.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
@@ -8,7 +10,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
 })
 export class RegistrationPageComponent implements OnInit {
   step = 0;
-  registration: GranteeModel = {
+  registrationModel: GranteeModel = {
     dateSubmitted: '',
     status: '',
     profileUrl: '',
@@ -77,9 +79,25 @@ export class RegistrationPageComponent implements OnInit {
     dateReceived: '',
   };
 
-  constructor() { }
+  constructor(
+    private registrationService: RegistrationService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  addApplicants(): void {
+    this.registrationService.addApplicants(this.registrationModel).then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'You have successfully added applicant',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        location.reload();
+      })
+    });
   }
 
 }
