@@ -34,6 +34,7 @@ export class GraduatesPageComponent implements OnInit {
       program: 'PVAO'
     }
   ];
+
   graduateList: GraduatesModels[] = [];
   search = '';
 
@@ -62,6 +63,7 @@ export class GraduatesPageComponent implements OnInit {
   loadData(): void {
     this.graduateService.getGraduatesData().then((response) => {
       this.graduateList = JSON.parse(JSON.stringify(response));
+      console.log(response)
     });
   }
 
@@ -78,6 +80,10 @@ export class GraduatesPageComponent implements OnInit {
     yearGraduated: '',
     school: '',
     program: '',
+  }
+
+  changeProgram(selected: any): void {
+    this.graduateModel.program = selected.value;
   }
 
   addGraduate(): void {
