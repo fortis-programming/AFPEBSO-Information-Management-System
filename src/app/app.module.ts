@@ -26,6 +26,8 @@ import { EmptyStateComponent } from './empty-state/empty-state.component';
 import { StakeholderComponent } from './stakeholder/stakeholder.component';
 import { LoadingComponent } from './loading/loading.component';
 import { DeliberationItemComponent } from './deliberation-page/deliberation-item/deliberation-item.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { DeliberationItemComponent } from './deliberation-page/deliberation-item
     EmptyStateComponent,
     StakeholderComponent,
     LoadingComponent,
-    DeliberationItemComponent
+    DeliberationItemComponent,
+    RegistrationPageComponent
   ],
   imports: [
     AppRoutingModule,

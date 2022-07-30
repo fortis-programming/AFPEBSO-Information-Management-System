@@ -12,6 +12,8 @@ import { route as StakeholdersRoute } from '../stakeholders-page/stakeholders-pa
 import { route as DeliberationRoute } from '../deliberation-page/deliberation-route.module';
 import { route as GranteeRoute } from '../grantee/grantee-route.module';
 
+
+
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +30,7 @@ const routes: Routes = [
       ...GraduatesRoute,
       ...StakeholdersRoute,
       ...DeliberationRoute,
-      ...GranteeRoute
+      ...GranteeRoute,
     ]
   }
 ];
