@@ -4,6 +4,7 @@ import { ProfileService } from '../services/profile.service';
 import { UsersModel } from '../_shared/models/users.model';
 
 import Swal from 'sweetalert2';
+import { ChangePasswordRequest } from '../_shared/models/requests/changepassword.requests';
 
 @Component({
   selector: 'app-profile',
@@ -35,49 +36,27 @@ export class ProfileComponent implements OnInit {
   }
 
   update = false;
-  updatePassword(): void {
-    // Swal.fire({
-    //   title: 'Update Password',
-    //   text: 'Please enter your password to proceed.',
-    //   showConfirmButton: true,
-    //   showCancelButton: true,
-    //   html: '<input id="swal-input1" class="swal2-input">' +
-    //     '<input id="swal-input2" class="swal2-input">',
-    //   confirmButtonText: 'Proceed',
-    //   confirmButtonColor: '#459A8E',
-    //   preConfirm: (inputValue) => {
-    //     if (inputValue == null || inputValue == '') {
-    //       Swal.fire({
-    //         icon: 'warning',
-    //         title: 'Current password is required',
-    //         text: 'Are you sure you want to update your password?',
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //         timerProgressBar: true
-    //       })
-    //     } else {
-    //       Swal.fire({
-    //         title: 'Update Password' + inputValue,
-    //         text: 'Are you sure you want to update your password?',
-    //         showConfirmButton: true,
-    //         showCancelButton: true,
-    //         input: 'password',
-    //         inputPlaceholder: 'Enter your current password',
-    //       })
-    //     }
-    //   }
-    // }).then((inputValue) => {
+  passwordRequest: ChangePasswordRequest = {
+    oldPassword: '',
+    newPassword: ''
+  }
 
-    // })
-    // Swal.fire({
-    //   title: "An input!",
-    //   text: "Write something interesting:",
-    //   type: "input",
-    //   showCancelButton: true,
-    //   closeOnConfirm: false,
-    //   animation: "slide-from-top",
-    //   inputPlaceholder: "Write something"
-    // }
-    // this.profileService.updatePassword('12345678', 'newpassword').then(() => { });
+  updatePassword(): void {
+    this.profileService.updatePassword(this.passwordRequest.oldPassword, this.passwordRequest.newPassword).then((response) => {
+      alert(response);
+    });
+  }
+
+  saveProfileChanges(): void {
+    this.profileService.updateProfile(this.userModel.employeeNo, this.userModel).then((response) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Update Success',
+        text: 'Update was successfully saved.',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+      })
+    })
   }
 }

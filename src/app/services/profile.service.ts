@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { doc, getDoc, where, onSnapshot, collection, query } from 'firebase/firestore';
+import { doc, getDoc, where, onSnapshot, collection, query, updateDoc } from 'firebase/firestore';
 import { firestoreInit } from './firebase.service';
 import { getAuth, signInWithEmailAndPassword, updatePassword, User } from 'firebase/auth';
 
@@ -13,21 +13,6 @@ import { LoginRequest } from '../_shared/models/requests/login.requests';
 export class ProfileService {
 
   constructor() { }
-
-  async getGranteeData(id: string): Promise<BaseResponse<UsersModel[]>> {
-
-    const response_data = new Promise<BaseResponse<UsersModel[]>>(
-      async (resolve) => {
-        const docRef = doc(firestoreInit, 'Users',);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          console.log('i was called')
-          resolve(JSON.parse(JSON.stringify(docSnap.data())));
-        }
-      }
-    );
-    return response_data;
-  }
 
   async getUsersData(id: string): Promise<BaseResponse<UsersModel[]>> {
     const response_data = new Promise<BaseResponse<UsersModel[]>>(
@@ -43,24 +28,55 @@ export class ProfileService {
     return response_data;
   }
 
-  async updatePassword(oldPassword: string, newPassword: string): Promise<Boolean> {
+  async updatePassword(oldPassword: string, newPassword: string): Promise<string> {
     const auth = getAuth();
     const user = auth.currentUser;
 
-    const result = new Promise<Boolean>(
+    const result = new Promise<string>(
       (resolve) => {
-        console.log(JSON.parse(JSON.stringify(user?.email)));
-        signInWithEmailAndPassword(auth, JSON.parse(JSON.stringify(user?.email)), oldPassword).then(
-          () => {
-            updatePassword(user as User, newPassword).then(
-              () => {
-                resolve(true)
-              }
-            );
-          }
-        );
+        signInWithEmailAndPassword(auth, JSON.parse(JSON.stringify(user?.email)), oldPassword)
+          .then(() => {
+
+            updatePassword(user as User, newPassword)
+              .then((response) => {
+                resolve(JSON.parse(JSON.stringify(response)))
+              })
+
+          })
+          .catch((err) => {
+            const errorCode = err.code;
+            const errorMessage = err.message;
+            resolve(errorMessage);
+          })
       }
     );
     return result;
+  }
+
+  async getUsersDocId(id: string): Promise<BaseResponse<string>> {
+    const response_docId = new Promise<BaseResponse<string>>(
+      (resolve) => {
+        const q = query(collection(firestoreInit, 'Users'), where('employeeNo', '==', id));
+        onSnapshot(q, (snapshot) => {
+          snapshot.forEach((docData: any) => {
+            resolve(docData.id)
+          });
+        });
+      }
+    );
+    return response_docId;
+  }
+
+  async updateProfile(id: string, data: UsersModel): Promise<Boolean> {
+
+    const response = new Promise<Boolean>(
+      async (resolve) => {
+        const docId = await this.getUsersDocId(id);
+        await updateDoc(doc(firestoreInit, 'Users', JSON.parse(JSON.stringify(docId))), JSON.parse(JSON.stringify(data))).then(() => {
+          resolve(true)
+        });
+      }
+    );
+    return response;
   }
 }

@@ -80,4 +80,7 @@ export class ApplicantItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reviewApplicant(): void {
+
+  }
 }
