@@ -102,4 +102,11 @@ export class GranteesService {
     );
     return response;
   }
+
+  // async updateStatus(): Promise<Boolean> {
+  //   const response = new Promise<Boolean>(
+
+  //   );
+  //   return true;
+  // }
 }

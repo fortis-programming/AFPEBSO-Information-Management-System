@@ -1,0 +1,80 @@
+<div class="profile p-4 rounded">
+       <div class="col-2 username mb-4">
+              <div class="user d-flex flex-row">
+                     <img
+                            src="https://i0.wp.com/researchictafrica.net/wp/wp-content/uploads/2016/10/default-profile-pic.jpg?ssl=1">
+                     <div class="d-flex flex-column">
+                            <h3>{{ userModel.username }}</h3>
+                            <p>{{'ID: '+ userModel.userId }}</p>
+                     </div>
+              </div>
+              <div>
+                     <button class="btn btns__secondary" style="margin-right: 5px;"
+                            routerLink="../applicant">Cancel</button>
+                     <button class="btn btns__primary">Save</button>
+              </div>
+       </div>
+
+       <main>
+              <div class="field-container">
+                     <div>
+                            Employee No.
+                     </div>
+                     <div class="input-container">
+                            <input type="text" class="form-control" placeholder="Add a unique username"
+                                   [(ngModel)]="userModel.employeeNo" name="employeeId" #employeeId="ngModel">
+                     </div>
+              </div>
+              <div class="field-container">
+                     <div>
+                            Username
+                     </div>
+                     <div class="input-container">
+                            <input type="text" class="form-control" placeholder="" [(ngModel)]="userModel.username">
+                     </div>
+              </div>
+              <div class="field-container border1">
+                     <div>
+                            Password
+                     </div>
+                     <div class="input-container">
+                            <button class="btn btns__ghost-primary" (click)="update = true" *ngIf="!update">Change
+                                   password</button>
+                            <div class="mb-3 update-password" *ngIf="update">
+                                   <input type="password" class="form-control" placeholder="Current password">
+                                   <input type="password" class="form-control" placeholder="New password">
+                            </div>
+                            <button class="btn btns__primary" style="margin-right: 5px;" *ngIf="update">Confirm</button>
+                            <button class="btn btns__secondary" (click)=" update=false" *ngIf="update">Cancel</button>
+                     </div>
+              </div>
+              <h5>Personal Information</h5>
+              <div class="field-container">
+                     <div>
+                            Firstname
+                     </div>
+                     <div class="input-container">
+                            <input type="text" class="form-control" placeholder="" [(ngModel)]="userModel.firstname"
+                                   disabled>
+                     </div>
+              </div>
+              <div class="field-container">
+                     <div>
+                            Middlename
+                     </div>
+                     <div class="input-container">
+                            <input type="text" class="form-control" placeholder="" [(ngModel)]="userModel.middlename"
+                                   disabled>
+                     </div>
+              </div>
+              <div class="field-container">
+                     <div>
+                            Lastname
+                     </div>
+                     <div class="input-container">
+                            <input type="text" class="form-control" placeholder="" [(ngModel)]="userModel.lastname"
+                                   disabled>
+                     </div>
+              </div>
+       </main>
+</div>
