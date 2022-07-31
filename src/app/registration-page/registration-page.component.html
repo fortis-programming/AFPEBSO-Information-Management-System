@@ -21,13 +21,13 @@
             <h6>Applicant Information</h6>
             <div class="col-2">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.area" name="area"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.area" name="area"
                   #area="ngModel" placeholder=" ">
                 <label for="floatingInput">Area</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
-                  [(ngModel)]="registration.relationship_to_afp_member" name="relationship_to_afp_member"
+                  [(ngModel)]="registrationModel.relationship_to_afp_member" name="relationship_to_afp_member"
                   #relationship_to_afp_member="ngModel" placeholder=" ">
                 <label for="floatingInput">Relationship to AFP / CAA Member</label>
               </div>
@@ -36,17 +36,17 @@
               <h6>Name of the Applicant</h6>
               <div class="col-3">
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.surname" name="surname"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.surname" name="surname"
                   #surname="ngModel" placeholder=" ">
                   <label for="floatingInput">Surname</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.firstname" name="firstname"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.firstname" name="firstname"
                   #firstname="ngModel" placeholder=" ">
                   <label for="floatingInput">First Name</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.middlename" name="middlename"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.middlename" name="middlename"
                   #middlename="ngModel" placeholder=" ">
                   <label for="floatingInput">Middle Name</label>
                 </div>
@@ -56,12 +56,12 @@
               <h6>Address</h6>
               <div class="gap-3 d-flex flex-column">
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.currentAddress" name="currentAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.currentAddress" name="currentAddress"
                   #currentAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Current Mailing Address</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.provincialAddress" name="provincialAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.provincialAddress" name="provincialAddress"
                   #provincialAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Provincial Address</label>
                 </div>
@@ -71,17 +71,17 @@
               <h6>Contact</h6>
               <div class="col-3">
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.phoneNumber" name="phoneNumber"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.phoneNumber" name="phoneNumber"
                   #phoneNumber="ngModel" placeholder=" ">
                   <label for="floatingInput">Phone</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.cellphoneNumber" name="cellphoneNumber"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.cellphoneNumber" name="cellphoneNumber"
                   #cellphoneNumber="ngModel" placeholder=" ">
                   <label for="floatingInput">Cell Phone</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.emailAddress" name="emailAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.emailAddress" name="emailAddress"
                   #emailAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Email</label>
                 </div>
@@ -89,29 +89,29 @@
             </div>
             <div class="col-2">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.birthDate" name="birthDate"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.birthDate" name="birthDate"
                 #birthDate="ngModel" placeholder=" ">
                 <label for="floatingInput">Date of Birth</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.birthPlace" name="birthPlace"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.birthPlace" name="birthPlace"
                 #birthPlace="ngModel" placeholder=" ">
                 <label for="floatingInput">Place of Birth</label>
               </div>
             </div>
             <div class="col-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.sex" name="sex"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.sex" name="sex"
                 #sex="ngModel" placeholder=" ">
                 <label for="floatingInput">Sex</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.civilStatus" name="civilStatus"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.civilStatus" name="civilStatus"
                 #civilStatus="ngModel" placeholder=" ">
                 <label for="floatingInput">Civil Status</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.religion" name="religion"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.religion" name="religion"
                 #religion="ngModel" placeholder=" ">
                 <label for="floatingInput">Religion</label>
               </div>
@@ -120,17 +120,17 @@
               <h6>Education</h6>
               <div class="col-3">
                 <div class="left form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.schoolIntendedToEnrollIn" name="schoolIntendedToEnrollIn"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.schoolIntendedToEnrollIn" name="schoolIntendedToEnrollIn"
                   #schoolIntendedToEnrollIn="ngModel" placeholder=" ">
                   <label for="floatingInput">School Intended to Enroll In</label>
                 </div>
                 <div class="mid form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.schoolAddress" name="schoolAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.schoolAddress" name="schoolAddress"
                   #schoolAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">School Address</label>
                 </div>
                 <div class="right form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.educationLevel" name="educationLevel"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.educationLevel" name="educationLevel"
                   #educationLevel="ngModel" placeholder=" ">
                   <label for="floatingInput">Educational Level</label>
                 </div>
@@ -138,12 +138,12 @@
             </div>
             <div class="col-2">
               <div class="left form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.yearLevel" name="yearLevel"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.yearLevel" name="yearLevel"
                 #yearLevel="ngModel" placeholder=" ">
                 <label for="floatingInput">Year Level</label>
               </div>
               <div class="mid form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.course" name="course"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.course" name="course"
                 #course="ngModel" placeholder=" ">
                 <label for="floatingInput">Course</label>
               </div>
@@ -158,40 +158,40 @@
             <h6>INFORMATION OF AFP / CAA MEMBER</h6>
             <div class="col-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_surname"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_surname"
                 name="afp_surname" #afp_surname="ngModel" placeholder=" ">
                 <label for="floatingInput">Surname</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_firstname"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_firstname"
                 name="afp_firstname" #afp_firstname="ngModel" placeholder=" ">
                 <label for="floatingInput">First Name</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_middleInitial"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_middleInitial"
                 name="afp_middleInitial" #afp_middleInitial="ngModel" placeholder=" ">
                 <label for="floatingInput">Middle Initial</label>
               </div>
             </div>
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_militaryStatus"
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_militaryStatus"
               name="afp_militaryStatus" #afp_militaryStatus="ngModel" placeholder=" ">
               <label for="floatingInput">Military Status</label>
             </div>
             <div class="col-2">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_date_of_death"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_date_of_death"
                 name="afp_date_of_death" #afp_date_of_death="ngModel" placeholder=" ">
                 <label for="floatingInput">Date of Death / CDD</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_unitAssignment"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_unitAssignment"
                 name="afp_unitAssignment" #afp_unitAssignment="ngModel" placeholder=" ">
                 <label for="floatingInput">PRESENT (for active) or LAST (for CDD) UNIT ASSIGNMENT</label>
               </div>
             </div>
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_currentAddress"
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_currentAddress"
               name="afp_currentAddress" #afp_currentAddress="ngModel" placeholder=" ">
               <label for="floatingInput">Address</label>
             </div>
@@ -199,17 +199,17 @@
               <h6>Contacts</h6>
               <div class="col-3">
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput"  [(ngModel)]="registration.afp_phoneNo"
+                  <input type="text" class="form-control" id="floatingInput"  [(ngModel)]="registrationModel.afp_phoneNo"
                   name="afp_phoneNo" #afp_phoneNo="ngModel"placeholder=" ">
                   <label for="floatingInput">Phone</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_cellPhoneNo"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_cellPhoneNo"
                   name="afp_cellPhoneNo" #afp_cellPhoneNo="ngModel" placeholder=" ">
                   <label for="floatingInput">Cell Phone</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_emailAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_emailAddress"
                   name="afp_emailAddress" #afp_emailAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Email</label>
                 </div>
@@ -217,53 +217,53 @@
             </div>
             <div class="col-2">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_birthDate"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_birthDate"
                 name="afp_birthDate" #afp_birthDate="ngModel" placeholder=" ">
                 <label for="floatingInput">Date of Birth</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_birthPlace"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_birthPlace"
                 name="afp_birthPlace" #afp_birthPlace="ngModel" placeholder=" ">
                 <label for="floatingInput">Place of Birth</label>
               </div>
             </div>
             <div class="col-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_sex"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_sex"
                 name="afp_sex" #afp_sex="ngModel" placeholder=" ">
                 <label for="floatingInput">Sex</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_civilStatus"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_civilStatus"
                 name="afp_civilStatus" #afp_civilStatus="ngModel" placeholder=" ">
                 <label for="floatingInput">Civil Status</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_nrOfDependents"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_nrOfDependents"
                 name="afp_nrOfDependents" #afp_nrOfDependents="ngModel" placeholder=" ">
                 <label for="floatingInput">NR. OF DEPENDENTS</label>
               </div>
             </div>
             <div class="col-2">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_nameOfLegalDependents"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_nameOfLegalDependents"
                 name="afp_nameOfLegalDependents" #afp_nameOfLegalDependents="ngModel" placeholder=" ">
                 <label for="floatingInput">Name of Legal Dependent</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_birthDate"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_birthDate"
                 name="afp_birthDate" #afp_birthDate="ngModel" placeholder=" ">
                 <label for="floatingInput">Date of Birth</label>
               </div>
             </div>
             <div class="col-2">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_dependentsYearLevel"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_dependentsYearLevel"
                 name="afp_dependentsYearLevel" #afp_dependentsYearLevel="ngModel" placeholder=" ">
                 <label for="floatingInput">Yr. Level</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.afp_educationalProgramAvailed"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_educationalProgramAvailed"
                 name="afp_educationalProgramAvailed" #afp_educationalProgramAvailed="ngModel" placeholder=" ">
                 <label for="floatingInput">Educational Program Availed</label>
               </div>
@@ -279,23 +279,23 @@
             <h6>INFORMATIONS OF APPLICANT'S GUARDIAN</h6>
             <div class="col-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_surname"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_surname"
                 name="guardian_surname" #guardian_surname="ngModel" placeholder=" ">
                 <label for="floatingInput">Surname</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_firstName"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_firstName"
                 name="guardian_firstName" #guardian_firstName="ngModel" placeholder=" ">
                 <label for="floatingInput">First Name</label>
               </div>
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_MiddleName"
+                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_MiddleName"
                 name="guardian_MiddleName" #guardian_MiddleName="ngModel" placeholder=" ">
                 <label for="floatingInput">Middle Name</label>
               </div>
             </div>
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_relationshipToApplicant"
+              <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_relationshipToApplicant"
               name="guardian_relationshipToApplicant" #guardian_relationshipToApplicant="ngModel" placeholder=" ">
               <label for="floatingInput">RELATIONSHIP TO APPLICANT</label>
             </div>
@@ -303,12 +303,12 @@
               <h6>Address</h6>
               <div class="gap-3 d-flex flex-column">
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_currentAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_currentAddress"
                   name="guardian_currentAddress" #guardian_currentAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Current Mailing Address</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_provincialAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_provincialAddress"
                   name="guardian_provincialAddress" #guardian_provincialAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Provincial Address</label>
                 </div>
@@ -318,17 +318,17 @@
               <h6>Contacts</h6>
               <div class="col-3">
                 <div class="left form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_phoneNo"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_phoneNo"
                   name="guardian_phoneNo" #guardian_phoneNo="ngModel" placeholder=" ">
                   <label for="floatingInput">Phone</label>
                 </div>
                 <div class="mid form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_cellPhoneNo"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_cellPhoneNo"
                   name="guardian_cellPhoneNo" #guardian_cellPhoneNo="ngModel" placeholder=" ">
                   <label for="floatingInput">Cell Phone</label>
                 </div>
                 <div class="right form-floating">
-                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registration.guardian_emailAddress"
+                  <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.guardian_emailAddress"
                   name="guardian_emailAddress" #guardian_emailAddress="ngModel" placeholder=" ">
                   <label for="floatingInput">Email</label>
                 </div>
@@ -345,7 +345,7 @@
               <input class="form-control" type="file" id="formFile">
             </div>
             <div class="button-section">
-              <button class="btns btns__primary">Submit</button>
+              <button class="btns btns__primary" (click)="addApplicants()">Submit</button>
               <button class="btns btns__register" (click)="step = 1 - 1">Back</button>
             </div>
           </div>
