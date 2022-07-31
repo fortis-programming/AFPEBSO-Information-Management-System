@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { firebaseConfig } from 'src/environments/environment';
 import { LoginRequest } from '../_shared/models/requests/login.requests';
 
@@ -34,6 +34,14 @@ export class AuthenticationService {
           const errorMessage = error.message;
           resolve(errorCode);
         });
+    });
+    return response;
+  }
+
+  logout(): Promise<boolean> {
+    const response = new Promise<boolean>((resolve) => {
+      signOut(auth)
+        .then(() => resolve(true));
     });
     return response;
   }

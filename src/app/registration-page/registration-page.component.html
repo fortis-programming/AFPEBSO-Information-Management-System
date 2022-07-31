@@ -1,23 +1,82 @@
 <div class="registration">
-  <div class="header  py-2">
-    <div class="">
-      <div class="btns__ghost" routerLink="../login">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-            clip-rule="evenodd" />
-        </svg>
+  <div class="wrapper">
+    <div>
+      <!-- <div class="header py-2">
+        <div class="">
+          <div class="btns__ghost" routerLink="../login">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </div> -->
+      <div class="step-container p-5">
+        <div class="m-3 d-flex flex-column">
+          <h3>Step {{ step }}</h3>
+          <p>
+            Enter your personal information to apply as beneficiary of AFPEBSO
+          </p>
+          <div class="step-indicator mt-4">
+            <div class="step">
+              <svg *ngIf="step != 1 && step > 1" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <svg *ngIf="step === 1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <label>
+                Applicant Information
+              </label>
+            </div>
+            <div class="step">
+              <svg *ngIf="step != 2 && step > 2" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <svg *ngIf="step === 2 || step < 2" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <label>
+                Information of APF/CAA Member
+              </label>
+            </div>
+            <div class="step">
+              <svg *ngIf="step != 3 && step > 3" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <svg *ngIf="step === 3 || step < 3" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <label>
+                Guardian's Information
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="wrapper">
-    <div>left</div>
     <div>
-      <div class="applicantInformation">
+      <div class=" applicantInformation">
         <div class="box rounded">
 
           <!-- applicant info -->
-          <div class="applicant-info" *ngIf="step === 0">
+          <div class="applicant-info" *ngIf="step === 1">
             <h6>Applicant Information</h6>
             <div class="col-2">
               <div class="form-floating">
@@ -155,22 +214,26 @@
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.schoolIntendedToEnrollIn" name="schoolIntendedToEnrollIn"
                     #schoolIntendedToEnrollIn="ngModel" placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(schoolIntendedToEnrollIn)">School intended to enroll in</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(schoolIntendedToEnrollIn)">School intended to enroll in is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(schoolIntendedToEnrollIn)">School intended to enroll
+                    in</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(schoolIntendedToEnrollIn)">School intended
+                    to enroll in is required!</label>
                 </div>
                 <div class="mid form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.schoolAddress" name="schoolAddress" #schoolAddress="ngModel"
                     placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(schoolAddress)">School Address</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(schoolAddress)">School address is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(schoolAddress)">School Address</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(schoolAddress)">School address is
+                    required!</label>
                 </div>
                 <div class="right form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.educationLevel" name="educationLevel" #educationLevel="ngModel"
                     placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(educationLevel)">Education Level</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(educationLevel)">Education level is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(educationLevel)">Education Level</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(educationLevel)">Education level is
+                    required!</label>
                 </div>
               </div>
             </div>
@@ -178,74 +241,80 @@
               <div class="left form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.yearLevel"
                   name="yearLevel" #yearLevel="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(yearLevel)">Year Level</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(yearLevel)">Year level is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(yearLevel)">Year Level</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(yearLevel)">Year level is required!</label>
               </div>
               <div class="mid form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.course"
                   name="course" #course="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(course)">Course</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(course)">Course is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(course)">Course</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(course)">Course is required!</label>
               </div>
             </div>
             <div class="button-section">
-              <button class="btns btns__primary" (click)="step = + 1">Next</button>
+              <button class="btns btns__primary" (click)="step = step + 1">Next</button>
             </div>
           </div>
 
           <!-- afp-info -->
-          <div class="afp-info" *ngIf="step === 1">
+          <div class="afp-info" *ngIf="step === 2">
             <h6>INFORMATION OF AFP / CAA MEMBER</h6>
             <div class="col-3">
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_surname"
                   name="afp_surname" #afp_surname="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_surname)">Surname</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_surname)">Surname is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_surname)">Surname</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_surname)">Surname is required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_firstname"
                   name="afp_firstname" #afp_firstname="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_firstname)">First Name</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_firstname)">First name is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_firstname)">First Name</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_firstname)">First name is
+                  required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_middleInitial" name="afp_middleInitial"
                   #afp_middleInitial="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_middleInitial)">Middle Initial</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_middleInitial)">Middle Initial is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_middleInitial)">Middle Initial</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_middleInitial)">Middle Initial is
+                  required!</label>
               </div>
             </div>
             <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput"
                 [(ngModel)]="registrationModel.afp_militaryStatus" name="afp_militaryStatus"
                 #afp_militaryStatus="ngModel" placeholder=" " required>
-                <label for="floatingInput" *ngIf="!hasError(afp_militaryStatus)">Military Status</label>
-                <label for="floatingInput" class="warning" *ngIf="hasError(afp_militaryStatus)">Military Status is required!</label>
+              <label for="floatingInput" *ngIf="!hasError(afp_militaryStatus)">Military Status</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(afp_militaryStatus)">Military Status is
+                required!</label>
             </div>
             <div class="col-2">
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_date_of_death" name="afp_date_of_death"
                   #afp_date_of_death="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_date_of_death)">Date of death</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_date_of_death)">Date of death is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_date_of_death)">Date of death</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_date_of_death)">Date of death is
+                  required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_unitAssignment" name="afp_unitAssignment"
                   #afp_unitAssignment="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_unitAssignment)">Unit Assignment</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_unitAssignment)">Unit assignment is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_unitAssignment)">Unit Assignment</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_unitAssignment)">Unit assignment is
+                  required!</label>
               </div>
             </div>
             <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput"
                 [(ngModel)]="registrationModel.afp_currentAddress" name="afp_currentAddress"
                 #afp_currentAddress="ngModel" placeholder=" " required>
-                <label for="floatingInput" *ngIf="!hasError(afp_currentAddress)">Current Address</label>
-                <label for="floatingInput" class="warning" *ngIf="hasError(afp_currentAddress)">Current address is required!</label>
+              <label for="floatingInput" *ngIf="!hasError(afp_currentAddress)">Current Address</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(afp_currentAddress)">Current address is
+                required!</label>
             </div>
             <div class="d-flex flex-column">
               <h6>Contacts</h6>
@@ -253,22 +322,25 @@
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_phoneNo"
                     name="afp_phoneNo" #afp_phoneNo="ngModel" placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(afp_phoneNo)">Phone Number</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(afp_phoneNo)">Phone number is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(afp_phoneNo)">Phone Number</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_phoneNo)">Phone number is
+                    required!</label>
                 </div>
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.afp_cellPhoneNo" name="afp_cellPhoneNo" #afp_cellPhoneNo="ngModel"
                     placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(afp_cellPhoneNo)">Cell Phone</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(afp_cellPhoneNo)">Cellphone number is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(afp_cellPhoneNo)">Cell Phone</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_cellPhoneNo)">Cellphone number is
+                    required!</label>
                 </div>
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.afp_emailAddress" name="afp_emailAddress" #afp_emailAddress="ngModel"
                     placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(afp_emailAddress)">Email Address</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(afp_emailAddress)">Email address is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(afp_emailAddress)">Email Address</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_emailAddress)">Email address is
+                    required!</label>
                 </div>
               </div>
             </div>
@@ -276,37 +348,40 @@
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_birthDate"
                   name="afp_birthDate" #afp_birthDate="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_birthDate)">Birthdate</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_birthDate)">Birthdate required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_birthDate)">Birthdate</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_birthDate)">Birthdate required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_birthPlace" name="afp_birthPlace" #afp_birthPlace="ngModel"
                   placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_birthPlace)">Birthplace</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_birthPlace)">Birthplace is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_birthPlace)">Birthplace</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_birthPlace)">Birthplace is
+                  required!</label>
               </div>
             </div>
             <div class="col-3">
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_sex"
                   name="afp_sex" #afp_sex="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_sex)">Sex</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_sex)">Sex is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_sex)">Sex</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_sex)">Sex is required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_civilStatus" name="afp_civilStatus" #afp_civilStatus="ngModel"
                   placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_civilStatus)">Civil Status</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_civilStatus)">Civil status is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_civilStatus)">Civil Status</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_civilStatus)">Civil status is
+                  required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_nrOfDependents" name="afp_nrOfDependents"
                   #afp_nrOfDependents="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_nrOfDependents)">Number of Depent/s</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_nrOfDependents)">Number of Dependent/s is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_nrOfDependents)">Number of Depent/s</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_nrOfDependents)">Number of Dependent/s is
+                  required!</label>
               </div>
             </div>
             <div class="col-2">
@@ -314,14 +389,16 @@
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_nameOfLegalDependents" name="afp_nameOfLegalDependents"
                   #afp_nameOfLegalDependents="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_nameOfLegalDependents)">Name of Legal Dependents</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_nameOfLegalDependents)">Name of legal dependent is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_nameOfLegalDependents)">Name of Legal Dependents</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_nameOfLegalDependents)">Name of legal
+                  dependent is required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_birthDate"
                   name="afp_birthDate" #afp_birthDate="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_birthDate)">Legal dependent birthdate</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_birthDate)">Legal dependents birthdate is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_birthDate)">Legal dependent birthdate</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_birthDate)">Legal dependents birthdate is
+                  required!</label>
               </div>
             </div>
             <div class="col-2">
@@ -329,55 +406,63 @@
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_dependentsYearLevel" name="afp_dependentsYearLevel"
                   #afp_dependentsYearLevel="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_dependentsYearLevel)">Dependents Year Level</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_dependentsYearLevel)">Dependents year level is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_dependentsYearLevel)">Dependents Year Level</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_dependentsYearLevel)">Dependents year
+                  level is required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.afp_educationalProgramAvailed" name="afp_educationalProgramAvailed"
                   #afp_educationalProgramAvailed="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(afp_educationalProgramAvailed)">Education Program Availed</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_educationalProgramAvailed)">Education program availed is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(afp_educationalProgramAvailed)">Education Program
+                  Availed</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(afp_educationalProgramAvailed)">Education
+                  program availed is required!</label>
               </div>
             </div>
             <div class="button-section">
-              <button class="btns btns__primary" (click)="step = 1 + 1">Next</button>
+              <button class="btns btns__primary" (click)="step = step + 1">Next</button>
               <button class="btns btns__register" (click)="step = 1 - 1">Back</button>
             </div>
           </div>
 
           <!-- guardian-info -->
-          <div class="guardian-info" *ngIf="step === 2">
+          <div class="guardian-info" *ngIf="step === 3">
             <h6>INFORMATIONS OF APPLICANT'S GUARDIAN</h6>
             <div class="col-3">
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.guardian_surname" name="guardian_surname" #guardian_surname="ngModel"
                   placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(guardian_surname)">Surname</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_surname)">Surname is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(guardian_surname)">Surname</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(guardian_surname)">Surname is
+                  required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.guardian_firstName" name="guardian_firstName"
                   #guardian_firstName="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(guardian_firstName)">First Name</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_firstName)">First name is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(guardian_firstName)">First Name</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(guardian_firstName)">First name is
+                  required!</label>
               </div>
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput"
                   [(ngModel)]="registrationModel.guardian_MiddleName" name="guardian_MiddleName"
                   #guardian_MiddleName="ngModel" placeholder=" " required>
-                  <label for="floatingInput" *ngIf="!hasError(guardian_MiddleName)">Middle Name</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_MiddleName)">Middle name is required!</label>
+                <label for="floatingInput" *ngIf="!hasError(guardian_MiddleName)">Middle Name</label>
+                <label for="floatingInput" class="warning" *ngIf="hasError(guardian_MiddleName)">Middle name is
+                  required!</label>
               </div>
             </div>
             <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput"
                 [(ngModel)]="registrationModel.guardian_relationshipToApplicant" name="guardian_relationshipToApplicant"
                 #guardian_relationshipToApplicant="ngModel" placeholder=" " required>
-                <label for="floatingInput" *ngIf="!hasError(guardian_relationshipToApplicant)">Relationship to Applicant</label>
-                <label for="floatingInput" class="warning" *ngIf="hasError(guardian_relationshipToApplicant)">Relationship to applicant is required!</label>
+              <label for="floatingInput" *ngIf="!hasError(guardian_relationshipToApplicant)">Relationship to
+                Applicant</label>
+              <label for="floatingInput" class="warning" *ngIf="hasError(guardian_relationshipToApplicant)">Relationship
+                to applicant is required!</label>
             </div>
             <div class="d-flex flex-column">
               <h6>Address</h6>
@@ -386,15 +471,17 @@
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.guardian_currentAddress" name="guardian_currentAddress"
                     #guardian_currentAddress="ngModel" placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(guardian_currentAddress)">Current Address</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(guardian_currentAddress)">Current address is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(guardian_currentAddress)">Current Address</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_currentAddress)">Current address
+                    is required!</label>
                 </div>
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.guardian_provincialAddress" name="guardian_provincialAddress"
                     #guardian_provincialAddress="ngModel" placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(guardian_provincialAddress)">Provincial Address</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(guardian_provincialAddress)">Provincial address is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(guardian_provincialAddress)">Provincial Address</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_provincialAddress)">Provincial
+                    address is required!</label>
                 </div>
               </div>
             </div>
@@ -405,22 +492,25 @@
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.guardian_phoneNo" name="guardian_phoneNo" #guardian_phoneNo="ngModel"
                     placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(guardian_phoneNo)">Phone No.</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(guardian_phoneNo)">Phone number is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(guardian_phoneNo)">Phone No.</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_phoneNo)">Phone number is
+                    required!</label>
                 </div>
                 <div class="mid form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.guardian_cellPhoneNo" name="guardian_cellPhoneNo"
                     #guardian_cellPhoneNo="ngModel" placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(guardian_cellPhoneNo)">Cellphone No.</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(guardian_cellPhoneNo)">Cellphone number is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(guardian_cellPhoneNo)">Cellphone No.</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_cellPhoneNo)">Cellphone number is
+                    required!</label>
                 </div>
                 <div class="right form-floating">
                   <input type="text" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.guardian_emailAddress" name="guardian_emailAddress"
                     #guardian_emailAddress="ngModel" placeholder=" " required>
-                    <label for="floatingInput" *ngIf="!hasError(guardian_emailAddress)">Email Address</label>
-                    <label for="floatingInput" class="warning" *ngIf="hasError(guardian_emailAddress)">Email Address is required!</label>
+                  <label for="floatingInput" *ngIf="!hasError(guardian_emailAddress)">Email Address</label>
+                  <label for="floatingInput" class="warning" *ngIf="hasError(guardian_emailAddress)">Email Address is
+                    required!</label>
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   styleUrls: ['./registration-page.component.scss']
 })
 export class RegistrationPageComponent implements OnInit {
-  step = 0;
+  step = 1;
   registrationModel: GranteeModel = {
     dateSubmitted: '',
     status: '',
