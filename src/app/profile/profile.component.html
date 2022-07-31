@@ -11,7 +11,7 @@
               <div>
                      <button class="btn btns__secondary" style="margin-right: 5px;"
                             routerLink="../applicant">Cancel</button>
-                     <button class="btn btns__primary">Save</button>
+                     <button class="btn btns__primary" (click)="saveProfileChanges()">Save</button>
               </div>
        </div>
 
@@ -41,10 +41,15 @@
                             <button class="btn btns__ghost-primary" (click)="update = true" *ngIf="!update">Change
                                    password</button>
                             <div class="mb-3 update-password" *ngIf="update">
-                                   <input type="password" class="form-control" placeholder="Current password">
-                                   <input type="password" class="form-control" placeholder="New password">
+                                   <input type="password" class="form-control" placeholder="Current password"
+                                          [(ngModel)]="passwordRequest.oldPassword" name="oldPassword"
+                                          #oldPassword="ngModel">
+                                   <input type=" password" class="form-control" placeholder="New password"
+                                          [(ngModel)]="passwordRequest.newPassword" name="newPassword"
+                                          #newPassword="ngModel">
                             </div>
-                            <button class="btn btns__primary" style="margin-right: 5px;" *ngIf="update">Confirm</button>
+                            <button class="btn btns__primary" style="margin-right: 5px;" *ngIf="update"
+                                   (click)="updatePassword()">Confirm</button>
                             <button class="btn btns__secondary" (click)=" update=false" *ngIf="update">Cancel</button>
                      </div>
               </div>
