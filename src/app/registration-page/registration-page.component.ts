@@ -100,4 +100,8 @@ export class RegistrationPageComponent implements OnInit {
     });
   }
 
+  hasError(formControl: any): boolean {
+    return formControl.invalid && (formControl.dirty || formControl.touched)
+  }
+
 }
