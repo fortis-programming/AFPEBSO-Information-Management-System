@@ -1,4 +1,4 @@
-<div class="cards__grantees p-2 px-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<div class="cards__grantees p-2 px-3">
   <div>
     <strong>{{ grantee.surname +', '+ grantee.firstname +' '+ grantee.surname }}</strong>
   </div>
@@ -6,12 +6,31 @@
     <span>{{ grantee.dateSubmitted | date: 'fullDate' }}</span>
   </div>
   <div>
-    <button class="btn btns__ghost-primary float-end">Review Application</button>
+    <button class="btn btns__ghost-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Review
+      Application</button>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" [(ngModel)]="grantee.surname" name="surname" #surname="ngModel">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-scrollable">
     <div class="modal-content">
@@ -41,18 +60,18 @@
                 <h6>Name of the Applicant</h6>
                 <div class="col-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.surname" name="surname"
-                    #surname="ngModel" placeholder=" " [disabled]="!edit">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.surname"
+                      name="surname" #surname="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Surname</label>
                   </div>
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.firstname" name="firstname"
-                    #firstname="ngModel" placeholder=" " [disabled]="!edit">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.firstname"
+                      name="firstname" #firstname="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">First Name</label>
                   </div>
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.middlename" name="middlename"
-                    #middlename="ngModel" placeholder=" " [disabled]="!edit">
+                    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.middlename"
+                      name="middlename" #middlename="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Middle Name</label>
                   </div>
                 </div>
@@ -62,12 +81,12 @@
                 <div class="gap-3 d-flex flex-column">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.currentAddress"
-                    name="currentAddress" #currentAddress="ngModel" placeholder=" " [disabled]="!edit">
+                      name="currentAddress" #currentAddress="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Current Mailing Address</label>
                   </div>
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.provincialAddress"
-                    name="provincialAddress" #provindialAddress="ngModel" placeholder=" " [disabled]="!edit">
+                      name="provincialAddress" #provindialAddress="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Provincial Address</label>
                   </div>
                 </div>
@@ -77,17 +96,17 @@
                 <div class="col-3">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.phoneNumber"
-                    name="phoneNumber" #phoneNumber="ngModel" placeholder=" " [disabled]="!edit">
+                      name="phoneNumber" #phoneNumber="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Phone</label>
                   </div>
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.cellphoneNumber"
-                    name="cellPhoneNumber" #cellPhoneNumber="ngModel" placeholder=" " [disabled]="!edit">
+                      name="cellPhoneNumber" #cellPhoneNumber="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Cell Phone</label>
                   </div>
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.emailAddress"
-                    name="emailAddress" #emailAddress="ngModel" placeholder=" " [disabled]="!edit">
+                      name="emailAddress" #emailAddress="ngModel" placeholder=" " [disabled]="!edit">
                     <label for="floatingInput">Email</label>
                   </div>
                 </div>
@@ -95,12 +114,12 @@
               <div class="col-2">
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.birthDate"
-                  name="birthDate" #birthDate="ngModel" placeholder=" " [disabled]="!edit">
+                    name="birthDate" #birthDate="ngModel" placeholder=" " [disabled]="!edit">
                   <label for="floatingInput">Date of Birth</label>
                 </div>
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.birthPlace"
-                  name="birthPlace" #birthPlace="ngModel" placeholder=" " [disabled]="!edit">
+                    name="birthPlace" #birthPlace="ngModel" placeholder=" " [disabled]="!edit">
                   <label for="floatingInput">Place of Birth</label>
                 </div>
               </div>
@@ -354,4 +373,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
