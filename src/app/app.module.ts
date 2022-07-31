@@ -27,6 +27,7 @@ import { StakeholderComponent } from './stakeholder/stakeholder.component';
 import { LoadingComponent } from './loading/loading.component';
 import { DeliberationItemComponent } from './deliberation-page/deliberation-item/deliberation-item.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { RegistrationPageComponent } from './registration-page/registration-page
     StakeholderComponent,
     LoadingComponent,
     DeliberationItemComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    ProfileComponent
   ],
   imports: [
     AppRoutingModule,

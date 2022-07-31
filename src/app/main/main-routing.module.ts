@@ -11,8 +11,7 @@ import { route as GraduatesRoute } from '../graduates-page/graduates-page-route.
 import { route as StakeholdersRoute } from '../stakeholders-page/stakeholders-page-route.module';
 import { route as DeliberationRoute } from '../deliberation-page/deliberation-route.module';
 import { route as GranteeRoute } from '../grantee/grantee-route.module';
-
-
+import { route as ProfileRoute } from '../profile/profile-route.module';
 
 const routes: Routes = [
   {
@@ -31,6 +30,7 @@ const routes: Routes = [
       ...StakeholdersRoute,
       ...DeliberationRoute,
       ...GranteeRoute,
+      ...ProfileRoute
     ]
   }
 ];
