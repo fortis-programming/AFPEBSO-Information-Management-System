@@ -75,6 +75,7 @@ export class ApplicantItemComponent implements OnInit {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
+  edit = false;
   constructor() { }
 
   ngOnInit(): void {
