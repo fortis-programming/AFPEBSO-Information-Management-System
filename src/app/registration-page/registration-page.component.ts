@@ -84,12 +84,13 @@ export class RegistrationPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(JSON.stringify(Math.floor(Math.random() * 10000)));
   }
 
   addApplicants(): void {
     this.registrationModel.dateReceived = new Date().toLocaleString();
     this.registrationModel.status = "Pending";
-    this.registrationModel.id = Math.floor(Math.random() * 10000).toString();
+    this.registrationModel.id = JSON.stringify(Math.floor(Math.random() * 10000));
     this.registrationService.addApplicants(this.registrationModel).then(() => {
       Swal.fire({
         icon: 'success',
