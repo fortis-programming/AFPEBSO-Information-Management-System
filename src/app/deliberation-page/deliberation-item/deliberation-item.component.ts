@@ -90,8 +90,12 @@ export class DeliberationItemComponent implements OnInit {
   }
 
   returnApplication(id: string): void {
-    this.granteeService.updateStatus(id, this.grantee).then((response) => {
-      console.log(response)
-    })
+    if (this.grantee.status === 'Declined') {
+      this.granteeService.deleteGranteeData(this.grantee.id).then(() => { })
+    } else if (this.grantee.status === 'Approved') {
+      this.granteeService.updateStatus(id, this.grantee).then((response) => {
+        console.log(response)
+      })
+    }
   }
 }

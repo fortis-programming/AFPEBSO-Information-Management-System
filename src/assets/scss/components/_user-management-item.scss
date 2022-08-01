@@ -27,3 +27,18 @@
     align-items: center;
   }
 }
+
+#editUserModal {
+
+  .modal-content {
+    max-width: 800px !important;
+    margin: auto;
+
+    .col-2 {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: center;
+    }
+  }
+
+}

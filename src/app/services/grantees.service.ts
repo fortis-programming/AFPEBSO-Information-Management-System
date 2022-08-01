@@ -55,8 +55,12 @@ export class GranteesService {
   async deleteGranteeData(id: string): Promise<boolean> {
     const respose_data = new Promise<boolean>(
       async (resolve) => {
-        await deleteDoc(doc(firestoreInit, 'Grantess', id));
-        resolve(true);
+        this.getDocId(id).then(async (response) => {
+          console.log(response)
+          await deleteDoc(doc(firestoreInit, 'Grantees', response));
+          resolve(true);
+        })
+
       }
     );
     return respose_data;
@@ -121,7 +125,6 @@ export class GranteesService {
     const response = new Promise<Boolean>(
       async (resolve) => {
         this.getDocId(id).then(async (response) => {
-          console.log(response)
           await updateDoc(doc(firestoreInit, 'Grantees', response), JSON.parse(JSON.stringify(data))).then(() => {
             resolve(true)
           });
@@ -137,8 +140,8 @@ export class GranteesService {
         const q = query(collection(firestoreInit, 'Grantees'), where('id', '==', id));
         onSnapshot(q, (snapshot) => {
           snapshot.forEach((docData: any) => {
-            console.log(docData.data().id)
-            resolve(docData.data().id);
+            console.log(docData.id)
+            resolve(docData.id);
           });
         });
       }
