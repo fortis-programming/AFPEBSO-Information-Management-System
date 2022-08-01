@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   userModel: UsersModel = {
+    dateModified: '',
     employeeNo: '',
     userId: '',
     username: '',

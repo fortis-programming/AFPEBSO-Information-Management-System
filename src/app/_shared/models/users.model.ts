@@ -1,4 +1,5 @@
 export interface UsersModel {
+       dateModified: string;
        employeeNo: string;
        type: string;
        userId: string;
