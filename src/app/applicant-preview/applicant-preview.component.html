@@ -1,10 +1,36 @@
 <div class="applicantPreview">
-
   <div class="applicantInformation">
-    <main class ="p-3 rounded">
-      <div class="applicant-info">
+    
+    <main class="p-3 rounded">
+      <div class="header-preview">
+        <div class="left">
+        <div class="">
+          <div class="btns__ghost" routerLink="../../applicant">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+         
+        </div>
+        <h6 class ="m-2">APPLICANT INFORMATION</h6>
+      </div>
+      <div class="dropdown m-2">
+        <button class="btns btns__btn-icons" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">For Deliberation</a></li>
+          <li><a class="dropdown-item" href="#">Reject</a></li>
+        </ul>
+      </div>
+      </div>
+      <div class="applicant-info mt-3">
         <div class="wrapper">
-          <h6>INFORMATION OF APPLICANT</h6>
+          
           <div class="col-2">
             <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.area" name="area"

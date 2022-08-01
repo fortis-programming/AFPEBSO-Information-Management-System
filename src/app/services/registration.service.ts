@@ -14,8 +14,9 @@ export class RegistrationService {
   async addApplicants(data: GranteeModel): Promise<boolean> {
     const response = new Promise<boolean>(
       async (resolve) => {
-        await addDoc(collection(firestoreInit, 'Grantees'), data).then(() => {
+        await addDoc(collection(firestoreInit, 'Grantees'), data).then((response) => {
           resolve(true)
+          console.log(response)
         });
       }
     );

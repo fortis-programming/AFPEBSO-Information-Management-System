@@ -8,13 +8,15 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss']
 })
+
 export class RegistrationPageComponent implements OnInit {
   step = 1;
+
   registrationModel: GranteeModel = {
     dateSubmitted: '',
     status: '',
     profileUrl: '',
-    date: '',
+    date: new Date(),
     id: '',
     area: '',
     surname: '',
@@ -50,7 +52,7 @@ export class RegistrationPageComponent implements OnInit {
     afp_phoneNo: '',
     afp_cellPhoneNo: '',
     afp_emailAddress: '',
-    afp_birthDate: '',
+    afp_birthDate: new Date(),
     afp_birthPlace: '',
     afp_sex: '',
     afp_civilStatus: '',

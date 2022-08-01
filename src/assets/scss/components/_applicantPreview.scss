@@ -3,10 +3,52 @@
     flex-direction: column;
 
     .applicantInformation {
-        display: flex;
-        flex-direction: column;
+       
+        .header-preview{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          border: none;
+          
 
+          .left{
+            display: flex;
+            flex-direction: row;
 
+          
+          }
+          .btns {
+            &__ghost {
+              height: auto;
+              align-items: center;
+              padding: 8px;
+              min-width: 30px !important;
+              border-radius: 50%;
+              display: flex;
+      
+              &:hover {
+                background-color: whitesmoke !important;
+                cursor: pointer;
+              }
+      
+              svg {
+                height: 20px;
+              }
+            }
+            
+            &__btn-icons {
+              height: 100%;
+              width: 40px;
+              padding-left: 10px;
+      
+              svg {
+                height: 20px;
+                color: $secondary-color;
+              }
+            }
+          }
+        }
         main{
             background-color: white;
 
