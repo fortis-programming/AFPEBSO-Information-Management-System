@@ -32,8 +32,8 @@
 
   &__danger {
     background-color: red;
+    border: 1px solid red;
     color: white;
-    border: none;
     font-size: 0.895rem;
   }
 
@@ -64,4 +64,9 @@
 
 input[type="text"]:disabled {
   background-color: white;
+}
+
+
+.dropdown-item {
+  cursor: default;
 }

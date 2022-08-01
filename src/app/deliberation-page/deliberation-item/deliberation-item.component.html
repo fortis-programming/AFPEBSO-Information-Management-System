@@ -9,11 +9,11 @@
        </div>
        <div>
               <div class="btn-group float-end">
-                     <button type="button" (click)="returnApplication()"
-                            [ngClass]="status == 'Accepted' ? 'btn btns__primary' : 'btn btns__danger'">{{
-                            status }}</button>
+                     <button type="button" (click)="returnApplication(grantee.id)"
+                            [ngClass]="grantee.status == 'Accepted' ? 'btn btns__primary' : 'btn btns__danger'">{{
+                            grantee.status }}</button>
                      <button type="button"
-                            [ngClass]="status == 'Accepted' ? 'btn btns__primary dropdown-toggle dropdown-toggle-split' : 'btn btns__danger dropdown-toggle dropdown-toggle-split'"
+                            [ngClass]="grantee.status == 'Accepted' ? 'btn btns__primary dropdown-toggle dropdown-toggle-split' : 'btn btns__danger dropdown-toggle dropdown-toggle-split'"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="visually-hidden">Toggle Dropdown</span>
                      </button>

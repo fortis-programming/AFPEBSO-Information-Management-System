@@ -87,6 +87,9 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   addApplicants(): void {
+    this.registrationModel.dateReceived = new Date().toLocaleString();
+    this.registrationModel.status = "Pending";
+    this.registrationModel.id = Math.floor(Math.random() * 10000).toString();
     this.registrationService.addApplicants(this.registrationModel).then(() => {
       Swal.fire({
         icon: 'success',
