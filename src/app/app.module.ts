@@ -29,6 +29,8 @@ import { DeliberationItemComponent } from './deliberation-page/deliberation-item
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApplicantPreviewComponent } from './applicant-preview/applicant-preview.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserManagementItemComponent } from './user-management/user-management-item/user-management-item.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { ApplicantPreviewComponent } from './applicant-preview/applicant-preview
     DeliberationItemComponent,
     RegistrationPageComponent,
     ProfileComponent,
-    ApplicantPreviewComponent
+    ApplicantPreviewComponent,
+    UserManagementComponent,
+    UserManagementItemComponent
   ],
   imports: [
     AppRoutingModule,

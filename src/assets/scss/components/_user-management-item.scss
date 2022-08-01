@@ -1,0 +1,29 @@
+.user-management-item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  .profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+
+  .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+}
