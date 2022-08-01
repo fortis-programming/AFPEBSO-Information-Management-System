@@ -28,6 +28,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { DeliberationItemComponent } from './deliberation-page/deliberation-item/deliberation-item.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ApplicantPreviewComponent } from './applicant-preview/applicant-preview.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ProfileComponent } from './profile/profile.component';
     LoadingComponent,
     DeliberationItemComponent,
     RegistrationPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    ApplicantPreviewComponent
   ],
   imports: [
     AppRoutingModule,
