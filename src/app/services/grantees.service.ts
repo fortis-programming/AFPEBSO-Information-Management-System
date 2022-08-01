@@ -103,6 +103,21 @@ export class GranteesService {
     return response;
   }
 
+  async getApplicantData(identifier: string): Promise<BaseResponse<GranteeModel[]>> {
+    const response_data = new Promise<BaseResponse<GranteeModel[]>>(
+      (resolve) => {
+        const q = query(collection(firestoreInit, 'Grantees'), where('id', '==', identifier));
+        onSnapshot(q, (snapshot) => {
+          snapshot.forEach((docData: any) => {
+            resolve(JSON.parse(JSON.stringify(docData.data())));
+          });
+        });
+      }
+    );
+    return response_data;
+  }
+
+
   // async updateStatus(): Promise<Boolean> {
   //   const response = new Promise<Boolean>(
 

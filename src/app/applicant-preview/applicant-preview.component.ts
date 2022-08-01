@@ -1,14 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { GranteesService } from 'src/app/services/grantees.service';
-import { GranteeModel } from 'src/app/_shared/models/grantee.model';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GranteesService } from '../services/grantees.service';
+import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
-  selector: 'app-applicant-item',
-  templateUrl: './applicant-item.component.html',
-  styleUrls: ['./applicant-item.component.scss']
+  selector: 'app-applicant-preview',
+  templateUrl: './applicant-preview.component.html',
+  styleUrls: ['./applicant-preview.component.scss']
 })
-export class ApplicantItemComponent implements OnInit {
-  @Input() granteeData: GranteeModel = {
+export class ApplicantPreviewComponent implements OnInit {
+  grantee: GranteeModel = {
     dateSubmitted: '',
     status: '',
     profileUrl: '',
@@ -77,19 +78,25 @@ export class ApplicantItemComponent implements OnInit {
     dateReceived: '',
   };
 
-  
-
-  edit = false;
   constructor(
+    private routeParams: ActivatedRoute,
     private granteesService: GranteesService
   ) { }
 
+  identifier = '';
+  edit = false;
   ngOnInit(): void {
+    this.routeParams.params.subscribe(params => {
+      console.log(params['id'].toString())
+      this.identifier = params['id']
+    });
+    this.loadApplicantData(this.identifier);
   }
-
-  reviewApplicant(): void {
-    // this.granteesService.getApplicantData(this.granteeData.surname).then((response) => {
-    //   this.grantee = JSON.parse(JSON.stringify(response));
-    // })
+  
+  loadApplicantData(id: string): void{
+    this.granteesService.getApplicantData(id).then((response) => {
+       this.grantee = JSON.parse(JSON.stringify(response));
+       console.log(response)
+    });    
   }
 }
