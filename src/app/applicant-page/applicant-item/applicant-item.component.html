@@ -1,4 +1,4 @@
-<div class="cards__grantees p-2 px-3" routerLink="../applicant-preview/:id">
+<div class="cards__grantees p-2 px-3" [routerLink]="['../applicant-preview/' + granteeData.id]">
   <div>
     <strong>{{ granteeData.surname +', '+ granteeData.firstname +' '+ granteeData.surname }}</strong>
   </div>
@@ -6,9 +6,9 @@
     <span>{{ granteeData.dateSubmitted | date: 'fullDate' }}</span>
   </div>
   <div>
-    <button class="btn btns__ghost-primary float-end" (click)="reviewApplicant()">Review Application</button>
+    <button class=" btn btns__ghost-primary float-end" (click)="reviewApplicant()">Review Application</button>
   </div>
-  
+
 </div>
 
 <!-- Modal -->

@@ -13,6 +13,7 @@ import { route as DeliberationRoute } from '../deliberation-page/deliberation-ro
 import { route as GranteeRoute } from '../grantee/grantee-route.module';
 import { route as ProfileRoute } from '../profile/profile-route.module';
 import { route as ApplicantPreviewRoute } from '../applicant-preview/applicant-preview-route.module';
+import { route as UserManagementRoute } from '../user-management/user-management-route.module';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
       ...DeliberationRoute,
       ...GranteeRoute,
       ...ProfileRoute,
-      ...ApplicantPreviewRoute
+      ...ApplicantPreviewRoute,
+      ...UserManagementRoute
     ]
   }
 ];

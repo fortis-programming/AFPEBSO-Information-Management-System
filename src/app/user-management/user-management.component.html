@@ -1,0 +1,55 @@
+<div class="user-management p-4 rounded">
+       <div class="user-management__header">
+              <h4>Organization Members</h4>
+              <p>Manage your members and their permissions here.</p>
+       </div>
+       <main class="py-2">
+              <div class="col-2 border-bottom">
+                     <div class="d-flex flex-column caption">
+                            <strong>Admin users</strong>
+                            <p>Admin users can add, remove users and manage organization.</p>
+                     </div>
+                     <div>
+                            <div class="table-container">
+                                   <div class="table-header border-bottom p-2">
+                                          <div>
+                                                 Name
+                                          </div>
+                                          <div class=" date">
+                                                 Date modified
+                                          </div>
+                                          <div class="actions">
+
+                                          </div>
+                                   </div>
+                                   <app-user-management-item *ngFor="let admin of adminUsers" [userModel]="admin">
+                                   </app-user-management-item>
+                            </div>
+                     </div>
+              </div>
+              <div class="col-2">
+                     <div class="d-flex flex-column">
+                            <strong>Account users</strong>
+                            <p>Accoubt users can access and update grantee information, they can also reject and accept
+                                   applicants.</p>
+                     </div>
+                     <div>
+                            <div class="table-container">
+                                   <div class="table-header border-bottom p-2">
+                                          <div>
+                                                 Profile
+                                          </div>
+                                          <div class=" date">
+                                                 date
+                                          </div>
+                                          <div class="actions">
+                                                 action
+                                          </div>
+                                   </div>
+                                   <app-user-management-item *ngFor="let users of userAccounts" [userModel]="users">
+                                   </app-user-management-item>
+                            </div>
+                     </div>
+              </div>
+       </main>
+</div>

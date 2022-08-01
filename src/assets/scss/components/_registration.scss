@@ -58,6 +58,22 @@
 
     .header {
       background-color: $primary-color !important;
+
+      .btns__ghost {
+        border: 1px solid white;
+        border-radius: 50%;
+        margin: 20px;
+
+        &:hover {
+          svg {
+            fill: black;
+          }
+        }
+
+        svg {
+          fill: white;
+        }
+      }
     }
 
     .applicantInformation {
