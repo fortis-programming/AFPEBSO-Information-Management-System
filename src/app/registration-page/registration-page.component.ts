@@ -88,7 +88,7 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   addApplicants(): void {
-    this.registrationModel.dateReceived = new Date().toLocaleString();
+    this.registrationModel.dateReceived = JSON.stringify(new Date().toLocaleString());
     this.registrationModel.status = "Pending";
     this.registrationModel.id = JSON.stringify(Math.floor(Math.random() * 10000));
     this.registrationService.addApplicants(this.registrationModel).then(() => {

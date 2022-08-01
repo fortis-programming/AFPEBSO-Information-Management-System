@@ -3,7 +3,7 @@
     <strong>{{ granteeData.surname +', '+ granteeData.firstname +' '+ granteeData.surname }}</strong>
   </div>
   <div>
-    <span>{{ granteeData.dateSubmitted | date: 'fullDate' }}</span>
+    <span>{{ granteeData.dateReceived | date: 'fullDate' }}</span>
   </div>
   <div>
     <button class=" btn btns__ghost-primary float-end" (click)="reviewApplicant()">Review Application</button>
