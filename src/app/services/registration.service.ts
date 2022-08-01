@@ -12,8 +12,6 @@ export class RegistrationService {
   constructor() { }
 
   async addApplicants(data: GranteeModel): Promise<boolean> {
-    console.log(data);
-    data.status = 'Pending';
     const response = new Promise<boolean>(
       async (resolve) => {
         await addDoc(collection(firestoreInit, 'Grantees'), data).then(() => {

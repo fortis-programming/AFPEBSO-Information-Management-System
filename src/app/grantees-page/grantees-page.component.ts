@@ -37,7 +37,7 @@ export class GranteesPageComponent implements OnInit {
   }
 
   loadGrantees(): void {
-    this.granteesService.getGranteesData('Approved').then((response) => {
+    this.granteesService.getGranteesData('Accepted').then((response) => {
       this.granteesList = JSON.parse(JSON.stringify(response));
     });
   }

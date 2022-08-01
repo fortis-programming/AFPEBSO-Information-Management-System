@@ -24,6 +24,7 @@
         <label class="warning" for="floatinInput" *ngIf="hasError(username) && username.errors?.['required']">Username
           is
           required</label>
+        <label class="warning" *ngIf="username.errors?.['pattern']">Invalid email format</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password"

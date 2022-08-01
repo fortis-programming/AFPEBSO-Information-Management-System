@@ -117,11 +117,32 @@ export class GranteesService {
     return response_data;
   }
 
+  async updateStatus(id: string, data: GranteeModel): Promise<Boolean> {
+    const response = new Promise<Boolean>(
+      async (resolve) => {
+        this.getDocId(id).then(async (response) => {
+          console.log(response)
+          await updateDoc(doc(firestoreInit, 'Grantees', response), JSON.parse(JSON.stringify(data))).then(() => {
+            resolve(true)
+          });
+        })
+      }
+    );
+    return response;
+  }
 
-  // async updateStatus(): Promise<Boolean> {
-  //   const response = new Promise<Boolean>(
-
-  //   );
-  //   return true;
-  // }
+  async getDocId(id: string): Promise<string> {
+    const response_data = new Promise<string>(
+      async (resolve) => {
+        const q = query(collection(firestoreInit, 'Grantees'), where('id', '==', id));
+        onSnapshot(q, (snapshot) => {
+          snapshot.forEach((docData: any) => {
+            console.log(docData.data().id)
+            resolve(docData.data().id);
+          });
+        });
+      }
+    );
+    return response_data;
+  }
 }

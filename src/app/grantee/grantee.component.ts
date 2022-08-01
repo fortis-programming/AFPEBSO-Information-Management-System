@@ -91,10 +91,10 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
 
   profileData = '';
   ngOnInit(): void {
-    this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-    }, 500);
+    // this.loading = true;
+    // setTimeout(() => {
+    //   this.loading = false;
+    // }, 500);
     this.loadData();
   }
 

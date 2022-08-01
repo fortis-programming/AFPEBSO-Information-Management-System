@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GranteesService } from 'src/app/services/grantees.service';
 import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 
 @Component({
@@ -76,17 +77,21 @@ export class DeliberationItemComponent implements OnInit {
     dateReceived: '',
   };
 
-  constructor() { }
+  constructor(
+    private granteeService: GranteesService
+  ) { }
 
   ngOnInit(): void {
+    this.grantee.status = 'Accepted';
   }
 
-  status = 'Accepted';
   changeReturnStatus(status: string): void {
-    this.status = status;
+    this.grantee.status = status;
   }
 
-  returnApplication(): void {
-    alert('Will return it as ' + this.status);
+  returnApplication(id: string): void {
+    this.granteeService.updateStatus(id, this.grantee).then((response) => {
+      console.log(response)
+    })
   }
 }

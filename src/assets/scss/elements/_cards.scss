@@ -25,4 +25,28 @@
     align-items: center;
   }
 
+  &__grantee {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      cursor: default;
+      background-color: whitesmoke;
+    }
+
+    img {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+    }
+
+    .user-information {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
 }

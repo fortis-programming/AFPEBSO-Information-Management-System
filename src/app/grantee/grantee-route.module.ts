@@ -6,7 +6,7 @@ import { GuardianComponent } from "./guardian/guardian.component";
 
 export const route: Routes = [
   {
-    path: 'grantee/:id',
+    path: 'grantee',
     component: GranteeComponent,
     children: [
       {
