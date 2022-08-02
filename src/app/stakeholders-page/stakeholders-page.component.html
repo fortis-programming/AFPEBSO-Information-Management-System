@@ -56,49 +56,58 @@
                     <small>
                         <i class="secondary-text">* Please fill the required fields to add stakeholder.</i>
                     </small>
-                    <form #stakeholderForm="ngForm">
+                </div>
+                <form #stakeholderForm="ngForm">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput"
+                            [(ngModel)]="stakeholdersModel.stakeholder" name="stakeholder" #stakeholder="ngModel"
+                            placeholder=" " required>
+                        <label for="floatingInput" *ngIf="!hasError(stakeholder)">Stakeholder</label>
+                        <label for="floatingInput" class="warning" *ngIf="hasError(stakeholder)">Stakeholder name is
+                            required</label>
+                    </div>
+                    <div class="col-2">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingInput"
-                                [(ngModel)]="stakeholdersModel.stakeholder" name="stakeholder" #stakeholder="ngModel"
-                                placeholder=" " required>
-                            <label for="floatingInput" *ngIf="!hasError(stakeholder)">Stakeholder</label>
-                            <label for="floatingInput" class="warning" *ngIf="hasError(stakeholder)">Stakeholder name is
+                                [(ngModel)]="stakeholdersModel.periodOfImplementation" name="periodOfImplementation"
+                                #periodOfImplementation="ngModel" placeholder=" " required>
+                            <label for="floatingInput" *ngIf="!hasError(periodOfImplementation)">Period of
+                                Implementation</label>
+                            <label for="floatingInput" class="warning" *ngIf="hasError(periodOfImplementation)">Period
+                                of Implementation is required</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput"
+                                [(ngModel)]="stakeholdersModel.relevantProvisions" name="relevantProvisions"
+                                #relevantProvisions="ngModel" placeholder=" " required>
+                            <label for="floatingInput" *ngIf="!hasError(relevantProvisions)">Relevant Provisions</label>
+                            <label for="floatingInput" class="warning" *ngIf="hasError(relevantProvisions)">Relevant
+                                Provisions is required</label>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput"
+                                [(ngModel)]="stakeholdersModel.renewalPeriod" name="renewalPeriod"
+                                #renewalPeriod="ngModel" placeholder=" " required>
+                            <label for="floatingInput" *ngIf="!hasError(renewalPeriod)">Renewal Period</label>
+                            <label for="floatingInput" class="warning" *ngIf="hasError(renewalPeriod)">Renewal period is
                                 required</label>
                         </div>
-                        <div class="col-2">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput"
-                                    [(ngModel)]="stakeholdersModel.periodOfImplementation" name="periodOfImplementation"
-                                    #periodOfImplementation="ngModel" placeholder=" " required>
-                                <label for="floatingInput">Period of Implementation</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput"
-                                    [(ngModel)]="stakeholdersModel.relevantProvisions" name="relevantProvisions"
-                                    #relevantProvisions="ngModel" placeholder=" " required>
-                                <label for="floatingInput">Renewal Period</label>
-                            </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput"
+                                [(ngModel)]="stakeholdersModel.status" name="status" #status="ngModel" placeholder=" "
+                                required>
+                            <label for="floatingInput" *ngIf="!hasError(status)">Status</label>
+                            <label for="floatingInput" class="warning" *ngIf="hasError(status)">Status is
+                                required</label>
                         </div>
-                        <div class="col-2">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput"
-                                    [(ngModel)]="stakeholdersModel.renewalPeriod" name="renewalPeriod"
-                                    #renewalPeriod="ngModel" placeholder=" " required>
-                                <label for="floatingInput">Status</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput"
-                                    [(ngModel)]="stakeholdersModel.status" name="status" #status="ngModel"
-                                    placeholder=" " required>
-                                <label for="floatingInput">Relevant Provisions</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" (click)="addStakeholder()" class="btns btns__primary py-2"
-                        [disabled]="!stakeholderForm.valid">Submit</button>
-                </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="addStakeholder()" class="btns btns__primary py-2"
+                    [disabled]="!stakeholderForm.valid">Submit</button>
             </div>
         </div>
     </div>
