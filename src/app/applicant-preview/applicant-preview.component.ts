@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { GranteesService } from '../services/grantees.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
@@ -80,8 +81,11 @@ export class ApplicantPreviewComponent implements OnInit {
 
   constructor(
     private routeParams: ActivatedRoute,
-    private granteesService: GranteesService
-  ) { }
+    private granteesService: GranteesService,
+    private router: Router
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   identifier = '';
   edit = false;
@@ -91,6 +95,10 @@ export class ApplicantPreviewComponent implements OnInit {
       this.identifier = params['id']
     });
     this.loadApplicantData(this.identifier);
+    
+    setTimeout(() => {
+      this.grantee.status = 'For Deliberation';
+    },500)
   }
   
   loadApplicantData(id: string): void{
@@ -98,5 +106,45 @@ export class ApplicantPreviewComponent implements OnInit {
        this.grantee = JSON.parse(JSON.stringify(response));
        console.log(response)
     });    
+  }
+
+  returnApplication(id: string): void {
+    if (this.grantee.status === 'Declined') {
+      Swal.fire({
+        title: 'Do you want to save the changes?',
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Saved!', '', 'success')
+          this.granteesService.deleteGranteeData(this.grantee.id).then(() => {
+            location.reload();  
+          })
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
+      
+    } else if (this.grantee.status === 'For Deliberation') {
+      this.granteesService.updateStatus(id, this.grantee).then((response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Application Approved!',
+          text: 'Applicant was successfully move to Deliberation',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true
+        }).then(() => {
+          this.router.navigate(['../app/applicant']);
+        })
+        console.log(response)
+      })
+    }
+  }
+
+  changeReturnStatus(status: string): void {
+    this.grantee.status = status;
   }
 }

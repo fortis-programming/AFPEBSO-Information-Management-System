@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GranteesService } from 'src/app/services/grantees.service';
 import { GranteeModel } from 'src/app/_shared/models/grantee.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-deliberation-item',
@@ -78,8 +80,11 @@ export class DeliberationItemComponent implements OnInit {
   };
 
   constructor(
-    private granteeService: GranteesService
-  ) { }
+    private granteeService: GranteesService,
+    private router: Router
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     this.grantee.status = 'Accepted';
@@ -91,9 +96,35 @@ export class DeliberationItemComponent implements OnInit {
 
   returnApplication(id: string): void {
     if (this.grantee.status === 'Declined') {
-      this.granteeService.deleteGranteeData(this.grantee.id).then(() => { })
-    } else if (this.grantee.status === 'Approved') {
+      Swal.fire({
+        title: 'Do you want to save the changes?',
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Saved!', '', 'success')
+          this.granteeService.deleteGranteeData(this.grantee.id).then(() => { 
+            location.reload(); 
+          })
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
+      
+    } else if (this.grantee.status === 'Accepted') {
       this.granteeService.updateStatus(id, this.grantee).then((response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Application Approved!',
+          text: 'Applicant was successfully move to Deliberation',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true
+        }).then(() => {
+          location.reload();
+        })
         console.log(response)
       })
     }
