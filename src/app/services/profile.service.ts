@@ -33,20 +33,24 @@ export class ProfileService {
     const user = auth.currentUser;
 
     const result = new Promise<string>(
-      (resolve) => {
+      (resolve, rejected) => {
         signInWithEmailAndPassword(auth, JSON.parse(JSON.stringify(user?.email)), oldPassword)
           .then(() => {
-
             updatePassword(user as User, newPassword)
-              .then((response) => {
-                resolve(JSON.parse(JSON.stringify(response)))
+              .then(() => {
+                resolve('true')
+              })
+              .catch((err) => {
+                const errorCode = err.code;
+                const errorMessage = err.message;
+                rejected(errorMessage)
               })
 
           })
           .catch((err) => {
             const errorCode = err.code;
             const errorMessage = err.message;
-            resolve(errorMessage);
+            rejected(errorMessage)
           })
       }
     );

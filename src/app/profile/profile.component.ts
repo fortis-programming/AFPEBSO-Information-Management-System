@@ -44,8 +44,26 @@ export class ProfileComponent implements OnInit {
 
   updatePassword(): void {
     this.profileService.updatePassword(this.passwordRequest.oldPassword, this.passwordRequest.newPassword).then((response) => {
-      alert(response);
-    });
+      console.log(response);
+      if (response === 'true') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Password update successful',
+          text: 'Your password was succesfully changed!',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true
+        })
+      }
+    }).catch((err) => {
+      Swal.fire({
+        icon: 'warning',
+        text: err,
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+      })
+    })
   }
 
   saveProfileChanges(): void {

@@ -21,7 +21,7 @@ export class DeliberationPageComponent implements OnInit {
   }
 
   loadData(): void {
-    this.granteeService.getGranteesData('deliberation').then((result) => {
+    this.granteeService.getGranteesData('For Deliberation').then((result) => {
       this.granteeList = JSON.parse(JSON.stringify(result));
     })
   }

@@ -32,7 +32,6 @@ import { ApplicantPreviewComponent } from './applicant-preview/applicant-preview
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserManagementItemComponent } from './user-management/user-management-item/user-management-item.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

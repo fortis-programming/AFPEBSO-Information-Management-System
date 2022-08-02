@@ -1,7 +1,10 @@
 <div class="user-management p-4 rounded">
        <div class="user-management__header">
-              <h4>Organization Members</h4>
-              <p>Manage your members and their permissions here.</p>
+              <div class="d-flex flex-column">
+                     <h4>Organization Members</h4>
+                     <p>Manage your members and their permissions here.</p>
+              </div>
+              <button class="btn btns__primary">Add member</button>
        </div>
        <main class="py-2">
               <div class="col-2 border-bottom">
@@ -53,3 +56,52 @@
               </div>
        </main>
 </div>
+<!-- 
+<div class=" modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" style="width: 200px !important;">
+              <div class="modal-content">
+                     <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update user</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                            <div class="col-2">
+                                   <label>Employee No.</label>
+                                   <input type="text" class="form-control" [(ngModel)]="userModel.employeeNo">
+                            </div>
+                            <div class="col-2">
+                                   <label>Username</label>
+                                   <input type="text" class="form-control" [(ngModel)]="userModel.username">
+                            </div>
+                            <h5 class="mt-5">Personal Information</h5>
+                            <div class="col-2">
+                                   <label>
+                                          Firstname
+                                   </label>
+                                   <input type="text" class="form-control" placeholder=""
+                                          [(ngModel)]="userModel.firstname">
+                            </div>
+                            <div class="col-2">
+                                   <label>
+                                          Middlename
+                                   </label>
+                                   <input type="text" class="form-control" placeholder=""
+                                          [(ngModel)]="userModel.middlename">
+
+                            </div>
+                            <div class="col-2">
+                                   <label>
+                                          Lastname
+                                   </label>
+                                   <input type="text" class="form-control" placeholder=""
+                                          [(ngModel)]="userModel.lastname">
+                            </div>
+                     </div>
+                     <div class="modal-footer">
+                            <button type="button" class="btn btns__secondary">Close</button>
+                            <button type="button" class="btn btns__primary" data-bs-dismiss="modal"
+                                   (click)="saveUpdate()">Save changes</button>
+                     </div>
+              </div>
+       </div>
+</div> -->
