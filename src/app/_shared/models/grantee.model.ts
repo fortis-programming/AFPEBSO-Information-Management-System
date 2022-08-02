@@ -2,7 +2,7 @@ export interface GranteeModel {
   //information of applicant
   status: string;
   dateSubmitted: string;
-  date: string;
+  date: Date;
   id: string;
   area: string;
   surname: string;
@@ -38,7 +38,7 @@ export interface GranteeModel {
   afp_phoneNo: string;
   afp_cellPhoneNo: string;
   afp_emailAddress: string;
-  afp_birthDate: string;
+  afp_birthDate: Date;
   afp_birthPlace: string;
   afp_sex: string;
   afp_civilStatus: string;

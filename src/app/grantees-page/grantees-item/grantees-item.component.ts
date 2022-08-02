@@ -10,7 +10,7 @@ export class GranteesItemComponent implements OnInit {
   @Input() grantee: GranteeModel = {
     dateSubmitted: '',
     status: '',
-    date: '',
+    date: new Date(),
     id: '',
     area: '',
     surname: '',
@@ -46,7 +46,7 @@ export class GranteesItemComponent implements OnInit {
     afp_phoneNo: '',
     afp_cellPhoneNo: '',
     afp_emailAddress: '',
-    afp_birthDate: '',
+    afp_birthDate: new Date(),
     afp_birthPlace: '',
     afp_sex: '',
     afp_civilStatus: '',
