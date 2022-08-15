@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { firebaseConfig } from 'src/environments/environment';
 import { LoginRequest } from '../_shared/models/requests/login.requests';
+import { SigInRequest } from '../_shared/models/requests/signup.requests';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -33,6 +34,23 @@ export class AuthenticationService {
           const errorCode = error.code;
           const errorMessage = error.message;
           resolve(errorCode);
+        });
+    });
+    return response;
+  }
+
+  signUpUser(userCredentials: SigInRequest): Promise<string> {
+    const response = new Promise<string>((resolve) => {
+      createUserWithEmailAndPassword(auth, userCredentials.username, userCredentials.password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
         });
     });
     return response;

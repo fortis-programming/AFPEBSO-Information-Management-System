@@ -31,6 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ApplicantPreviewComponent } from './applicant-preview/applicant-preview.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserManagementItemComponent } from './user-management/user-management-item/user-management-item.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { UserManagementItemComponent } from './user-management/user-management-i
     ProfileComponent,
     ApplicantPreviewComponent,
     UserManagementComponent,
-    UserManagementItemComponent
+    UserManagementItemComponent,
+    SignupPageComponent
   ],
   imports: [
     AppRoutingModule,
