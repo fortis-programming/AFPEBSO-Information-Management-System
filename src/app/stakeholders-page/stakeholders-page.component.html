@@ -16,8 +16,8 @@
             </button>
         </div>
     </div>
-
-    <main class="p-3 rounded">
+    <app-initial-message-component *ngIf="stakeholderList.length === 0 " [message]="'Search to display deliberation list'"></app-initial-message-component>
+    <main class="p-3 rounded" *ngIf="stakeholderList.length != 0 ">
         <table class="table table-striped table-hover">
             <tr>
                 <th>Stakeholder</th>

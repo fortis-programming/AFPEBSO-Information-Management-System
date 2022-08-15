@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { ApplicantPortalComponent } from './applicant-portal/applicant-portal.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignupPageComponent
+  },
+  {
+    path: 'applicant-portal',
+    component: ApplicantPortalComponent
   },
   {
     path: 'app',

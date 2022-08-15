@@ -6,6 +6,17 @@
   justify-content: space-between;
   color: $black;
   padding: 0px 15px;
+  
+  .header-indicator{
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+
+    p{
+      margin: auto;
+      font-weight: bolder;
+    }
+  }
 }
 
 .header>* {

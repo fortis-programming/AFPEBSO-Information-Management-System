@@ -31,7 +31,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { ApplicantPreviewComponent } from './applicant-preview/applicant-preview.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserManagementItemComponent } from './user-management/user-management-item/user-management-item.component';
+import { InitialMessageComponentComponent } from './initial-message-component/initial-message-component.component';
+import { ApplicantPortalComponent } from './applicant-portal/applicant-portal.component';
+import { ApplicantStatusComponent } from './applicant-status/applicant-status.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+
 
 @NgModule({
   declarations: [
@@ -59,6 +63,9 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     ApplicantPreviewComponent,
     UserManagementComponent,
     UserManagementItemComponent,
+    InitialMessageComponentComponent,
+    ApplicantPortalComponent,
+    ApplicantStatusComponent,
     SignupPageComponent
   ],
   imports: [

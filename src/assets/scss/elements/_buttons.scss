@@ -4,6 +4,15 @@
   border-radius: 4px;
   font-size: 0.895rem;
 
+  &__pending {
+    background-color: rgba(243, 215, 103, 0.528);
+    border: 1px solid rgba(243, 215, 103, 0.524);
+    color: orange;
+    font-size: 0.895rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
   &__primary {
     border: 1px solid $primary-color;
     background-color: $primary-color;
@@ -60,6 +69,8 @@
     background-color: none;
     border: none;
   }
+
+  
 }
 
 input[type="text"]:disabled {
