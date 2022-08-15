@@ -1,0 +1,57 @@
+.sign-up {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  height: 100vh;
+
+  .left {
+    background-image: url('../../images/login-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    position: relative;
+
+    div {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+
+      img {
+        height: 200px;
+      }
+
+      h1 {
+        color: white;
+        font-family: 'Dancing Script', cursive;
+      }
+
+      span {
+        color: white;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .left::before {
+    content: "";
+    background: $primary-color;
+    width: 100%;
+    opacity: 0.8;
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      min-width: 60%;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="sign-up">
+       <div class="left">
+              <div>
+                     <img src="../../assets/images/AFPEBSO.png">
+                     <h1>Leaving No Soldiers<br>
+                            Orphan Behind</h1>
+                     <span>
+                            <small>#IHelpEBSO</small>
+                            <small>#AFPyoucanTRUST</small>
+                     </span>
+              </div>
+       </div>
+       <div class="right">
+              <form #signupForm="ngForm">
+                     <div class="banner mb-3">
+                            <h4>Sign-up</h4>
+                     </div>
+                     <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="signInModel.username"
+                                   name="username" #username="ngModel" required>
+                            <label for="floatingInput">Username</label>
+                     </div>
+                     <div class="form-floating mb-3">
+                            <input type="password" [(ngModel)]="signInModel.password" name="password"
+                                   #password="ngModel" class="form-control" id="floatingInput"
+                                   placeholder="name@example.com" required>
+                            <label for="floatingInput">Password</label>
+                     </div>
+                     <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingInput"
+                                   [(ngModel)]="signInModel.confirmPassword" name="confirmPassword"
+                                   #confirmPassword="ngModel" placeholder="name@example.com" required>
+                            <label for="floatingInput">Confirm password</label>
+                     </div>
+                     <button class="btns btns__primary w-100 mt-4" style="padding: 12px 0px;"
+                            [disabled]="!signupForm.valid" (click)="signUpUser()">Sign-up</button>
+                     <button class="btns btns__register w-100 mt-2" style="padding: 12px 0px;"
+                            routerLink="/">Cancel</button>
+              </form>
+       </div>
+</div>

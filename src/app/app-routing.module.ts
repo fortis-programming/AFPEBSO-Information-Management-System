@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'registration',
     component: RegistrationPageComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignupPageComponent
   },
   {
     path: 'app',
