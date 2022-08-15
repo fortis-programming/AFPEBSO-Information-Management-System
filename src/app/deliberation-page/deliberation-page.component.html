@@ -9,7 +9,8 @@
             <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
         </div>
     </div>
-    <div class="deliberation-container mt-2">
+    <app-initial-message-component *ngIf="granteeList.length === 0 " [message]="'Search to display deliberation list'"></app-initial-message-component>
+    <div class="deliberation-container mt-2" *ngIf="granteeList.length != 0" >
         <div class="deliberation-item p-2 px-3" style="background-color: transparent !important;">
             <div>
                 <strong>

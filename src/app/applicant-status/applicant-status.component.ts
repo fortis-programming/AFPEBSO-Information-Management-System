@@ -1,19 +1,14 @@
-import { Component, OnInit, Output } from '@angular/core';
-import Swal from 'sweetalert2';
-import { RegistrationService } from '../services/registration.service';
+import { Component, OnInit } from '@angular/core';
+import { GranteesService } from '../services/grantees.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
-  selector: 'app-registration-page',
-  templateUrl: './registration-page.component.html',
-  styleUrls: ['./registration-page.component.scss']
+  selector: 'app-applicant-status',
+  templateUrl: './applicant-status.component.html',
+  styleUrls: ['./applicant-status.component.scss']
 })
-
-export class RegistrationPageComponent implements OnInit {
-  @Output() status = '';
-  step = 1;
-  
-  registrationModel: GranteeModel = {
+export class ApplicantStatusComponent implements OnInit {
+  grantee: GranteeModel = {
     dateSubmitted: '',
     status: '',
     profileUrl: '',
@@ -81,35 +76,19 @@ export class RegistrationPageComponent implements OnInit {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
-
   constructor(
-    private registrationService: RegistrationService
+    private granteesService: GranteesService
   ) { }
-
-  ngOnInit(): void {
-    console.log(JSON.stringify(Math.floor(Math.random() * 10000)));
-  }
   
-
-  addApplicants(): void {
-    this.registrationModel.dateReceived = JSON.stringify(new Date().toLocaleString());
-    this.registrationModel.status = "Pending";
-    this.registrationModel.id = JSON.stringify(Math.floor(Math.random() * 10000));
-    this.registrationService.addApplicants(this.registrationModel).then(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: 'You have successfully added applicant',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() => {
-        location.reload();
-      })
-    });
+  edit = false;
+  
+  ngOnInit(): void {
   }
 
-  hasError(formControl: any): boolean {
-    return formControl.invalid && (formControl.dirty || formControl.touched)
+  loadApplicantData(id: string): void{
+    this.granteesService.getApplicantData(id).then((response) => {
+       this.grantee = JSON.parse(JSON.stringify(response));
+       console.log(response)
+    });    
   }
-
 }
