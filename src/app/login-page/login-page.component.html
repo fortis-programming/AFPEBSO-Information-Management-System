@@ -20,8 +20,8 @@
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
           [(ngModel)]="loginRequest.username" name="username" #username="ngModel"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-        <label for="floatingInput" *ngIf="!hasError(username)">Username</label>
-        <label class="warning" for="floatinInput" *ngIf="hasError(username) && username.errors?.['required']">Username
+        <label for="floatingInput" *ngIf="!hasError(username)">Email</label>
+        <label class="warning" for="floatinInput" *ngIf="hasError(username) && username.errors?.['required']">Email
           is
           required</label>
         <label class="warning" *ngIf="username.errors?.['pattern']">Invalid email format</label>
@@ -49,10 +49,7 @@
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      <button class="btns btns__register mt-2" routerLink="../registration">Register</button>
       <button class="btns btns__register mt-2" routerLink="../sign-up">Sign up</button>
     </form>
   </div>
 </div>
-<!-- <app-applicant-portal>
-</app-applicant-portal> -->

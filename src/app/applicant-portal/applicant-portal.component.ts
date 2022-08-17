@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GranteesService } from '../services/grantees.service';
 
 @Component({
   selector: 'app-applicant-portal',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicantPortalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private granteeService: GranteesService
+  ) { }
 
+  userId = '';
+  applicantState = false;
   ngOnInit(): void {
+    this.userId = JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
+    this.granteeService.checkIfUserIsPending(this.userId).then((response) => {
+      this.applicantState = response;
+    })
   }
 
   status = 'accepted';

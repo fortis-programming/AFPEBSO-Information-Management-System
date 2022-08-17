@@ -3,7 +3,8 @@
         <div class="header-indicator my-auto">
             <p>Application Status : </p>
 
-            <label [ngClass]="{'btn btns__pending': status === 'pending', 'btn btns__danger' : status === 'rejected', 'btn btns__primary' : status === 'accepted'}">
+            <label
+                [ngClass]="{'btn btns__pending': status === 'pending', 'btn btns__danger' : status === 'rejected', 'btn btns__primary' : status === 'accepted'}">
                 {{status}}
             </label>
         </div>
@@ -28,7 +29,7 @@
         </div>
     </div>
     <main>
-        <!-- <app-registration-page></app-registration-page> -->
-        <app-applicant-status></app-applicant-status>
+        <app-registration-page *ngIf="!applicantState"></app-registration-page>
+        <app-applicant-status *ngIf="applicantState"></app-applicant-status>
     </main>
 </div>

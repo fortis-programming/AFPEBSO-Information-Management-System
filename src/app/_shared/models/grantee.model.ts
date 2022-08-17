@@ -65,5 +65,5 @@ export interface GranteeModel {
 
   nameOfAfpPersonnel: string;
   dateReceived: string;
-  profileUrl: string;
+  profileUrl: any;
 }

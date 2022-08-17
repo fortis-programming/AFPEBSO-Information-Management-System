@@ -277,7 +277,7 @@
                   <label for="floatingInput" class="warning" *ngIf="hasError(course)">Course is required!</label>
                 </div>
               </div>
-           
+
               <div class="button-section">
                 <div></div>
                 <div>
@@ -291,8 +291,8 @@
           <!-- afp-info -->
           <div class="afp-info" *ngIf="step === 2">
             <form #applicantForm="ngForm">
-            <h6>INFORMATION OF AFP / CAA MEMBER</h6>
-            
+              <h6>INFORMATION OF AFP / CAA MEMBER</h6>
+
               <div class="col-3">
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput" [(ngModel)]="registrationModel.afp_surname"
@@ -574,7 +574,8 @@
 
             <div class="mb-3">
               <label for="formFile" class="form-label mt-2">Upload Applicant Photo</label>
-              <input class="form-control" type="file" id="formFile">
+              <input class="form-control" type="file" id="formFile" [(ngModel)]="registrationModel.profileUrl"
+                name="profileUrl" #profileUrl="ngModel" (change)="onFileSelected($event)">
 
               <label for="formFile" class="form-label mt-2">Upload Applicant Signature</label>
               <input class="form-control" type="file" id="formFile">

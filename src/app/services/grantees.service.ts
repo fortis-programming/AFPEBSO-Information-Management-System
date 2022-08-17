@@ -148,4 +148,14 @@ export class GranteesService {
     );
     return response_data;
   }
+
+  async checkIfUserIsPending(docId: string): Promise<boolean> {
+    const docSnap = await getDoc(doc(firestoreInit, 'Grantees', docId));
+    return docSnap.exists();;
+  }
+
+  async getGranteeDataNew(docId: string): Promise<GranteeModel> {
+    const docSnap = await getDoc(doc(firestoreInit, 'Grantees', docId));
+    return docSnap.data() as GranteeModel;
+  }
 }

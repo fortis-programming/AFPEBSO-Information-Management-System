@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GranteesService } from '../services/grantees.service';
+import { RegistrationService } from '../services/registration.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
 
 @Component({
@@ -77,18 +78,26 @@ export class ApplicantStatusComponent implements OnInit {
     dateReceived: '',
   };
   constructor(
-    private granteesService: GranteesService
+    private granteesService: GranteesService,
+    private resgistrationService: RegistrationService
   ) { }
-  
+
   edit = false;
-  
+  url = '';
   ngOnInit(): void {
+    this.loadApplicantData();
   }
 
-  loadApplicantData(id: string): void{
-    this.granteesService.getApplicantData(id).then((response) => {
-       this.grantee = JSON.parse(JSON.stringify(response));
-       console.log(response)
-    });    
+  loadApplicantData(): void {
+    this.granteesService.getGranteeDataNew(JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))))
+      .then((response) => {
+        this.grantee = response;
+        setTimeout(() => {
+
+          this.resgistrationService.getImage(this.grantee.profileUrl).then((response) => {
+            this.url = response;
+          })
+        }, 500);
+      })
   }
 }
