@@ -91,13 +91,14 @@ export class ApplicantStatusComponent implements OnInit {
   loadApplicantData(): void {
     this.granteesService.getGranteeDataNew(JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))))
       .then((response) => {
-        this.grantee = response;
+        this.grantee = JSON.parse(JSON.stringify(response));
+        console.log(this.grantee)
         setTimeout(() => {
-
           this.resgistrationService.getImage(this.grantee.profileUrl).then((response) => {
             this.url = response;
+            console.log(response);
           })
-        }, 500);
+        }, 200);
       })
   }
 }

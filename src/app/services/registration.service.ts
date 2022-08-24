@@ -14,18 +14,16 @@ export class RegistrationService {
 
   async addApplicants(data: GranteeModel, file: any): Promise<boolean> {
     data.profileUrl = 'profiles/' + JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
+
+    this.uploadProfile(file);
     const response = new Promise<boolean>(
       async (resolve) => {
         await setDoc(doc(firestoreInit, 'Grantees', JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))), data)
           .then(() => {
-            this.uploadProfile(file);
             resolve(true);
           }).catch((err) => {
             resolve(false);
           })
-        // await addDoc(collection(firestoreInit, 'Grantees'), data).then((response) => {
-        //   resolve(true);
-        // });
       }
     );
     return response
@@ -68,11 +66,10 @@ export class RegistrationService {
   }
 
   async getImage(profileUrl: string): Promise<string> {
-
     const response = new Promise<string>(
       (resolve) => {
         const storage = getStorage();
-        const storageRef = ref(storage, profileUrl);
+        const storageRef = ref(storage, profileUrl + '.jpg');
         getDownloadURL(storageRef)
           .then((url) => {
             // Insert url into an <img> tag to "download"

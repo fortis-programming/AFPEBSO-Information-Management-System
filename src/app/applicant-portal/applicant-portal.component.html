@@ -1,35 +1,29 @@
 <div class="applicantPortal">
-    <div class="header py-2">
-        <div class="header-indicator my-auto">
-            <p>Application Status : </p>
+  <div class="header py-2">
+    <div class="header-indicator my-auto">
+      <p>Application Status : </p>
 
-            <label
-                [ngClass]="{'btn btns__pending': status === 'pending', 'btn btns__danger' : status === 'rejected', 'btn btns__primary' : status === 'accepted'}">
-                {{status}}
-            </label>
-        </div>
-        <div class="dropdown">
-            <div class="cards__user-chip" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <img
-                    src="https://i0.wp.com/researchictafrica.net/wp/wp-content/uploads/2016/10/default-profile-pic.jpg?ssl=1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd" />
-                </svg>
-            </div>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" routerLink="profile">Profile</a></li>
-                <li><a class="dropdown-item">About</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" routerLink="/">Logout</a></li>
-            </ul>
-        </div>
+      <label
+        [ngClass]="{'btn btns__pending': status === 'pending', 'btn btns__danger' : status === 'rejected', 'btn btns__primary' : status === 'accepted'}">
+        {{status}}
+      </label>
     </div>
-    <main>
-        <app-registration-page *ngIf="!applicantState"></app-registration-page>
-        <app-applicant-status *ngIf="applicantState"></app-applicant-status>
-    </main>
+    <div class="dropdown">
+      <div class="cards__user-chip" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://i0.wp.com/researchictafrica.net/wp/wp-content/uploads/2016/10/default-profile-pic.jpg?ssl=1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clip-rule="evenodd" />
+        </svg>
+      </div>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" routerLink="/" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <main>
+    <app-registration-page *ngIf="!applicantState"></app-registration-page>
+    <app-applicant-status *ngIf="applicantState"></app-applicant-status>
+  </main>
 </div>

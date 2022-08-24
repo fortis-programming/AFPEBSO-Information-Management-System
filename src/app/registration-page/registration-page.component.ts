@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { profile } from 'console';
 import Swal from 'sweetalert2';
 import { RegistrationService } from '../services/registration.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
@@ -11,7 +10,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
 })
 
 export class RegistrationPageComponent implements OnInit {
-  step = 4;
+  step = 1;
 
   registrationModel: GranteeModel = {
     dateSubmitted: '',
@@ -102,7 +101,6 @@ export class RegistrationPageComponent implements OnInit {
     this.registrationModel.dateReceived = JSON.stringify(new Date().toLocaleString());
     this.registrationModel.status = "Pending";
     this.registrationModel.id = JSON.stringify(Math.floor(Math.random() * 10000));
-    console.log(this.registrationModel);
     this.registrationService.addApplicants(this.registrationModel, this.photoFile).then(() => {
       Swal.fire({
         icon: 'success',
