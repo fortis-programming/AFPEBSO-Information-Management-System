@@ -47,7 +47,7 @@ export interface GranteeModel {
   afp_dependentsBirthdate: string;
   afp_dependentsYearLevel: string;
   afp_educationalProgramAvailed: string;
-  afp_date_of_death: string;
+  afp_date_of_death: Date;
 
   //information of Applicant's guardian
   guardian_surname: string;
