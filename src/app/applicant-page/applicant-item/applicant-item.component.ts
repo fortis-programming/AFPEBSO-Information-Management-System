@@ -57,7 +57,7 @@ export class ApplicantItemComponent implements OnInit {
     afp_dependentsBirthdate: '',
     afp_dependentsYearLevel: '',
     afp_educationalProgramAvailed: '',
-    afp_date_of_death: '',
+    afp_date_of_death: new Date(),
 
     //information of Applicant's guardian
     guardian_surname: '',
