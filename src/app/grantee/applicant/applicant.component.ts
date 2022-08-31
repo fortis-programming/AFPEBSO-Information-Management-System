@@ -86,13 +86,26 @@ export class ApplicantComponent implements OnInit {
   ) { }
 
   profileData = '';
+  docId = '';
   ngOnInit(): void {
-    this.headerService.setTitle('Information / Applicant')
-    this.granteesService.getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid')))).then((response) => {
-      this.grantee = JSON.parse(JSON.stringify(response)); // DATA
-      this.granteesService.getProfile(this.grantee.profileUrl).then((response) => {
-        this.profileData = response;
+    this.headerService.setTitle('Information / Applicant');
+    this.getDocId();
+  }
+
+  getDocId(): void {
+    this.granteesService.getDocId(JSON.parse(JSON.stringify(sessionStorage.getItem('applicant_id'))))
+      .then(response => {
+        this.docId = response;
       })
-    });
+      .then(() => {
+        this.loadData();
+      })
+  }
+
+  loadData(): void {
+    this.granteesService.loadGranteeData(this.docId)
+      .then((res) => {
+        this.grantee = JSON.parse(JSON.stringify(res))[0];
+      })
   }
 }

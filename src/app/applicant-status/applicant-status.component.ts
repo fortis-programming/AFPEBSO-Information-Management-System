@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GranteesService } from '../services/grantees.service';
 import { RegistrationService } from '../services/registration.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
@@ -9,7 +9,7 @@ import { GranteeModel } from '../_shared/models/grantee.model';
   styleUrls: ['./applicant-status.component.scss']
 })
 export class ApplicantStatusComponent implements OnInit {
-  grantee: GranteeModel = {
+  @Input() grantee: GranteeModel = {
     dateSubmitted: '',
     status: '',
     profileUrl: '',
@@ -77,28 +77,14 @@ export class ApplicantStatusComponent implements OnInit {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
+
+  @Input() url = '';
+
   constructor(
-    private granteesService: GranteesService,
-    private resgistrationService: RegistrationService
   ) { }
 
   edit = false;
-  url = '';
-  ngOnInit(): void {
-    this.loadApplicantData();
-  }
 
-  loadApplicantData(): void {
-    this.granteesService.getGranteeDataNew(JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))))
-      .then((response) => {
-        this.grantee = JSON.parse(JSON.stringify(response));
-        console.log(this.grantee)
-        setTimeout(() => {
-          this.resgistrationService.getImage(this.grantee.profileUrl).then((response) => {
-            this.url = response;
-            console.log(response);
-          })
-        }, 200);
-      })
+  ngOnInit(): void {
   }
 }

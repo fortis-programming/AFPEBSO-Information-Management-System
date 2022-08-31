@@ -84,12 +84,26 @@ export class GuardianComponent implements OnInit {
     private headerService: HeaderService
   ) { }
 
+  docId = '';
   ngOnInit(): void {
     this.headerService.setTitle('Information / Guardian');
-    this.granteesService
-      .getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid'))))
-      .then((response) => {
-        this.grantee = JSON.parse(JSON.stringify(response));
-      });
+    this.getDocId();
+  }
+
+  getDocId(): void {
+    this.granteesService.getDocId(JSON.parse(JSON.stringify(sessionStorage.getItem('applicant_id'))))
+      .then(response => {
+        this.docId = response;
+      })
+      .then(() => {
+        this.loadData();
+      })
+  }
+
+  loadData(): void {
+    this.granteesService.loadGranteeData(this.docId)
+      .then((res) => {
+        this.grantee = JSON.parse(JSON.stringify(res))[0];
+      })
   }
 }

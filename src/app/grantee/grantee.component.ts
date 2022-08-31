@@ -1,5 +1,5 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GranteesPageService } from '../grantees-page/grantees-page.service';
 import { GranteesService } from '../services/grantees.service';
 import { GranteeModel } from '../_shared/models/grantee.model';
@@ -84,28 +84,38 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
   constructor(
     private granteespageService: GranteesPageService,
     private granteesService: GranteesService,
-    private router: Router
+    private router: Router,
+    private activeRoute: ActivatedRoute
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   profileData = '';
   ngOnInit(): void {
-    // this.loading = true;
-    // setTimeout(() => {
-    //   this.loading = false;
-    // }, 500);
-    this.loadData();
+    this.getDocId();
   }
 
   loading = false;
-  loadData(): void {
-    this.granteesService.getGranteeData(JSON.parse(JSON.stringify(localStorage.getItem('_uid')))).then((response) => {
-      this.granteeModel = JSON.parse(JSON.stringify(response)); // DATA
-      this.granteesService.getProfile(this.granteeModel.profileUrl).then((response) => {
-        this.profileData = response;
+  docId = '';
+  getDocId(): void {
+    this.granteesService.getDocId(JSON.parse(JSON.stringify(sessionStorage.getItem('applicant_id'))))
+      .then(response => {
+        this.docId = response;
+        this.loading = true;
       })
-    })
+      .finally(() => {
+        this.loadData();
+      })
+  }
+
+  photoUrl = '';
+  loadData(): void {
+    this.granteesService.loadGranteeData(this.docId)
+      .then((res) => {
+        this.granteeModel = JSON.parse(JSON.stringify(res))[0];
+        this.photoUrl = JSON.parse(JSON.stringify(res))[1];
+      })
+      .then(() => this.loading = false);
   }
 
   updateGrantee(): void {

@@ -46,7 +46,23 @@ export class GranteesService {
         const docRef = doc(firestoreInit, 'Grantees', id);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          resolve(JSON.parse(JSON.stringify(docSnap.data())));
+          resolve(docSnap.data() as BaseResponse<GranteeModel[]>);
+        }
+      }
+    );
+    return response_data;
+  }
+
+  async loadGranteeData(id: string): Promise<BaseResponse<any[]>> {
+    let granteeObject: any = [];
+    const response_data = new Promise<BaseResponse<GranteeModel[]>>(
+      async (resolve) => {
+        const docRef = doc(firestoreInit, 'Grantees', id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          granteeObject.push(docSnap.data());
+          granteeObject.push(await this.getProfile(docSnap.data()['profileUrl'] + '.jpg'));
+          resolve(granteeObject);
         }
       }
     );
@@ -57,7 +73,6 @@ export class GranteesService {
     const respose_data = new Promise<boolean>(
       async (resolve) => {
         this.getDocId(id).then(async (response) => {
-          console.log(response)
           await deleteDoc(doc(firestoreInit, 'Grantees', response));
           resolve(true);
         })
@@ -90,7 +105,7 @@ export class GranteesService {
           })
           .catch((error) => {
             // Handle any errors
-            resolve('Document does not exist!')
+            resolve('Document does not exist!' + error)
           });
       }
     );
@@ -141,7 +156,6 @@ export class GranteesService {
         const q = query(collection(firestoreInit, 'Grantees'), where('id', '==', id));
         onSnapshot(q, (snapshot) => {
           snapshot.forEach((docData: any) => {
-            console.log(docData.id)
             resolve(docData.id);
           });
         });
@@ -153,10 +167,5 @@ export class GranteesService {
   async checkIfUserIsPending(docId: string): Promise<boolean> {
     const docSnap = await getDoc(doc(firestoreInit, 'Grantees', docId));
     return docSnap.exists();;
-  }
-
-  async getGranteeDataNew(docId: string): Promise<Observable<BaseResponse<GranteeModel>>> {
-    const docSnap = await getDoc(doc(firestoreInit, 'Grantees', docId));
-    return docSnap.data() as Observable<BaseResponse<GranteeModel>>;
   }
 }

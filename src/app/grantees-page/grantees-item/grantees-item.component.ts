@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 
 @Component({
@@ -76,10 +77,16 @@ export class GranteesItemComponent implements OnInit {
     dateReceived: '',
   };
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    localStorage.setItem('_uid', this.grantee.id);
-    // document.cookie = "_uid=" + (this.grantee.id || "") + "; SameSite=None; Secure";
+
+  }
+
+  reRouteToGrantee(): void {
+    sessionStorage.setItem('applicant_id', this.grantee.id);
+    this.router.navigate(['../app/grantee']);
   }
 }
