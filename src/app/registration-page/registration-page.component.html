@@ -578,7 +578,8 @@
                 name="profileUrl" #profileUrl="ngModel" (change)="onFileSelected($event)">
 
               <label for="formFile" class="form-label mt-2">Upload Applicant Signature</label>
-              <input class="form-control" type="file" id="formFile">
+              <input class="form-control" type="file" id="formFile" [(ngModel)]="registrationModel.signatureOfApplicant"
+              name="signatureOfApplicant" #signatureOfApplicant="ngModel" (change)="onFileSelected($event)">
 
               <!-- <label for="formFile" class="form-label mt-2">Upload AFP / CAA Member Signature</label>
               <input class="form-control" type="file" id="formFile"> -->

@@ -86,7 +86,7 @@ export class ApplicantPortalComponent implements OnInit {
 
   userId = '';
   applicantState = false;
-  status = 'For Deliberation';
+  status = 'accepted';
   loading = false;
 
   ngOnInit(): void {
@@ -115,3 +115,4 @@ export class ApplicantPortalComponent implements OnInit {
     localStorage.clear();
   }
 }
+ 

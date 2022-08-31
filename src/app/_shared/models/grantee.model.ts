@@ -60,8 +60,8 @@ export interface GranteeModel {
   guardian_cellPhoneNo: string;
   guardian_phoneNo: string;
 
-  signatureOfApplicant: string;
-  signatureOfAfporGuardian: string;
+  signatureOfApplicant: any;
+  signatureOfAfporGuardian: any;
 
   nameOfAfpPersonnel: string;
   dateReceived: string;
