@@ -16,17 +16,21 @@ export class ApplicantPortalComponent implements OnInit {
 
   userId = '';
   applicantState = false;
+  status = 'For Deliberation';
+
   ngOnInit(): void {
     this.userId = JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
     this.granteeService.checkIfUserIsPending(this.userId).then((response) => {
       this.applicantState = response;
+      console.log(this.applicantState);
     });
     this.granteeService.getGranteeDataNew(this.userId).then((response) => {
       this.status = JSON.parse(JSON.stringify(response))['status'];
+      console.log(this.status);
     })
-  }
 
-  status = 'accepted';
+   
+  }
 
   logout(): void {
     this.userService.logout();

@@ -53,20 +53,22 @@ export class LoginPageComponent implements OnInit {
             timer: 1500,
             timerProgressBar: true,
           }).then(() => {
-            //this.router.navigateByUrl('app');
-            this.profileService
-              .getUsersData(
-                JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))
-              )
-              .then((response) => {
-                if(JSON.parse(JSON.stringify(response))['type'] === 'applicant'){
-                  this.router.navigateByUrl('applicant-portal');
-                }
-                else{
-                  this.router.navigateByUrl('app');
-                }
-                console.log(JSON.parse(JSON.stringify(response))['type']);
-              });
+          //this.router.navigateByUrl('app');
+          this.profileService
+            .getUsersData(
+              JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))
+            )
+            .then((response) => {
+              if (
+                JSON.parse(JSON.stringify(response))['type'] === 'applicant'
+              ) {
+                this.router.navigateByUrl('applicant-portal');
+              } else {
+                this.router.navigateByUrl('app');
+              }
+              
+              console.log(JSON.parse(JSON.stringify(response))['type']);
+            });
           });
         }
 
