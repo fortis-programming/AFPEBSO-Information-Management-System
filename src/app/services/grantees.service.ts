@@ -16,7 +16,6 @@ import {
 } from 'firebase/firestore';
 
 import { ref, getDownloadURL } from 'firebase/storage';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

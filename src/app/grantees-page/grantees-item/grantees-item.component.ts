@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GranteesService } from 'src/app/services/grantees.service';
 import { GranteeModel } from 'src/app/_shared/models/grantee.model';
 
 @Component({
@@ -78,10 +79,23 @@ export class GranteesItemComponent implements OnInit {
   };
 
   constructor(
-    private router: Router
+    private router: Router,
+    private granteeService: GranteesService
   ) { }
 
   ngOnInit(): void {
+    this.getDocId();
+  }
+
+  getDocId(): void {
+    this.granteeService.getDocId(this.grantee.id)
+      .then((docId) => this.loadData(docId))
+  }
+
+  photoUrl = '';
+  loadData(docId: string): void {
+    this.granteeService.loadGranteeData(docId)
+      .then((res) => this.photoUrl = JSON.parse(JSON.stringify(res))[1])
 
   }
 
