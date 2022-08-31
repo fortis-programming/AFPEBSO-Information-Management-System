@@ -83,7 +83,7 @@ export class ApplicantPreviewComponent implements OnInit {
     private routeParams: ActivatedRoute,
     private granteesService: GranteesService,
     private router: Router
-  ) { 
+  ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
@@ -91,21 +91,41 @@ export class ApplicantPreviewComponent implements OnInit {
   edit = false;
   ngOnInit(): void {
     this.routeParams.params.subscribe(params => {
-      console.log(params['id'].toString())
       this.identifier = params['id']
     });
-    this.loadApplicantData(this.identifier);
-    
+
+    this.getDocId();
+
     setTimeout(() => {
       this.grantee.status = 'For Deliberation';
-    },500)
+    }, 500)
   }
-  
-  loadApplicantData(id: string): void{
+
+  docId = '';
+  getDocId(): void {
+    this.granteesService.getDocId(this.identifier)
+      .then(response => {
+        this.docId = response;
+      })
+      .finally(() => {
+        this.loadData();
+      })
+  }
+
+  photoUrl = '';
+  loadData(): void {
+    this.granteesService.loadGranteeData(this.docId)
+      .then((res) => {
+        this.grantee = JSON.parse(JSON.stringify(res))[0];
+        this.photoUrl = JSON.parse(JSON.stringify(res))[1];
+      });
+  }
+
+  loadApplicantData(id: string): void {
     this.granteesService.getApplicantData(id).then((response) => {
-       this.grantee = JSON.parse(JSON.stringify(response));
-       console.log(response)
-    });    
+      this.grantee = JSON.parse(JSON.stringify(response));
+      console.log(response)
+    });
   }
 
   returnApplication(id: string): void {
@@ -120,13 +140,13 @@ export class ApplicantPreviewComponent implements OnInit {
         if (result.isConfirmed) {
           Swal.fire('Saved!', '', 'success')
           this.granteesService.deleteGranteeData(this.grantee.id).then(() => {
-            location.reload();  
+            location.reload();
           })
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')
         }
       })
-      
+
     } else if (this.grantee.status === 'For Deliberation') {
       this.granteesService.updateStatus(id, this.grantee).then((response) => {
         Swal.fire({
