@@ -109,11 +109,13 @@ export class GranteeComponent implements OnInit, AfterViewChecked {
   }
 
   photoUrl = '';
+  signatureUrl = '';
   loadData(): void {
     this.granteesService.loadGranteeData(this.docId)
       .then((res) => {
         this.granteeModel = JSON.parse(JSON.stringify(res))[0];
         this.photoUrl = JSON.parse(JSON.stringify(res))[1];
+        this.signatureUrl = JSON.parse(JSON.stringify(res))[2];
       })
       .then(() => this.loading = false);
   }
