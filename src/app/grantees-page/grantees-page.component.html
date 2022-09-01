@@ -7,10 +7,11 @@
           clip-rule="evenodd" />
       </svg>
       <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search" [(ngModel)]="search_input"
-        (keyup)="filter()">
+        (keyup)="filter()" autocomplete="off">
     </div>
   </div>
-  <app-initial-message-component *ngIf="filteredData.length === 0 && search_input == ''" [message]="'Search to display grantee list'"></app-initial-message-component>
+  <app-initial-message-component *ngIf="filteredData.length === 0 && search_input == ''"
+    [message]="'Search to display grantee list'"></app-initial-message-component>
   <main class="py-2 mt-3 rounded" *ngIf="filteredData.length > 0">
     <app-grantees-item *ngFor="let grantee of filteredData" [grantee]="grantee"></app-grantees-item>
   </main>

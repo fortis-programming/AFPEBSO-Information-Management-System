@@ -1,28 +1,29 @@
 <div class="deliberation">
-    <div class="searchbar">
-        <div class="searchbar-box">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd" />
-            </svg>
-            <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search">
-        </div>
+  <div class="searchbar">
+    <div class="searchbar-box">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          clip-rule="evenodd" />
+      </svg>
+      <input type="text" list="datalistOptions" id="exampleDataList" placeholder="Search" autocomplete="off">
     </div>
-    <app-initial-message-component *ngIf="granteeList.length === 0 " [message]="'Search to display deliberation list'"></app-initial-message-component>
-    <div class="deliberation-container mt-2" *ngIf="granteeList.length != 0" >
-        <div class="deliberation-item p-2 px-3" style="background-color: transparent !important;">
-            <div>
-                <strong>
-                    Name
-                </strong>
-            </div>
-            <div>
-                <span>Status</span>
-            </div>
-            <div>
-            </div>
-        </div>
-        <app-deliberation-item *ngFor="let grantee of granteeList" [grantee]="grantee"></app-deliberation-item>
+  </div>
+  <app-initial-message-component *ngIf="granteeList.length === 0 " [message]="'Search to display deliberation list'">
+  </app-initial-message-component>
+  <div class="deliberation-container mt-2" *ngIf="granteeList.length != 0">
+    <div class="deliberation-item p-2 px-3" style="background-color: transparent !important;">
+      <div>
+        <strong>
+          Name
+        </strong>
+      </div>
+      <div>
+        <span>Status</span>
+      </div>
+      <div>
+      </div>
     </div>
+    <app-deliberation-item *ngFor="let grantee of granteeList" [grantee]="grantee"></app-deliberation-item>
+  </div>
 </div>

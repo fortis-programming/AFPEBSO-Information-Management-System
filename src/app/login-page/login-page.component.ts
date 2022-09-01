@@ -21,9 +21,9 @@ export class LoginPageComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   processing = false;
   showMessage = false;
@@ -32,9 +32,11 @@ export class LoginPageComponent implements OnInit {
     this.authenticationService
       .signInUser(this.loginRequest)
       .then((response) => {
+        console.log(response);
         if (
           response === 'auth/invalid-email' ||
-          response === 'auth/wrong-password'
+          response === 'auth/wrong-password' ||
+          response == 'auth/user-not-found'
         ) {
           this.showMessage = true;
           Swal.fire({
@@ -53,25 +55,21 @@ export class LoginPageComponent implements OnInit {
             timer: 1500,
             timerProgressBar: true,
           }).then(() => {
-          //this.router.navigateByUrl('app');
-          this.profileService
-            .getUsersData(
-              JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))
-            )
-            .then((response) => {
-              if (
-                JSON.parse(JSON.stringify(response))['type'] === 'applicant'
-              ) {
-                this.router.navigateByUrl('applicant-portal');
-              } else {
-                this.router.navigateByUrl('app');
-              }
-              
-              console.log(JSON.parse(JSON.stringify(response))['type']);
-            });
+            // .getUsersData(
+            //   JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))
+            // )
+            this.profileService.getUserDataNew(JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))))
+              .then((response) => {
+                if (
+                  JSON.parse(JSON.stringify(response))['type'] === 'applicant'
+                ) {
+                  this.router.navigateByUrl('applicant-portal');
+                } else {
+                  this.router.navigateByUrl('app');
+                }
+              });
           });
         }
-
         this.processing = false;
       })
       .catch((error) => {

@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { initializeApp } from 'firebase/app';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
 import { firebaseConfig } from 'src/environments/environment';
 import { LoginRequest } from '../_shared/models/requests/login.requests';
 import { SigInRequest } from '../_shared/models/requests/signup.requests';
+import { firestoreInit } from './firebase.service';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -45,6 +47,20 @@ export class AuthenticationService {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+          const response = new Promise<boolean>(
+            async (resolve) => {
+              await setDoc(doc(firestoreInit, 'Grantees', JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))),
+                {
+                  type: 'applicant'
+                })
+                .then(() => {
+                  resolve(true);
+                }).catch((err) => {
+                  resolve(false);
+                })
+            }
+          );
+          return response
           // ...
         })
         .catch((error) => {

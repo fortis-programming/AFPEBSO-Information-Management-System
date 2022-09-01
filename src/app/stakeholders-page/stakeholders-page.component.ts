@@ -31,16 +31,16 @@ export class StakeholdersPageComponent implements OnInit {
   }
 
   loadDataWithFilter(): void {
-    if (this.search ===''){
+    if (this.search === '') {
       this.loadData();
-    }else {
+    } else {
       this.stakeholderList = this.stakeholderList.filter((data: StakeholdersModel) =>
-      data.stakeholder.toLowerCase().includes(this.search.toLowerCase()));
+        data.stakeholder.toLowerCase().includes(this.search.toLowerCase()));
     }
   }
 
   loadData(): void {
-    this.stakeholdersService.getStakeholdersData().then((response) =>   {
+    this.stakeholdersService.getStakeholdersData().then((response) => {
       this.stakeholderList = JSON.parse(JSON.stringify(response));
       console.log(response);
     });
@@ -65,7 +65,7 @@ export class StakeholdersPageComponent implements OnInit {
       Swal.fire({
         icon: 'success',
         title: 'Success',
-        text: 'You have successfully added graduate',
+        text: 'You have successfully added stakeholder.',
         showConfirmButton: false,
         timer: 1500
       }).then(() => {

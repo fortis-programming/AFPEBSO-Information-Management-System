@@ -28,6 +28,20 @@ export class ProfileService {
     return response_data;
   }
 
+  async getUserDataNew(id: string): Promise<BaseResponse<UsersModel[]>> {
+    const response_data = new Promise<BaseResponse<UsersModel[]>>(
+      async (resolve) => {
+        const docRef = doc(firestoreInit, 'Users', id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          console.log(docSnap.data());
+          resolve(docSnap.data() as BaseResponse<UsersModel[]>);
+        }
+      }
+    );
+    return response_data;
+  }
+
   async updatePassword(oldPassword: string, newPassword: string): Promise<string> {
     const auth = getAuth();
     const user = auth.currentUser;
