@@ -126,28 +126,37 @@ export class ApplicantPreviewComponent implements OnInit {
   loadApplicantData(id: string): void {
     this.granteesService.getApplicantData(id).then((response) => {
       this.grantee = JSON.parse(JSON.stringify(response));
-      console.log(response)
     });
   }
 
   returnApplication(id: string): void {
     if (this.grantee.status === 'Declined') {
       Swal.fire({
-        title: 'Do you want to decline this applicant?',
-        showCancelButton: true,
-        confirmButtonText: 'Confirm',
-        denyButtonText: `Cancel`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          Swal.fire('Saved!', '', 'success')
-          this.granteesService.deleteGranteeData(this.grantee.id).then(() => {
-            this.router.navigate(['../app/applicant']);
-          })
-        } else if (result.isDenied) {
-          Swal.fire('Changes are not saved', '', 'info')
-        }
-      })
+        title: 'Remarks',
+        input: 'text',
+        inputLabel: 'Write a remarks about the application',
+        showCancelButton: true
+      }).then(res => {
+        Swal.fire({
+          title: 'Do you want to decline this applicant?',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm',
+          denyButtonText: `Cancel`,
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire('Saved!', '', 'success')
+            this.granteesService.submitRemarks(this.grantee.id, res.value).
+              then(() => {
+                this.granteesService.deleteGranteeData(this.grantee.id).then(() => {
+                  this.router.navigate(['../app/applicant']);
+                })
+              });
+          } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+          }
+        })
+      });
 
     } else if (this.grantee.status === 'For Deliberation') {
       this.granteesService.updateStatus(id, this.grantee).then((response) => {

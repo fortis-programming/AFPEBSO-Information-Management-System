@@ -59,7 +59,6 @@ export class LoginPageComponent implements OnInit {
             // )
             this.profileService.getUserDataNew(response)
               .then((response) => {
-                console.log(response);
                 if (
                   JSON.parse(JSON.stringify(response))['type'] === 'applicant'
                 ) {
@@ -73,7 +72,6 @@ export class LoginPageComponent implements OnInit {
         this.processing = false;
       })
       .catch((error) => {
-        console.log(error);
         this.processing = false;
       });
   }

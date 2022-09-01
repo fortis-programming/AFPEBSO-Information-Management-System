@@ -13,6 +13,7 @@ import {
   getDoc,
   updateDoc,
   where,
+  setDoc,
 } from 'firebase/firestore';
 
 import { ref, getDownloadURL } from 'firebase/storage';
@@ -188,6 +189,20 @@ export class GranteesService {
 
   async checkIfUserIsPending(docId: string): Promise<boolean> {
     const docSnap = await getDoc(doc(firestoreInit, 'Grantees', docId));
-    return docSnap.exists();;
+    return docSnap.exists();
+  }
+
+  async submitRemarks(applicantId: string, remarks: string): Promise<boolean> {
+    const docId = await this.getDocId(applicantId);
+    const response = new Promise<boolean>(
+      async (resolve) => {
+        await setDoc(doc(firestoreInit, 'Remarks', JSON.parse(JSON.stringify(docId))), { remarks: remarks })
+          .then(() => {
+            resolve(true);
+          }).catch((err) => {
+            resolve(false);
+          })
+      })
+    return response;
   }
 }
