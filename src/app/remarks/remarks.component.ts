@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-remarks',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./remarks.component.scss']
 })
 export class RemarksComponent implements OnInit {
+  @Input() remarksMessage = '';
 
   constructor() { }
+
+  status = 'Declined';
 
   ngOnInit(): void {
   }
