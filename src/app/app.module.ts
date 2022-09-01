@@ -35,6 +35,7 @@ import { InitialMessageComponentComponent } from './initial-message-component/in
 import { ApplicantPortalComponent } from './applicant-portal/applicant-portal.component';
 import { ApplicantStatusComponent } from './applicant-status/applicant-status.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { RemarksComponent } from './remarks/remarks.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     InitialMessageComponentComponent,
     ApplicantPortalComponent,
     ApplicantStatusComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    RemarksComponent
   ],
   imports: [
     AppRoutingModule,

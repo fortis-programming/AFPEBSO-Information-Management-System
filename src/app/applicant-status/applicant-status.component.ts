@@ -79,7 +79,8 @@ export class ApplicantStatusComponent implements OnInit {
   };
 
   @Input() url = '';
-
+  @Input() signatureUrl = '';
+  
   constructor(
   ) { }
 

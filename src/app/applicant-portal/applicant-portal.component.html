@@ -24,7 +24,7 @@
   </div>
   <main *ngIf="!loading">
     <app-registration-page *ngIf="!applicantState && !loading"></app-registration-page>
-    <app-applicant-status *ngIf="applicantState && !loading" [grantee]="grantee" [url]="url"></app-applicant-status>
+    <app-applicant-status *ngIf="applicantState && !loading" [grantee]="grantee" [url]="url" [signatureUrl]="signatureUrl"></app-applicant-status>
   </main>
   <app-loading *ngIf=" loading">
   </app-loading>

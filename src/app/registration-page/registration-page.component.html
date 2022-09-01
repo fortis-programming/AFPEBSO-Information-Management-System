@@ -325,14 +325,19 @@
                 <label for="floatingInput" class="warning" *ngIf="hasError(afp_militaryStatus)">Military Status is
                   required!</label>
               </div>
+
+              <div class="form-check">
+                <input class="form-check-input" (change)="deceased ? deceased = false : deceased = true" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Check the box if the person mentioned above is deceased.
+                </label>
+              </div>
               <div class="col-2">
-                <div class="form-floating">
+                <div class="form-floating" *ngIf="deceased">
                   <input type="date" class="form-control" id="floatingInput"
                     [(ngModel)]="registrationModel.afp_date_of_death" name="afp_date_of_death"
-                    #afp_date_of_death="ngModel" placeholder=" " required>
+                    #afp_date_of_death="ngModel" placeholder=" ">
                   <label for="floatingInput" *ngIf="!hasError(afp_date_of_death)">Date of death</label>
-                  <label for="floatingInput" class="warning" *ngIf="hasError(afp_date_of_death)">Date of death is
-                    required!</label>
                 </div>
                 <div class="form-floating">
                   <input type="text" class="form-control" id="floatingInput"
@@ -579,7 +584,7 @@
 
               <label for="formFile" class="form-label mt-2">Upload Applicant Signature</label>
               <input class="form-control" type="file" id="formFile" [(ngModel)]="registrationModel.signatureOfApplicant"
-              name="signatureOfApplicant" #signatureOfApplicant="ngModel" (change)="onFileSelected($event)">
+              name="signatureOfApplicant" #signatureOfApplicant="ngModel" (change)="onSignatureUpload($event)">
 
               <!-- <label for="formFile" class="form-label mt-2">Upload AFP / CAA Member Signature</label>
               <input class="form-control" type="file" id="formFile"> -->

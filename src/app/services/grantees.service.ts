@@ -61,6 +61,7 @@ export class GranteesService {
         if (docSnap.exists()) {
           granteeObject.push(docSnap.data());
           granteeObject.push(await this.getProfile(docSnap.data()['profileUrl'] + '.jpg'));
+          granteeObject.push(await this.getSignature(docSnap.data()['signatureOfApplicant'] + '.jpg'));
           resolve(granteeObject);
         }
       }
@@ -96,6 +97,36 @@ export class GranteesService {
             resolve(url);
           })
           .catch((error) => {
+            resolve('Document does not exist!' + error)
+          });
+      }
+    );
+    return response
+  }
+
+  async getSignature(location: string): Promise<string> {
+    const response = new Promise<string>(
+      (resolve) => {
+        getDownloadURL(ref(storage, location))
+          .then((url) => {
+            // `url` is the download URL for 'images/stars.jpg'
+
+            // This can be downloaded directly:
+            const xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob';
+            xhr.onload = (event) => {
+              const blob = xhr.response;
+            };
+            xhr.open('GET', url);
+            xhr.send();
+
+            // Or inserted into an <img> element
+            // const img = document.getElementById('myimg');
+            // img.setAttribute('src', url);g
+            resolve(url);
+          })
+          .catch((error) => {
+            // Handle any errors
             resolve('Document does not exist!' + error)
           });
       }

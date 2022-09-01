@@ -32,7 +32,6 @@ export class LoginPageComponent implements OnInit {
     this.authenticationService
       .signInUser(this.loginRequest)
       .then((response) => {
-        console.log(response);
         if (
           response === 'auth/invalid-email' ||
           response === 'auth/wrong-password' ||
@@ -58,8 +57,9 @@ export class LoginPageComponent implements OnInit {
             // .getUsersData(
             //   JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))
             // )
-            this.profileService.getUserDataNew(JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))))
+            this.profileService.getUserDataNew(response)
               .then((response) => {
+                console.log(response);
                 if (
                   JSON.parse(JSON.stringify(response))['type'] === 'applicant'
                 ) {

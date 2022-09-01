@@ -12,12 +12,12 @@ export class RegistrationService {
 
   constructor() { }
 
-  async addApplicants(data: GranteeModel, file: any): Promise<boolean> {
+  async addApplicants(data: GranteeModel, file: any, signatureFile: any): Promise<boolean> {
     data.profileUrl = 'profiles/' + JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
     data.signatureOfApplicant = 'signatures/' + JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
 
     this.uploadProfile(file);
-    this.uploadSignature(file);
+    this.uploadSignature(signatureFile);
     const response = new Promise<boolean>(
       async (resolve) => {
         await setDoc(doc(firestoreInit, 'Grantees', JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))), data)
@@ -34,6 +34,7 @@ export class RegistrationService {
   async uploadProfile(file: any): Promise<boolean> {
     const storage = getStorage();
     const storageRef = ref(storage, 'profiles/' + JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))) + '.jpg');
+    console.log(storageRef);
 
     // 'file' comes from the Blob or File API
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -70,7 +71,8 @@ export class RegistrationService {
   async uploadSignature(file: any): Promise<boolean> {
     const storage = getStorage();
     const storageRef = ref(storage, 'signatures/' + JSON.parse(JSON.stringify(sessionStorage.getItem('_userid'))) + '.jpg');
-
+    console.log(storageRef);
+    
     // 'file' comes from the Blob or File API
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on('state_changed',
@@ -108,6 +110,7 @@ export class RegistrationService {
       (resolve) => {
         const storage = getStorage();
         const storageRef = ref(storage, profileUrl + '.jpg');
+        console.log(storageRef);
         getDownloadURL(storageRef)
           .then((url) => {
             // Insert url into an <img> tag to "download"
@@ -144,6 +147,7 @@ export class RegistrationService {
       (resolve) => {
         const storage = getStorage();
         const storageRef = ref(storage, signatureOfApplicant + '.jpg');
+        console.log(storageRef);
         getDownloadURL(storageRef)
           .then((url) => {
             // Insert url into an <img> tag to "download"

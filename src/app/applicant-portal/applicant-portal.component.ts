@@ -93,18 +93,26 @@ export class ApplicantPortalComponent implements OnInit {
     this.userId = JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
     this.granteeService.checkIfUserIsPending(this.userId)
       .then((response) => {
-        this.applicantState = response;
-        this.loading = true;
+        if(!response){
+          this.loading = false;
+        }
+        else{
+          console.log(response);
+          this.applicantState = response;
+          this.loading = true;
+        }
       })
       .then(() => this.loadData());
   }
 
+  signatureUrl = '';
   loadData(): void {
     this.granteeService.loadGranteeData(this.userId)
       .then((res) => {
         this.status = JSON.parse(JSON.stringify(res))[0]['status'];
         this.grantee = JSON.parse(JSON.stringify(res))[0];
         this.url = JSON.parse(JSON.stringify(res))[1];
+        this.signatureUrl = JSON.parse(JSON.stringify(res))[2];
       })
       .then(() => this.loading = false)
   }

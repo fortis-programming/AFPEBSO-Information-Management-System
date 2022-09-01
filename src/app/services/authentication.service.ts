@@ -33,6 +33,7 @@ export class AuthenticationService {
           // ...
         })
         .catch((error) => {
+          console.log(response);
           const errorCode = error.code;
           const errorMessage = error.message;
           resolve(errorCode);
@@ -47,9 +48,12 @@ export class AuthenticationService {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+          sessionStorage.setItem('_token', user.refreshToken);
+          sessionStorage.setItem('_userid', user.uid);
+          console.log(sessionStorage);
           const response = new Promise<boolean>(
             async (resolve) => {
-              await setDoc(doc(firestoreInit, 'Grantees', JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))),
+              await setDoc(doc(firestoreInit, 'Users', JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')))),
                 {
                   type: 'applicant'
                 })

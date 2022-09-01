@@ -113,11 +113,13 @@ export class ApplicantPreviewComponent implements OnInit {
   }
 
   photoUrl = '';
+  signatureUrl = '';
   loadData(): void {
     this.granteesService.loadGranteeData(this.docId)
       .then((res) => {
         this.grantee = JSON.parse(JSON.stringify(res))[0];
         this.photoUrl = JSON.parse(JSON.stringify(res))[1];
+        this.signatureUrl = JSON.parse(JSON.stringify(res))[2];
       });
   }
 
@@ -131,16 +133,16 @@ export class ApplicantPreviewComponent implements OnInit {
   returnApplication(id: string): void {
     if (this.grantee.status === 'Declined') {
       Swal.fire({
-        title: 'Do you want to save the changes?',
+        title: 'Do you want to decline this applicant?',
         showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        confirmButtonText: 'Confirm',
+        denyButtonText: `Cancel`,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           Swal.fire('Saved!', '', 'success')
           this.granteesService.deleteGranteeData(this.grantee.id).then(() => {
-            location.reload();
+            this.router.navigate(['../app/applicant']);
           })
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')

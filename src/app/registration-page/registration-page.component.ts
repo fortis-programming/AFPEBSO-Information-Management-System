@@ -97,11 +97,20 @@ export class RegistrationPageComponent implements OnInit {
     }
   }
 
+  signatureFile: any;
+  onSignatureUpload(event: any) {
+    if (event.target.files.length > 0) {
+      console.log(event.target.files[0]);
+      this.signatureFile = event.target.files[0];
+    }
+  }
+
+
   addApplicants(): void {
     this.registrationModel.dateReceived = JSON.stringify(new Date().toLocaleString());
     this.registrationModel.status = "Pending";
     this.registrationModel.id = JSON.stringify(Math.floor(Math.random() * 10000));
-    this.registrationService.addApplicants(this.registrationModel, this.photoFile).then(() => {
+    this.registrationService.addApplicants(this.registrationModel, this.photoFile, this.signatureFile).then(() => {
       Swal.fire({
         icon: 'success',
         title: 'Success',
@@ -114,6 +123,8 @@ export class RegistrationPageComponent implements OnInit {
     });
   }
 
+  deceased = false;
+    
   hasError(formControl: any): boolean {
     return formControl.invalid && (formControl.dirty || formControl.touched)
   }

@@ -1,182 +1,201 @@
 .applicantPreview {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    .applicantInformation {
-       
-        .header-preview{
-          display: flex;
-          flex-direction: row;
+  .applicantInformation {
+
+    .header-preview {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border: none;
+
+
+      .left {
+        display: flex;
+        flex-direction: row;
+
+
+      }
+
+      .btns {
+        &__ghost {
+          height: auto;
           align-items: center;
-          justify-content: space-between;
-          border: none;
-          
+          padding: 8px;
+          min-width: 30px !important;
+          border-radius: 50%;
+          display: flex;
 
-          .left{
-            display: flex;
-            flex-direction: row;
-
-          
+          &:hover {
+            background-color: whitesmoke !important;
+            cursor: pointer;
           }
-          .btns {
-            &__ghost {
-              height: auto;
-              align-items: center;
-              padding: 8px;
-              min-width: 30px !important;
-              border-radius: 50%;
-              display: flex;
-      
-              &:hover {
-                background-color: whitesmoke !important;
-                cursor: pointer;
-              }
-      
-              svg {
-                height: 20px;
-              }
-            }
-            
-            &__btn-icons {
-              height: 100%;
-              width: 40px;
-              padding-left: 10px;
-      
-              svg {
-                height: 20px;
-                color: $secondary-color;
-              }
-            }
+
+          svg {
+            height: 20px;
           }
         }
-        main{
-            background-color: white;
 
-            .applicant-info {
-                display: grid;
-                grid-template-columns: 60% 40%;
+        &__btn-icons {
+          height: 100%;
+          width: 40px;
+          padding-left: 10px;
 
-                .wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1rem;
-                }
-
-                .profile {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                }
-
-                .col-2 {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 1rem;
-                }
-
-                .col-3 {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 1rem;
-                }
-
-                img {
-                    height: 200px;
-                    width: 200px;
-                }
-            }
-
-            .secondApplicant-info {
-                .wrapper {
-                  width: 100%;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 1rem;
-                }
-          
-                .col-2 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(2, 1fr);
-                  gap: 1rem;
-                }
-          
-                .col-3 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(3, 1fr);
-                  gap: 1rem;
-                }
-              }
-          
-              .afp-info {
-                display: flex;
-                flex-direction: column;
-          
-                .wrapper {
-                  width: 100%;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 1rem;
-                }
-          
-                .col-2 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(2, 1fr);
-                  gap: 1rem;
-                }
-          
-                .col-3 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(3, 1fr);
-                  gap: 1rem;
-                }
-          
-                .col-4 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(4, 1fr);
-                  gap: 1rem;
-                }
-              }
-          
-              .guardian-info {
-                display: flex;
-                flex-direction: column;
-          
-                .wrapper {
-                  width: 100%;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 1rem;
-                }
-          
-                .col-2 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(2, 1fr);
-                  gap: 1rem;
-                }
-          
-                .col-3 {
-                  width: 100%;
-                  display: grid;
-                  grid-template-columns: repeat(3, 1fr);
-                  gap: 1rem;
-                }
-              }
-            @media screen and (max-width: 999px) {
-                .applicant-info {
-                    display: flex;
-                    flex-direction: column-reverse;
-                }
-            }
+          svg {
+            height: 20px;
+            color: $secondary-color;
+          }
         }
+      }
     }
+
+    main {
+      background-color: white;
+
+      .applicant-info {
+        display: grid;
+        grid-template-columns: 60% 40%;
+
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .profile {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .col-2 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .col-3 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+
+        .profilePic {
+          height: 150px;
+          width: 200px;
+        }
+
+
+        .signatureSection {
+          margin-top: -30px;
+          .signature {
+            height: 150px;
+            width: 150px;
+            overflow: hidden;
+            object-fit: cover;
+          }
+
+          .signatureLabel {
+            margin-top: -80px;
+          }
+        }
+
+      }
+
+      .secondApplicant-info {
+        .wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .col-2 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .col-3 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+      }
+
+      .afp-info {
+        display: flex;
+        flex-direction: column;
+
+        .wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .col-2 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .col-3 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+
+        .col-4 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1rem;
+        }
+      }
+
+      .guardian-info {
+        display: flex;
+        flex-direction: column;
+
+        .wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .col-2 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .col-3 {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        .applicant-info {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
 }
