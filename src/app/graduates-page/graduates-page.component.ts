@@ -32,6 +32,66 @@ export class GraduatesPageComponent implements OnInit {
     {
       id: 5,
       program: 'PVAO'
+    },
+    {
+      id: 6,
+      program: 'MBAI SGTI (CAA)'
+    },
+    {
+      id: 7,
+      program: 'PD 577'
+    },
+    {
+      id: 8,
+      program: 'MOA'
+    },
+    {
+      id: 9,
+      program: 'REACH'
+    },
+    {
+      id: 10,
+      program: 'DEC'
+    },
+    {
+      id: 11,
+      program: 'DCP'
+    },
+    {
+      id: 12,
+      program: 'DCP'
+    },
+    {
+      id: 13,
+      program: 'OTKANG'
+    },
+    {
+      id: 14,
+      program: 'SALOME TAN'
+    },
+    {
+      id: 15,
+      program: 'MOC'
+    },
+    {
+      id: 16,
+      program: 'SMC'
+    },
+    {
+      id: 17,
+      program: 'AV Fndn'
+    },
+    {
+      id: 18,
+      program: 'RA 9049 (MOV)'
+    },
+    {
+      id: 19,
+      program: 'DES'
+    },
+    {
+      id: 20,
+      program: 'PVAO'
     }
   ];
 
@@ -46,9 +106,15 @@ export class GraduatesPageComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
+  years: Array<number> = [];
   ngOnInit(): void {
     this.headerService.setTitle('Graduates');
     this.loadData();
+
+    let startingYear = 2000;
+    for(let count = 0; count <= 22; count++){
+      this.years.push(startingYear + count);
+    }
   }
 
   loadDataWithFilter(): void {
@@ -84,6 +150,10 @@ export class GraduatesPageComponent implements OnInit {
 
   changeProgram(selected: any): void {
     this.graduateModel.program = selected.value;
+  }
+
+  changeYear(selected: any): void {
+    this.graduateModel.yearGraduated = selected.value;
   }
 
   addGraduate(): void {

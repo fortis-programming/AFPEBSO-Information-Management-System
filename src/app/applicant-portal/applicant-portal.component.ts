@@ -86,14 +86,18 @@ export class ApplicantPortalComponent implements OnInit {
 
   userId = '';
   applicantState = false;
-  status = 'accepted';
+  status = '';
   loading = false;
+  remarks = false;
 
   ngOnInit(): void {
     this.userId = JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
     this.granteeService.checkIfApplicationIsWasRejected(this.userId)
-      .then(res => console.log(res));
-
+      .then(res => this.remarks = res);
+      console.log(this.remarks);
+      this.getRemarks();
+      
+      
     this.granteeService.checkIfUserIsPending(this.userId)
       .then((response) => {
         if (!response) {
@@ -123,5 +127,11 @@ export class ApplicantPortalComponent implements OnInit {
     this.userService.logout();
     sessionStorage.clear();
     localStorage.clear();
+  }
+  
+  remarksMessage = '';
+  getRemarks(): void {
+    this.granteeService.getRemarks(this.userId).then(res => this.remarksMessage = res);
+
   }
 }

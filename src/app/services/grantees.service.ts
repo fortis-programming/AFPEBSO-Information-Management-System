@@ -210,4 +210,9 @@ export class GranteesService {
       })
     return response;
   }
+
+  async getRemarks(docId: string): Promise<string> {
+    const docSnap = await getDoc(doc(firestoreInit, 'Remarks', docId))
+    return (docSnap.exists()) ? docSnap.data()['remarks'] : 'false';
+  }
 }

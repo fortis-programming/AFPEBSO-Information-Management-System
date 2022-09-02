@@ -93,7 +93,7 @@
         </div>
         <div>
           <div class="wrapper profile mt-5">
-            <img class="mb-4" src={{url}}>
+            <img class="mb-4 profilePic" src={{url}} style="">
             <div class="signatureSection">
               <img class="mb-4 signature" src="{{signatureUrl}}">
               <h6 class="signatureLabel"> Signature of Applicant</h6>
@@ -181,7 +181,7 @@
             <label for="floatingInput">Military Status</label>
           </div>
           <div class="col-2">
-            <div class="form-floating">
+            <div class="form-floating" *ngIf="grantee.afp_date_of_death.getDate != undefined">
               <input type="text" class="form-control" id="floatingInput" [(ngModel)]="grantee.afp_date_of_death"
                 name="afp_date_of_death" #afp_date_of_death="ngModel" placeholder=" " [disabled]="!edit">
               <label for="floatingInput">Date of Death / CDD</label>

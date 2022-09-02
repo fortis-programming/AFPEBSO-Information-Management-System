@@ -1,12 +1,13 @@
 <div class="applicantPortal">
   <div class="header py-2">
     <div class="header-indicator my-auto">
-      <p>Application Status : </p>
+      <p >Application Status : </p>
 
-      <label
-        [ngClass]="{'btn btns__pending': status === 'pending', 'btn btns__danger' : status === 'rejected', 'btn btns__primary' : status === 'Accepted'}">
+      <label *ngIf="!remarks"
+        [ngClass]="{'btn btns__pending': status === 'Pending', 'btn btns__danger' : status === 'Rejected', 'btn btns__primary' : status === 'Accepted'}" >
         {{status}}
       </label>
+      <label *ngIf="remarks" class="btn btns__danger">Rejected</label>
     </div>
     <div class="dropdown">
       <div class="cards__user-chip" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,9 +24,9 @@
     </div>
   </div>
   <main *ngIf="!loading">
-    <!-- <app-registration-page *ngIf="!applicantState && !loading"></app-registration-page>
-    <app-applicant-status *ngIf="applicantState && !loading" [grantee]="grantee" [url]="url" [signatureUrl]="signatureUrl"></app-applicant-status> -->
-    <app-remarks [remarksMessage]="'asdsasadsad asdsa dsad sa dsadsad ssad'"></app-remarks>
+    <app-registration-page *ngIf="!applicantState && !loading && !remarks"></app-registration-page>
+    <app-applicant-status *ngIf="applicantState && !loading && !remarks" [grantee]="grantee" [url]="url" [signatureUrl]="signatureUrl"></app-applicant-status>
+    <app-remarks [remarksMessage]="remarksMessage" *ngIf="remarks"></app-remarks>
   </main>
   <app-loading *ngIf=" loading">
   </app-loading>

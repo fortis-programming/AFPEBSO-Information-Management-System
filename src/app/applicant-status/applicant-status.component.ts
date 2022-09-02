@@ -77,7 +77,7 @@ export class ApplicantStatusComponent implements OnInit {
     nameOfAfpPersonnel: '',
     dateReceived: '',
   };
-
+  
   @Input() url = '';
   @Input() signatureUrl = '';
   
@@ -87,5 +87,6 @@ export class ApplicantStatusComponent implements OnInit {
   edit = false;
 
   ngOnInit(): void {
+
   }
 }

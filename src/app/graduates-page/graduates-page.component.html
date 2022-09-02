@@ -76,13 +76,17 @@
             </select>
           </div>
           <div class="col-2">
-            <div class="form-floating">
+            <select class="form-select" aria-label="Default select example" (change)="changeYear($event.target)">
+              <option selected disabled>Select Year Graduated</option>
+              <option *ngFor="let year of years" [ngValue]="[year]">{{year}}</option>
+            </select>
+            <!-- <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.yearGraduated"
                 name="yearGraduated" #yearGraduated="ngModel" placeholder=" " required>
               <label for="floatingInput" *ngIf="!hasError(yearGraduated)">Year Graduated</label>
               <label for="floatingInput" class="warning" *ngIf="hasError(yearGraduated)">Year Graduated is
                 required</label>
-            </div>
+            </div> -->
             <div class="form-floating">
               <input type="text" class="form-control" id="floatingInput" [(ngModel)]="graduateModel.course"
                 name="course" #course="ngModel" placeholder=" " required>

@@ -86,9 +86,11 @@
           gap: 1rem;
         }
 
-        .profilePic {
-          height: 150px;
-          width: 200px;
+        .profilePic{
+          border: 1px solid black;
+          max-height: 200px;
+          max-width: 200px;
+          object-fit: cover;
         }
 
 
