@@ -91,13 +91,15 @@ export class ApplicantPortalComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = JSON.parse(JSON.stringify(sessionStorage.getItem('_userid')));
+    this.granteeService.checkIfApplicationIsWasRejected(this.userId)
+      .then(res => console.log(res));
+
     this.granteeService.checkIfUserIsPending(this.userId)
       .then((response) => {
-        if(!response){
+        if (!response) {
           this.loading = false;
         }
-        else{
-          console.log(response);
+        else {
           this.applicantState = response;
           this.loading = true;
         }
@@ -123,4 +125,3 @@ export class ApplicantPortalComponent implements OnInit {
     localStorage.clear();
   }
 }
- 

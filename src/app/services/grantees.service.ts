@@ -192,6 +192,11 @@ export class GranteesService {
     return docSnap.exists();
   }
 
+  async checkIfApplicationIsWasRejected(docId: string): Promise<boolean> {
+    const docSnap = await getDoc(doc(firestoreInit, 'Remarks', docId))
+    return docSnap.exists();
+  }
+
   async submitRemarks(applicantId: string, remarks: string): Promise<boolean> {
     const docId = await this.getDocId(applicantId);
     const response = new Promise<boolean>(
